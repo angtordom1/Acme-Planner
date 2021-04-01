@@ -8,11 +8,11 @@ import javax.validation.ConstraintValidatorContext;
 public class PeriodValidator implements ConstraintValidator<PeriodConstraint, Task>{
 
 	@Override
-	public boolean isValid(Task task, ConstraintValidatorContext context) {
+	public boolean isValid(final Task task, final ConstraintValidatorContext context) {
 		
 		boolean result = true;
-		Date start = task.getPeriodStart();
-		Date end = task.getPeriodEnd();
+		final Date start = task.getPeriodStart();
+		final Date end = task.getPeriodEnd();
 		
 		if(end.before(start)) result = false;
 		

@@ -16,7 +16,7 @@ public class FutureDateValidator implements ConstraintValidator<FutureDateConstr
 		Date creationDate = task.getCreationDate();
 		
 		
-		if(periodStart.before(creationDate) || periodEnd.before(creationDate)) result = false;
+		if(periodStart.before(creationDate)) result = false;
 		
 		
 		return result;

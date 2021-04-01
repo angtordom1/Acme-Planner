@@ -20,6 +20,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @FutureDateConstraint //Execution period must be in the future when the task is created
+@PeriodConstraint //End cannot be before the start
+@WorkloadFittingConstraint //Must have equal or less hours and minutes than the execution period
 public class Task extends DomainEntity{
 
 	// Serialisation identifier -----------------------------------------------
@@ -38,11 +40,9 @@ public class Task extends DomainEntity{
 	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@PeriodConstraint //End cannot be before the start
 	protected Date periodEnd;
 	
 	@Digits(integer = 3, fraction = 2)
-	@WorkloadFittingConstraint //Must have equal or less hours and minutes than the execution period
 	@MinutesConstraint //fraction cannot be more than 59 because it represents minutes
 	protected double workload;
 	

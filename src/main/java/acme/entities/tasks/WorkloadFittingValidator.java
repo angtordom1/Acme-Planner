@@ -9,20 +9,20 @@ import javax.validation.ConstraintValidatorContext;
 public class WorkloadFittingValidator implements ConstraintValidator<WorkloadFittingConstraint, Task>{
 	
 	@Override
-	public boolean isValid(Task task, ConstraintValidatorContext context) {
+	public boolean isValid(final Task task, final ConstraintValidatorContext context) {
 		
 		boolean result = true;
-		Date periodStart = task.getPeriodStart();
-		Date periodEnd = task.getPeriodEnd();
-		double workload = task.getWorkload();
+		final Date periodStart = task.getPeriodStart();
+		final Date periodEnd = task.getPeriodEnd();
+		final double workload = task.getWorkload();
 		
-		double hoursW = Math.floor(workload);
-		double minsW = (workload-hoursW)*100;
+		final double hoursW = Math.floor(workload);
+		final double minsW = (workload-hoursW)*100;
 		
-		long milliseconds = Math.abs(periodEnd.getTime() - periodStart.getTime());
-		long diff = TimeUnit.MINUTES.convert(milliseconds, TimeUnit.MINUTES);
-		double hours = Math.floor(diff/60);
-		double mins = diff%60;
+		final long milliseconds = Math.abs(periodEnd.getTime() - periodStart.getTime());
+		final long diff = TimeUnit.MINUTES.convert(milliseconds, TimeUnit.MILLISECONDS);
+		final double hours = Math.floor(diff/60);
+		final double mins = diff%60;
 		
 		
 		if(hoursW > hours) {
