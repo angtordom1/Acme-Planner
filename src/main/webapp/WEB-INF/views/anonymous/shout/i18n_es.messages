@@ -1,0 +1,11 @@
+# i18_es.messages
+
+anonymous.shout.form.label.author = Autor:
+anonymous.shout.form.label.text = Texto:
+anonymous.shout.form.label.info = Información:
+anonymous.shout.form.button.create = ¡Grita!
+anonymous.shout.form.button.return = Volver
+
+anonymous.shout.list.label.moment = Momento
+anonymous.shout.list.label.author = Autor
+anonymous.shout.list.label.text = Texto
