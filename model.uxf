@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>7</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
@@ -315,7 +315,8 @@ Task
 + link: String {URL}
 + state: boolean
 + finished: boolean
-+ creationDate: Date {NotNull, Temporal(TIMESTAMP)}</panel_attributes>
++ creationDate: Date {NotNull, Temporal(TIMESTAMP)}
+    </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -332,7 +333,9 @@ Shout
 + moment: Date {NotNull, Temporal(TIMESTAMP), Past}
 + author: String {NotBlank, Length(5, 25)}
 + text: String {NotBlank, Length(0, 100)}
-+ link: String {URL}</panel_attributes>
++ link: String {URL}
+    </panel_attributes>
+
     <additional_attributes/>
   </element>
 </diagram>
