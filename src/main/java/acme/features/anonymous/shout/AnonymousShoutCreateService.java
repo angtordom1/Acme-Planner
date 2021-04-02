@@ -1,5 +1,6 @@
 package acme.features.anonymous.shout;
 
+
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;

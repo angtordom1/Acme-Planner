@@ -12,8 +12,8 @@ import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousShoutListService implements AbstractListService<Anonymous, Shout>{
-	
+public class AnonymousShoutListService implements AbstractListService<Anonymous, Shout> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
@@ -48,4 +48,5 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 
 		return result;
 	}
+
 }
