@@ -1,0 +1,9 @@
+# i18n_es.messages para las vistas sobre tareas
+
+anonymous.task.list.label.title = Título
+anonymous.task.list.label.creationDate = Fecha de creación
+anonymous.task.list.label.periodStart = Comienzo período
+anonymous.task.list.label.periodEnd = Final período
+anonymous.task.list.label.workload = Carga de trabajo
+anonymous.task.list.label.link = Enlace
+anonymous.task.list.label.description = Descripción
