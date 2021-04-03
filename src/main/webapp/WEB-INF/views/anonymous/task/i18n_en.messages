@@ -1,11 +1,20 @@
+# i18n_en.messages for task's views
+
 anonymous.task.form.title.show = Task
 
 anonymous.task.form.label.title = Title:
-anonymous.task.form.label.periodStart = Period Start:
-anonymous.task.form.label.periodEnd = Period End:
+anonymous.task.form.label.periodStart = Start of period:
+anonymous.task.form.label.periodEnd = End of period:
 anonymous.task.form.label.workload = Workload:
 anonymous.task.form.label.link = Link (Optional):
 anonymous.task.form.label.description = Description:
 
 anonymous.task.form.button.return = Return
- 
+
+anonymous.task.list.label.title = Title
+anonymous.task.list.label.creationDate = Creation date
+anonymous.task.list.label.periodStart = Start of period
+anonymous.task.list.label.periodEnd = End of period
+anonymous.task.list.label.workload = Workload
+anonymous.task.list.label.link = Link
+anonymous.task.list.label.description = Description
