@@ -1,0 +1,11 @@
+anonymous.task.form.title.show = Tarea
+
+anonymous.task.form.label.title = Título:
+anonymous.task.form.label.periodStart = Comienzo del Período:
+anonymous.task.form.label.periodEnd = Final del Período:
+anonymous.task.form.label.workload = Horas de trabajo (HH.mm):
+anonymous.task.form.label.link = Link (Opcional):
+anonymous.task.form.label.description = Descripción:
+
+anonymous.task.form.button.return = Volver
+ 
