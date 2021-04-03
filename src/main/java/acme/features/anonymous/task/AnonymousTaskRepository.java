@@ -14,4 +14,7 @@ public interface AnonymousTaskRepository extends AbstractRepository{
 	@Query("select t from Task t where t.state = true and t.finished = false order by t.periodStart")
 	Collection<Task> findManyPublicUnfinished();
 
+	@Query("select t from Task t where t.id = ?1")
+	Task findOneTaskById(int id);
+	
 }
