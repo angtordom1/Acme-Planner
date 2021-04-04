@@ -1,22 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--
-- sample-data.xml
--
-- Copyright (C) 2012-2021 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
--->
+<!-- - sample-data.xml - - Copyright (C) 2012-2021 Rafael Corchuelo. - - 
+	In keeping with the traditional purpose of furthering education and research, 
+	it is - the policy of the copyright owner to permit non-commercial use and 
+	redistribution of - this software. It has been tested carefully, but it is 
+	not guaranteed for any particular - purposes. The copyright owner does not 
+	offer any warranties or representations, nor do - they accept any liabilities 
+	with respect to them. -->
 
-<beans 
-	xmlns="http://www.springframework.org/schema/beans" 
+<beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<import resource="classpath:/WEB-INF/population/conversion-service.xml"/>	
+  <import resource="classpath:/WEB-INF/population/conversion-service.xml"/>	
+  
+	<!-- Tasks -->
+
+	<bean id="task01" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 001" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/04/02 20:00" />
+		<property name="workload" value="10.50"/>
+		<property name="description" value="First Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="true"/>
+		<property name="finished" value="false"/>
+		<property name="creationDate" value="2021/04/01 19:00"/>
+	</bean>
+	
+	<bean id="task02" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 002" />
+		<property name="periodStart" value="2021/04/02 19:59" />
+		<property name="periodEnd" value="2021/04/03 20:00" />
+		<property name="workload" value="10.50"/>
+		<property name="description" value="Second Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="false"/>
+		<property name="finished" value="false"/>
+		<property name="creationDate" value="2021/04/01 19:00"/>
+	</bean>
+	
+	<bean id="task03" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 003" />
+		<property name="periodStart" value="2021/04/05 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="10.50"/>
+		<property name="description" value="Third Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="false"/>
+		<property name="finished" value="true"/>
+		<property name="creationDate" value="2021/04/02 19:00"/>
+	</bean>
+	
+	<bean id="task04" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 003" />
+		<property name="periodStart" value="2021/04/04 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="11.00"/>
+		<property name="description" value="Fourth Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="true"/>
+		<property name="finished" value="true"/>
+		<property name="creationDate" value="2021/04/02 19:00"/>
+	</bean>
+	
+	<!-- Shouts -->
+	
+	<bean id="shout01" class="acme.entities.shouts.Shout">
+		<property name="moment" value="2021/02/13 19:39"/>
+		<property name="author" value="John Doe"/>
+		<property name="text" value="I'm happy!"/>
+		<property name="info"><null/></property>	
+	</bean>
+	
+	<bean id="shout02" class="acme.entities.shouts.Shout">
+		<property name="moment" value="2019/08/09 15:55"/>
+		<property name="author" value="Jane Doe"/>
+		<property name="text" value="I'm the master of my room!"/>
+		<property name="info" value="http://www.example.org"/>		
+	</bean>
+	
+	<bean id="shout03" class="acme.entities.shouts.Shout">
+		<property name="moment" value="2020/09/07 00:00"/>
+		<property name="author" value="Foo Bar"/>
+		<property name="text" value="Just turning 50!"/>
+		<property name="info" value="http://happybirthday.com"/>		
+	</bean>
+	
+	<bean id="shout04" class="acme.entities.shouts.Shout">
+		<property name="author" value="Leslie Design-Testing"/>
+		<property name="text" value="Woa! This app's so cool!"/>
+		<property name="moment" value="2021/02/13 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
 
 </beans>
