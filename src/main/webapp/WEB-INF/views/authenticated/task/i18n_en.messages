@@ -1,0 +1,20 @@
+# i18n_en.messages for task's views (authenticated)
+
+authenticated.task.form.title.show = Task
+
+authenticated.task.form.label.title = Title:
+authenticated.task.form.label.periodStart = Start of period:
+authenticated.task.form.label.periodEnd = End of period:
+authenticated.task.form.label.workload = Workload:
+authenticated.task.form.label.link = Link (Optional):
+authenticated.task.form.label.description = Description:
+
+authenticated.task.form.button.return = Return
+
+authenticated.task.list.label.title = Title
+authenticated.task.list.label.creationDate = Creation date
+authenticated.task.list.label.periodStart = Start of period
+authenticated.task.list.label.periodEnd = End of period
+authenticated.task.list.label.workload = Workload
+authenticated.task.list.label.link = Link
+authenticated.task.list.label.description = Description
