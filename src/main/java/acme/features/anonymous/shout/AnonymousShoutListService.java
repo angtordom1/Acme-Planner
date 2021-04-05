@@ -17,10 +17,10 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousShoutRepository repository;
+	AnonymousShoutRepository repository;
 
 
-	// AbstractListService<Administrator, Shout> interface --------------
+	// AbstractListService<Anonymous, Shout> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Shout> request) {
