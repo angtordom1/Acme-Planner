@@ -28,6 +28,54 @@
 		<property name="creationDate" value="2021/04/01 19:00"/>
 	</bean>
 	
+	<bean id="task02" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 002" />
+		<property name="periodStart" value="2021/04/02 19:59" />
+		<property name="periodEnd" value="2021/04/03 20:00" />
+		<property name="workload" value="10.50"/>
+		<property name="description" value="Second Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="false"/>
+		<property name="finished" value="false"/>
+		<property name="creationDate" value="2021/04/01 19:00"/>
+	</bean>
+	
+	<bean id="task03" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 003" />
+		<property name="periodStart" value="2021/04/05 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="10.50"/>
+		<property name="description" value="Third Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="false"/>
+		<property name="finished" value="true"/>
+		<property name="creationDate" value="2021/04/02 19:00"/>
+	</bean>
+	
+	<bean id="task04" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 004" />
+		<property name="periodStart" value="2021/04/04 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="11.00"/>
+		<property name="description" value="Fourth Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="true"/>
+		<property name="finished" value="true"/>
+		<property name="creationDate" value="2021/04/02 19:00"/>
+	</bean>
+	
+	<bean id="task05" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 005" />
+		<property name="periodStart" value="2021/07/04 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="11.00"/>
+		<property name="description" value="Fifth Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="true"/>
+		<property name="finished" value="true"/>
+		<property name="creationDate" value="2021/04/02 19:00"/>
+	</bean>
+	
 	<!-- Shouts -->
 	
 	<bean id="shout01" class="acme.entities.shouts.Shout">

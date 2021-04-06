@@ -11,10 +11,8 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AuthenticatedTaskRepository extends AbstractRepository{
 	
-	@Query("select task from Task task where task.id = ?1")
-	Task findOneTaskById(int id);
-	
-	@Query("select task from Task task where task.finished = true")
-	Collection<Task> findTasksFinished();
-	
+	@Query("select t from Task t where t.state = true and t.finished = true order by t.periodStart")
+	Collection<Task> findManyPublicFinished();
+
+
 }
