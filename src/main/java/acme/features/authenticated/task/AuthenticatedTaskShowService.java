@@ -1,6 +1,7 @@
 package acme.features.authenticated.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import acme.entities.tasks.Task;
 import acme.framework.components.Model;
@@ -8,6 +9,7 @@ import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractShowService;
 
+@Service
 public class AuthenticatedTaskShowService implements AbstractShowService<Authenticated, Task>{
 
 	// Internal state ---------------------------------------------------------
@@ -25,7 +27,7 @@ public class AuthenticatedTaskShowService implements AbstractShowService<Authent
 		
 		id = request.getModel().getInteger("id");
 		task = this.repository.findOneTaskById(id);
-		result = task.isState() && !task.isFinished();
+		result = task.isState() && task.isFinished();
 		
 		return result;
 	}
