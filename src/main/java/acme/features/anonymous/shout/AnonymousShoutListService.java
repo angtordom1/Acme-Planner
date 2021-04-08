@@ -1,8 +1,9 @@
 package acme.features.anonymous.shout;
 
-import java.time.LocalDate;
+import java.time.Instant;
 import java.util.Collection;
-import java.util.Comparator;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,11 +48,12 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 
 		final Collection<Shout> result;
 		
-		final int dia=LocalDate.now().getDayOfYear();
+		final long dia=Date.from(Instant.now()).getTime();
+		
 		
 		result = this.repository.findMany().stream().
-			filter(x->dia-(x.getMoment().getTime()/(1000*60*60*24))+(LocalDate.now().getYear()-1970)*365.25<=30).
-			sorted(Comparator.comparing(Shout::getMoment,Comparator.nullsLast(Comparator.reverseOrder()))).
+			filter(x->(TimeUnit.DAYS.convert(dia-x.getMoment().getTime(), TimeUnit.MILLISECONDS)<=30)).
+//			sorted(Comparator.comparing(Shout::getMoment,Comparator.nullsLast(Comparator.reverseOrder()))).
 			collect(Collectors.toList());
 
 		return result;
