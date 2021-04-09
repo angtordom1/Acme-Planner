@@ -1,6 +1,10 @@
 package acme.features.anonymous.shout;
 
+import java.time.Instant;
 import java.util.Collection;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,15 +16,15 @@ import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousShoutListService implements AbstractListService<Anonymous, Shout>{
-	
+public class AnonymousShoutListService implements AbstractListService<Anonymous, Shout> {
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousShoutRepository repository;
+	AnonymousShoutRepository repository;
 
 
-	// AbstractListService<Administrator, Shout> interface --------------
+	// AbstractListService<Anonymous, Shout> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Shout> request) {
@@ -42,10 +46,17 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 	public Collection<Shout> findMany(final Request<Shout> request) {
 		assert request != null;
 
-		Collection<Shout> result;
-
-		result = this.repository.findMany();
+		final Collection<Shout> result;
+		
+		final long dia=Date.from(Instant.now()).getTime();
+		
+		
+		result = this.repository.findMany().stream().
+			filter(x->(TimeUnit.DAYS.convert(dia-x.getMoment().getTime(), TimeUnit.MILLISECONDS)<=30)).
+//			sorted(Comparator.comparing(Shout::getMoment,Comparator.nullsLast(Comparator.reverseOrder()))).
+			collect(Collectors.toList());
 
 		return result;
 	}
+
 }
