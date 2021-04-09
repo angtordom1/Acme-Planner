@@ -11,6 +11,7 @@ import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
 import acme.framework.services.AbstractListService;
 
+
 @Service
 public class AuthenticatedTaskListService implements AbstractListService<Authenticated, Task>{
 
@@ -28,23 +29,28 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 		return true;
 	}
 
+
 	@Override
 	public void unbind(final Request<Task> request, final Task entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
 		
 		request.unbind(entity, model, "title", "periodStart", "periodEnd", "workload", "description", "link", "creationDate");
 		
+
 	}
 
 	@Override
 	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
+
 		
 		Collection<Task> result;
 		
 		result = this.repository.findManyPublicFinished();
+
 		
 		return result;
 	}
