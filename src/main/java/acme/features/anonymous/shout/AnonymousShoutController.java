@@ -13,7 +13,6 @@ import acme.framework.entities.Anonymous;
 
 @Controller
 @RequestMapping("/anonymous/shout/")
-
 public class AnonymousShoutController extends AbstractController<Anonymous, Shout> {
 
 	// Internal state ---------------------------------------------------------
@@ -22,7 +21,7 @@ public class AnonymousShoutController extends AbstractController<Anonymous, Shou
 	protected AnonymousShoutListService	listService;
 	
 	@Autowired
-	protected AnonymousShoutCreateService	createService;
+	protected AnonymousShoutCreateService createService;
 
 	// Constructors -----------------------------------------------------------
 
