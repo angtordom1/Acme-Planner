@@ -113,10 +113,25 @@
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
-		<bean id="shout06" class="acme.entities.shouts.Shout">
+	<bean id="shout06" class="acme.entities.shouts.Shout">
 		<property name="author" value="Leslie Design-Testing"/>
 		<property name="text" value="Woa! This app's so cool!"/>
 		<property name="moment" value="2021/03/9 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
+	
+	<!-- Spam  -->
+	
+	<bean id="spamA" class="acme.entities.spam.Spam">
+		<property name="inicialLetter" value="a"/>
+		<property name="spamWords"  value="antes, ahora, artemisa"/>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
 </beans>
