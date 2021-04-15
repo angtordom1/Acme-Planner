@@ -122,9 +122,9 @@
 	
 	<!-- Spam  -->
 	
-	<bean id="spamA" class="acme.entities.spam.Spam">
-		<property name="inicialLetter" value="a"/>
-		<property name="spamWords"  value="antes, ahora, artemisa"/>
+	<bean id="spam" class="acme.entities.spam.Spam">
+		<property name="umbral" value="10"/>
+		<property name="spamWords"  value="sex, hard core, viagra, cialis, nigeria, you’ve won, million dollar, sexo, duro, viagra, has ganado, millon de euros"/>
 	</bean>
 	
 	

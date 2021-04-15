@@ -1,10 +1,11 @@
 package acme.entities.spam;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -20,11 +21,13 @@ public class Spam extends DomainEntity{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@NotNull
-	protected char inicialLetter;
+	@Range(min=1,max=100)
+	protected Double umbral;
+	
+	
 	
 	@ElementCollection(targetClass=String.class)
-	protected Collection<String> spamWords;
+	protected List<String> spamWords;
 	
 	
 }

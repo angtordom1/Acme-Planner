@@ -1,6 +1,6 @@
 package acme.features.spam;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -10,7 +10,9 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface SpamReposistory extends AbstractRepository{
 
-	@Query("SELECT s FROM Spam s WHERE s.inicialLetter= ?1 ")
-	Collection<String> finByLetter(char letter);
+	@Query("SELECT s FROM Spam s")
+	List<String> getSpamWords();
 	
+	@Query("SELECT umbral FROM Spam s")
+	Double getUmbral();
 }
