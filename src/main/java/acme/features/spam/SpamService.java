@@ -2,6 +2,7 @@ package acme.features.spam;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,13 +29,11 @@ public class SpamService {
 		int i=0;
 		while(i<spamWords.size()) {
 			final String word=spamWords.get(i);
-			if(s.contains(word)) { res.add(word); nWords+=word.length();}
-			
+			if(Pattern.compile(Pattern.quote(word), Pattern.CASE_INSENSITIVE).matcher(s).find()) { res.add(word); nWords+=word.length();}
 			i++;
 		}
 		
-		if(this.repository.getUmbral()>=100*nWords/tam) res.add("true");
-		else res.add("false");
+		if(this.repository.getUmbral()<100*nWords/tam) res.clear();
 		
 		
 		return res;
