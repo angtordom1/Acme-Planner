@@ -113,10 +113,95 @@
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
-		<bean id="shout06" class="acme.entities.shouts.Shout">
+	<bean id="shout06" class="acme.entities.shouts.Shout">
 		<property name="author" value="Leslie Design-Testing"/>
 		<property name="text" value="Woa! This app's so cool!"/>
 		<property name="moment" value="2021/03/9 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
+	
+	
+	<!-- SpamWord  -->
+	
+	
+	<bean id="spamWord001" class="acme.entities.spam.SpamWord">
+		<property name="word" value="sex"/>
+		<property name="size"  value="1"/>
+	</bean>
+	<bean id="spamWord002" class="acme.entities.spam.SpamWord">
+		<property name="word" value="hard core"/>
+		<property name="size"  value="2"/>
+	</bean>
+	<bean id="spamWord003" class="acme.entities.spam.SpamWord">
+		<property name="word" value="viagra"/>
+		<property name="size"  value="1"/>
+	</bean>
+	<bean id="spamWord004" class="acme.entities.spam.SpamWord">
+		<property name="word" value="cialis"/>
+		<property name="size"  value="1"/>
+	</bean>
+	<bean id="spamWord005" class="acme.entities.spam.SpamWord">
+		<property name="word" value="nigeria"/>
+		<property name="size"  value="1"/>
+	</bean>
+	<bean id="spamWord006" class="acme.entities.spam.SpamWord">
+		<property name="word" value="you’ve won"/>
+		<property name="size"  value="3"/>
+	</bean>
+	<bean id="spamWord007" class="acme.entities.spam.SpamWord">
+		<property name="word" value="million dollar"/>
+		<property name="size"  value="2"/>
+	</bean>
+	<bean id="spamWord008" class="acme.entities.spam.SpamWord">
+		<property name="word" value="sexo"/>
+		<property name="size"  value="1"/>
+	</bean>
+		<bean id="spamWord009" class="acme.entities.spam.SpamWord">
+		<property name="word" value="duro"/>
+		<property name="size"  value="1"/>
+	</bean>
+	<bean id="spamWord010" class="acme.entities.spam.SpamWord">
+		<property name="word" value="viagra"/>
+		<property name="size"  value="1"/>
+	</bean>
+	<bean id="spamWord011" class="acme.entities.spam.SpamWord">
+		<property name="word" value="has ganado"/>
+		<property name="size"  value="2"/>
+	</bean>
+	<bean id="spamWord012" class="acme.entities.spam.SpamWord">
+		<property name="word" value="millon de euros"/>
+		<property name="size"  value="3"/>
+	</bean>
+	
+	<!-- Spam  -->
+	
+
+	<bean id="spam" class="acme.entities.spam.Spam">
+		<property name="umbral" value="10"/>
+		<property name="spamWords">
+			<list>
+				<ref bean="spamWord001"/>
+				<ref bean="spamWord002"/>
+				<ref bean="spamWord003"/>
+				<ref bean="spamWord004"/>
+				<ref bean="spamWord005"/>
+				<ref bean="spamWord006"/>
+				<ref bean="spamWord007"/>
+				<ref bean="spamWord008"/>
+				<ref bean="spamWord009"/>
+				<ref bean="spamWord010"/>
+				<ref bean="spamWord011"/>
+				<ref bean="spamWord012"/>
+				
+			</list>
+		</property>  
+	</bean>
+	
+
+	
+	
+	
+	
+	
+	
 </beans>
