@@ -1,6 +1,11 @@
 anonymous.shout.form.label.author = Autor:
 anonymous.shout.form.label.text = Texto:
 anonymous.shout.form.label.info = Información:
+
+anonymous.shout.form.label.wrongauthor = Este campo excede la cantidad de palabras spam permitidas
+anonymous.shout.form.label.wrongtext = Este campo excede la cantidad de palabras spam permitidas
+anonymous.shout.form.label.wronginfo = Este campo excede la cantidad de palabras spam permitidas
+
 anonymous.shout.form.button.create = Gritar
 anonymous.shout.form.button.return = Volver
  

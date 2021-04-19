@@ -20,7 +20,7 @@ public class SpamService {
 
 	public List<SpamWord> getSpamWordsByString(final String s){
 		
-		final List<SpamWord> res= new ArrayList<>();
+		final List<SpamWord> res= new ArrayList<SpamWord>();
 		
 		final List<SpamWord> spamWords=this.repository.getSpamWords();
 
@@ -40,7 +40,7 @@ public class SpamService {
 				
 				nWords+=word.getSize();
 				
-				}
+			}
 			
 			i++;
 		}
