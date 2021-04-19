@@ -7,6 +7,8 @@ import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.spam.SpamWord;
+
 @Service
 public class SpamService {
 	
@@ -18,22 +20,22 @@ public class SpamService {
 	
 
 	
-	public List<String> getSpamWordsByString(final String s){
-		final List<String> res= new ArrayList<>();
-		final List<String> spamWords=this.repository.getSpamWords();
+	public List<SpamWord> getSpamWordsByString(final String s){
+		final List<SpamWord> res= new ArrayList<>();
+		final List<SpamWord> spamWords=this.repository.getSpamWords();
 
-		final int tam=s.split(" [\\\\s@&.?$+-]+").length;
+		final int tam=s.split(" ").length;
 		
 		Integer nWords = 0;
 		
 		int i=0;
 		while(i<spamWords.size()) {
-			final String word=spamWords.get(i);
-			if(Pattern.compile(Pattern.quote(word), Pattern.CASE_INSENSITIVE).matcher(s).find()) { res.add(word); nWords+=word.length();}
+			final SpamWord word=spamWords.get(i);
+			if(Pattern.compile(Pattern.quote(word.getWord()), Pattern.CASE_INSENSITIVE).matcher(s).find()) { res.add(word); nWords+=word.getSize();}
 			i++;
 		}
 		
-		if(this.repository.getUmbral()<100*nWords/tam) res.clear();
+		if(this.repository.getUmbral()>=100*nWords/tam) res.clear();
 		
 		
 		return res;
