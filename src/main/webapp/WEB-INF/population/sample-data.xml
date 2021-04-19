@@ -176,23 +176,28 @@
 	<!-- Spam  -->
 	
 
-<!--  
 	<bean id="spam" class="acme.entities.spam.Spam">
 		<property name="umbral" value="10"/>
 		<property name="spamWords">
-			<list value-type="acme.entities.spam.SpamWord">
+			<list>
+				<ref bean="spamWord001"/>
+				<ref bean="spamWord002"/>
+				<ref bean="spamWord003"/>
+				<ref bean="spamWord004"/>
+				<ref bean="spamWord005"/>
+				<ref bean="spamWord006"/>
+				<ref bean="spamWord007"/>
+				<ref bean="spamWord008"/>
+				<ref bean="spamWord009"/>
+				<ref bean="spamWord010"/>
+				<ref bean="spamWord011"/>
+				<ref bean="spamWord012"/>
 				
-				<value>spamWord001</value>
 			</list>
 		</property>  
 	</bean>
 	
-	<bean id="spam" class="acme.entities.spam.Spam">
-		<property name="umbral" value="10"/>
-		<property name="spamWords"  value="spamWord001 , ${spamWord002} ,${spamWord003} ,${spamWord004} ,${spamWord005} ,${spamWord006} ,
-		${spamWord007} ,${spamWord008} ,${spamWord009} ,${spamWord010} ,${spamWord011} ,${spamWord012} "/>
-	</bean>
-	-->
+
 	
 	
 	

@@ -17,26 +17,37 @@ public class SpamService {
 	protected SpamReposistory repository;
 
 	
-	
 
-	
 	public List<SpamWord> getSpamWordsByString(final String s){
+		
 		final List<SpamWord> res= new ArrayList<>();
+		
 		final List<SpamWord> spamWords=this.repository.getSpamWords();
 
 		final int tam=s.split(" ").length;
 		
-		Integer nWords = 0;
+		Double nWords = 0.;
 		
 		int i=0;
+		
 		while(i<spamWords.size()) {
+			
 			final SpamWord word=spamWords.get(i);
-			if(Pattern.compile(Pattern.quote(word.getWord()), Pattern.CASE_INSENSITIVE).matcher(s).find()) { res.add(word); nWords+=word.getSize();}
+			
+			if(Pattern.compile(Pattern.quote(word.getWord()), Pattern.CASE_INSENSITIVE).matcher(s).find()) {
+				
+				res.add(word);
+				
+				nWords+=word.getSize();
+				
+				}
+			
 			i++;
 		}
 		
-		if(this.repository.getUmbral()>=100*nWords/tam) res.clear();
+		final Double p=100*nWords/tam;
 		
+		if(this.repository.getUmbral()>=p) res.clear();
 		
 		return res;
 	}
