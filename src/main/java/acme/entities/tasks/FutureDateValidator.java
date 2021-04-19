@@ -8,15 +8,17 @@ import javax.validation.ConstraintValidatorContext;
 public class FutureDateValidator implements ConstraintValidator<FutureDateConstraint, Task>{
 
 	@Override
-	public boolean isValid(Task task, ConstraintValidatorContext context) {
+	public boolean isValid(final Task task, final ConstraintValidatorContext context) {
 		
 		boolean result = true;
-		Date periodStart = task.getPeriodStart();
-		Date periodEnd = task.getPeriodEnd();
-		Date creationDate = task.getCreationDate();
+		final Date periodStart = task.getPeriodStart();
+		final Date periodEnd = task.getPeriodEnd();
+		final Date creationDate = task.getCreationDate();
 		
 		
 		if(periodStart.before(creationDate)) result = false;
+		
+		if(periodEnd.before(creationDate) || periodEnd.before(periodStart)) result = false;
 		
 		
 		return result;
