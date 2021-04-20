@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.shouts.Shout;
-import acme.entities.spam.SpamWord;
 import acme.features.spam.SpamService;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -82,17 +81,17 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		final String shoutInfo = entity.getInfo();
 		final String shoutAuthor = entity.getAuthor();
 		
-		final List<SpamWord> totalTextSpamWords = this.spamService.getSpamWordsByString(shoutText);
+		final List<String> totalTextSpamWords = this.spamService.getSpamWordsByString(shoutText);
 		errors.state(request, totalTextSpamWords.isEmpty(), "text", "anonymous.shout.form.label.wrongtext", 
-			totalTextSpamWords.toString().replaceAll("[\\[,\\]]", "").replace(" ",", "));
+			totalTextSpamWords.toString().replaceAll("[\\[\\]]", ""));
 
-		final List<SpamWord> totalInfoSpamWords = this.spamService.getSpamWordsByString(shoutInfo);
+		final List<String> totalInfoSpamWords = this.spamService.getSpamWordsByString(shoutInfo);
 		errors.state(request, totalInfoSpamWords.isEmpty(), "info", "anonymous.shout.form.label.wronginfo", 
-			totalInfoSpamWords.toString().replaceAll("[\\[,\\]]", "").replace(" ",", "));
+			totalInfoSpamWords.toString().replaceAll("[\\[\\]]", ""));
 		
-		final List<SpamWord> totalAuthorSpamWords = this.spamService.getSpamWordsByString(shoutAuthor);
+		final List<String> totalAuthorSpamWords = this.spamService.getSpamWordsByString(shoutAuthor);
 		errors.state(request, totalAuthorSpamWords.isEmpty(), "author", "anonymous.shout.form.label.wrongauthor", 
-			totalAuthorSpamWords.toString().replaceAll("[\\[,\\]]", "").replace(" ",", "));
+			totalAuthorSpamWords.toString().replaceAll("[\\[\\]]", ""));
 	}
 
 	@Override

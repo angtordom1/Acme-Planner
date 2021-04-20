@@ -18,9 +18,9 @@ public class SpamService {
 
 	
 
-	public List<SpamWord> getSpamWordsByString(final String s){
+	public List<String> getSpamWordsByString(final String s){
 		
-		final List<SpamWord> res= new ArrayList<SpamWord>();
+		final List<String> res= new ArrayList<String>();
 		
 		final List<SpamWord> spamWords=this.repository.getSpamWords();
 
@@ -36,7 +36,7 @@ public class SpamService {
 			
 			if(Pattern.compile(Pattern.quote(word.getWord()), Pattern.CASE_INSENSITIVE).matcher(s).find()) {
 				
-				res.add(word);
+				res.add(word.getWord());
 				
 				nWords+=word.getSize();
 				
