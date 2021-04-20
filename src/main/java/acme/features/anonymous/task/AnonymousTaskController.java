@@ -28,7 +28,7 @@ public class AnonymousTaskController extends AbstractController<Anonymous, Task>
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
-    super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
   
 }
