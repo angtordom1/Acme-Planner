@@ -23,6 +23,10 @@ public class SpamWord extends DomainEntity{
 	
 	@ManyToOne
 	protected Spam spam;
-	
+
+	@Override
+	public String toString() {
+		return this.word;
+	}
 
 }
