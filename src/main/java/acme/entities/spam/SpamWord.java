@@ -23,5 +23,4 @@ public class SpamWord extends DomainEntity{
 	
 	@ManyToOne
 	protected Spam spam;
-	
 }
