@@ -12,7 +12,6 @@ authenticated.task.form.label.description = Description:
 authenticated.task.form.button.return = Return
 
 authenticated.task.list.label.title = Title
-authenticated.task.list.label.creationDate = Creation date
 authenticated.task.list.label.periodStart = Start of period
 authenticated.task.list.label.periodEnd = End of period
 authenticated.task.list.label.workload = Workload (HH.mm)

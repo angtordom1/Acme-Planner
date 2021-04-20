@@ -5,9 +5,9 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.roles.Manager;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Manager;
 import acme.framework.entities.UserAccount;
 import acme.framework.entities.UserAccountStatus;
 import acme.framework.entities.UserRole;

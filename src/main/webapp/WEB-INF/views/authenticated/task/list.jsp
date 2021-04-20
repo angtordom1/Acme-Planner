@@ -4,9 +4,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list readonly="false">
-	<acme:list-column code="authenticated.task.list.label.title" path="title" width="20%" sortable="false"/>
-	<acme:list-column code="authenticated.task.list.label.creationDate" path="creationDate" width="20%" sortable="false"/>
-	<acme:list-column code="authenticated.task.list.label.periodStart" path="periodStart" width="20%"/>
-	<acme:list-column code="authenticated.task.list.label.periodEnd" path="periodEnd" width="20%"/>
-	<acme:list-column code="authenticated.task.list.label.workload" path="workload" width="20%"/>
+	<acme:list-column code="authenticated.task.list.label.title" path="title" width="25%" sortable="false"/>
+	<acme:list-column code="authenticated.task.list.label.periodStart" path="periodStart" width="25%"/>
+	<acme:list-column code="authenticated.task.list.label.periodEnd" path="periodEnd" width="25%"/>
+	<acme:list-column code="authenticated.task.list.label.workload" path="workload" width="25%"/>
 </acme:list>

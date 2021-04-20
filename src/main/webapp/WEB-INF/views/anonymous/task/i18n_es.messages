@@ -12,7 +12,6 @@ anonymous.task.form.label.description = Descripción:
 anonymous.task.form.button.return = Volver
 
 anonymous.task.list.label.title = Título
-anonymous.task.list.label.creationDate = Fecha de creación
 anonymous.task.list.label.periodStart = Comienzo del período
 anonymous.task.list.label.periodEnd = Final del período
 anonymous.task.list.label.workload = Carga de trabajo (HH.mm)

@@ -20,34 +20,29 @@ public class SpamService {
 
 	public List<String> getSpamWordsByString(final String s){
 		
-		final List<String> res= new ArrayList<String>();
-		
-		final List<SpamWord> spamWords=this.repository.getSpamWords();
-
-		final int tam=s.split(" ").length;
+		final List<String> res = new ArrayList<>();
+		final List<SpamWord> spamWords = this.repository.getSpamWords();
+		final int tam = s.split(" ").length;
 		
 		Double nWords = 0.;
-		
 		int i=0;
 		
 		while(i<spamWords.size()) {
+			final SpamWord spamWord = spamWords.get(i);
+			final String word = spamWord.getWord();
+			final Integer size = spamWord.getSize();
 			
-			final SpamWord word=spamWords.get(i);
-			
-			if(Pattern.compile(Pattern.quote(word.getWord()), Pattern.CASE_INSENSITIVE).matcher(s).find()) {
-				
-				res.add(word.getWord());
-				
-				nWords+=word.getSize();
-				
+			if(Pattern.compile(Pattern.quote(word), Pattern.CASE_INSENSITIVE).matcher(s).find()) {
+				res.add(word);
+				nWords += size;
 			}
 			
 			i++;
 		}
 		
-		final Double p=100*nWords/tam;
+		final Double p = 100*nWords/tam;
 		
-		if(this.repository.getUmbral()>=p) res.clear();
+		if(this.repository.getUmbral() >= p) res.clear();
 		
 		return res;
 	}
