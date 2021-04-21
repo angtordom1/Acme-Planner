@@ -84,7 +84,7 @@ public class Task extends DomainEntity{
 	
 	// Relationships ----------------------------------------------------------
 
-  @ManyToMany
+ 	@ManyToMany
 	protected List<WorkPlan> workplan;
   
 	@NotNull
