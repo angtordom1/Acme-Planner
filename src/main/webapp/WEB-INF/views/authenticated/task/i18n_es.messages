@@ -12,7 +12,6 @@ authenticated.task.form.label.description = Descripción:
 authenticated.task.form.button.return = Volver
 
 authenticated.task.list.label.title = Título
-authenticated.task.list.label.creationDate = Fecha de creación
 authenticated.task.list.label.periodStart = Comienzo del período
 authenticated.task.list.label.periodEnd = Final del período
 authenticated.task.list.label.workload = Carga de trabajo (HH.mm)
