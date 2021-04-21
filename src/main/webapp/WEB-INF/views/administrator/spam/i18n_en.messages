@@ -1,0 +1,9 @@
+# i18n_en.messages for spam's views
+
+administrator.spam.list.label.umbral = Threshold
+administrator.spam.list.label.spamWords = Spam words
+administrator.spam.list.button.listWords = Show spam words
+
+administrator.spam.form.label.umbral = Threshold:
+
+administrator.spam.form.button.update = Update

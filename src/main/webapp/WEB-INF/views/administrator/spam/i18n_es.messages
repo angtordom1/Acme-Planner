@@ -1,0 +1,9 @@
+# i18n_es.messages para las vistas sobre spam
+
+administrator.spam.list.label.umbral = Umbral
+administrator.spam.list.label.spamWords = Palabras spam
+administrator.spam.list.button.listWords = Mostrar palabras spam
+
+administrator.spam.form.label.umbral = Umbral:
+
+administrator.spam.form.button.update = Actualizar
