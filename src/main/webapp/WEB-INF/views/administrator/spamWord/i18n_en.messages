@@ -1,0 +1,3 @@
+# i18n_en.messages for spamWord's views
+
+administrator.spamWord.form.error.size = The size must be equal to the amount of words, splitting them by blank spaces

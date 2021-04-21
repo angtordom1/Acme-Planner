@@ -23,12 +23,16 @@ public class AdministratorSpamWordController extends AbstractController<Administ
 	@Autowired
 	protected AdministratorSpamWordDeleteService deleteService;
 	
+	@Autowired
+	protected AdministratorSpamWordShowService showService;
+	
 	// Constructors -----------------------------------------------------------
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 
 }

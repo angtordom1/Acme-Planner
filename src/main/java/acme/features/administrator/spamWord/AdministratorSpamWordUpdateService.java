@@ -64,6 +64,12 @@ public class AdministratorSpamWordUpdateService implements AbstractUpdateService
 		assert entity != null;
 		assert errors != null;
 		
+		// SIZE: comprobar que el tamaño introducido como parámetro coincide con el de la palabra
+		final String s = entity.getWord();
+		final int tam = s.split(" ").length;
+		final int t = entity.getSize();
+				
+		errors.state(request, tam == t, "size", "administrator.spamWord.form.error.size");
 	}
 
 	@Override

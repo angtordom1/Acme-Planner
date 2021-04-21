@@ -1,0 +1,3 @@
+# i18n_es.messages para las vistas sobre palabras spam
+
+administrator.spamWord.form.error.size = El tamaño debe ser igual a la cantidad de palabras, separando éstas por espacios
