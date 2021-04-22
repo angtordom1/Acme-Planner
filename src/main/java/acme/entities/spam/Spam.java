@@ -3,6 +3,7 @@ package acme.entities.spam;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 
@@ -29,7 +30,7 @@ public class Spam extends DomainEntity{
 	
 
 	@NotEmpty
-	@OneToMany(mappedBy = "spam")
+	@OneToMany(mappedBy = "spam", fetch = FetchType.EAGER)
 	protected List<SpamWord> spamWords;
 	
 }

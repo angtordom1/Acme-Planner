@@ -54,12 +54,12 @@ public class AdministratorSpamWordCreateService implements AbstractCreateService
 	public SpamWord instantiate(final Request<SpamWord> request) {
 		assert request != null;
 		
-		Spam spam;
+//		Spam spam;
 		SpamWord result;
 		
-		spam = this.spamRepository.findMany().iterator().next();
+//		spam = this.spamRepository.findMany().iterator().next();
 		result = new SpamWord();
-		result.setSpam(spam);
+//		result.setSpam(spam);
 		
 		return result;
 	}
@@ -83,7 +83,12 @@ public class AdministratorSpamWordCreateService implements AbstractCreateService
 		assert request != null;
 		assert entity != null;
 		
+		Spam spam;
+		spam = this.spamRepository.findMany().iterator().next();
+		spam.getSpamWords().add(entity);
+		
 		this.repository.save(entity);
+		this.spamRepository.save(spam);
 		
 	}
 

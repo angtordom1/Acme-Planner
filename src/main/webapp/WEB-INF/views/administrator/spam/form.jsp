@@ -9,5 +9,5 @@
 	
 	<acme:form-submit test="${command == 'show'}" code="administrator.spam.form.button.update" action="/administrator/spam/update"/>
 	<acme:form-submit test="${command == 'update'}" code="administrator.spam.form.button.update" action="/administrator/spam/update"/>
-
+	<acme:form-return code="administrator.spam.list.button.listWords" action="/administrator/spam-word/list"/>
 </acme:form>

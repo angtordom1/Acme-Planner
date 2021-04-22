@@ -19,7 +19,7 @@ public class AdministratorSpamWordListService implements AbstractListService<Adm
 	@Autowired
 	protected AdministratorSpamWordRepository repository;
 
-	// AbstractListService<Administrator, Spam> interface ---------------------------
+	// AbstractListService<Administrator, SpamWord> interface ---------------------------
 		
 	@Override
 	public boolean authorise(final Request<SpamWord> request) {

@@ -3,10 +3,6 @@
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
        
 <tiles-definitions>
-
-	<definition name="administrator/spam/list" extends="master">
-		<put-attribute name="body" type="template" value="../administrator/spam/list.jsp" />
-	</definition>
 	
 	<definition name="administrator/spam/form" extends="master">	
 		<put-attribute name="body" type="template" value="../administrator/spam/form.jsp" />			

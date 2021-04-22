@@ -3,7 +3,9 @@ package acme.features.administrator.spamWord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.spam.Spam;
 import acme.entities.spam.SpamWord;
+import acme.features.administrator.spam.AdministratorSpamRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -17,6 +19,9 @@ public class AdministratorSpamWordUpdateService implements AbstractUpdateService
 	
 	@Autowired
 	protected AdministratorSpamWordRepository repository;
+	
+	@Autowired
+	protected AdministratorSpamRepository spamRepository;
 	
 	// AbstractUpdateService<Administrator, SpamWord> interface ---------------
 	
@@ -77,7 +82,11 @@ public class AdministratorSpamWordUpdateService implements AbstractUpdateService
 		assert request != null;
 		assert entity != null;
 
-		this.repository.save(entity);		
+		Spam spam;
+		spam = this.spamRepository.findMany().iterator().next();
+		
+		this.repository.save(entity);
+		this.spamRepository.save(spam);	
 	}
 
 }

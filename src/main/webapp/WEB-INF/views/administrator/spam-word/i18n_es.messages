@@ -2,9 +2,11 @@
 
 administrator.spamWord.list.label.size = Tamaño
 administrator.spamWord.list.label.word = Palabra
+administrator.spamWord.list.button.create = Crear
 
 administrator.spamWord.form.label.size = Tamaño:
 administrator.spamWord.form.label.word = Palabra:
+administrator.spamWord.form.label.reminder = ¡Recuerde añadir la traducción de la palabra cuando cree una nueva!
 
 administrator.spamWord.form.button.create = Crear
 administrator.spamWord.form.button.update = Actualizar
