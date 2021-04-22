@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Range;
 
@@ -28,8 +27,6 @@ public class Spam extends DomainEntity{
 	protected Double umbral;
 	
 	
-
-	@NotEmpty
 	@OneToMany(mappedBy = "spam", fetch = FetchType.EAGER)
 	protected List<SpamWord> spamWords;
 	
