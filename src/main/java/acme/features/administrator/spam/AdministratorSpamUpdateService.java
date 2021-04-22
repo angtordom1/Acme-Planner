@@ -61,8 +61,6 @@ public class AdministratorSpamUpdateService implements AbstractUpdateService<Adm
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-		// como tal no debería validar nada, ¿no? ya que el umbral lo valida mediante la anotación
 	}
 
 	@Override
