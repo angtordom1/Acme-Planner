@@ -39,6 +39,12 @@ master.menu.anonymous.tasks-list = List tasks
 master.menu.authenticated = Authenticated
 master.menu.authenticated.tasks-list = List tasks
 
+# master.menu.manager #######################################################
+
+master.menu.manager = Manager
+master.menu.manager.create-task = Create task
+master.menu.manager.my-tasks = My tasks
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator

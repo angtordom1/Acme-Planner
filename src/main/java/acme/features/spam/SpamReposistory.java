@@ -11,7 +11,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface SpamReposistory extends AbstractRepository{
 
-	@Query("SELECT s FROM Spam s")
+	@Query("SELECT s FROM SpamWord s")
 	List<SpamWord> getSpamWords();
 	
 	@Query("SELECT umbral FROM Spam s")
