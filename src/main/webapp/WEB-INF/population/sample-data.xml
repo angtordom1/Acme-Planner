@@ -55,7 +55,6 @@
 		<property name="link"><null/></property>
 		<property name="state" value="true"/>
 		<property name="finished" value="true"/>
-		<!-- <property name="creationDate" value="2021/04/01 19:00"/>-->
 		<property name="manager" ref="manager1Manager"/>
 	</bean>
 	
@@ -68,7 +67,6 @@
 		<property name="link"><null/></property>
 		<property name="state" value="false"/>
 		<property name="finished" value="true"/>
-		<!-- <property name="creationDate" value="2021/04/01 19:00"/>-->
 		<property name="manager" ref="manager1Manager"/>
 	</bean>
 	
@@ -81,7 +79,6 @@
 		<property name="link"><null/></property>
 		<property name="state" value="false"/>
 		<property name="finished" value="true"/>
-		<!-- <property name="creationDate" value="2021/04/02 19:00"/>-->
 		<property name="manager" ref="manager1Manager"/>
 	</bean>
 	
@@ -94,7 +91,6 @@
 		<property name="link"><null/></property>
 		<property name="state" value="true"/>
 		<property name="finished" value="true"/>
-		<!-- <property name="creationDate" value="2021/04/02 19:00"/>-->
 		<property name="manager" ref="manager1Manager"/>
 	</bean>
 	
@@ -107,18 +103,78 @@
 		<property name="link"><null/></property>
 		<property name="state" value="true"/>
 		<property name="finished" value="false"/>
-		<!-- <property name="creationDate" value="2021/04/02 19:00"/>-->
+		<property name="manager" ref="manager1Manager"/>
+	</bean>
+	
+		<bean id="task06" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 006" />
+		<property name="periodStart" value="2021/06/04 19:59" />
+		<property name="periodEnd" value="2021/06/05 20:00" />
+		<property name="workload" value="11.00"/>
+		<property name="description" value="Sixth Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="false"/>
+		<property name="finished" value="false"/>
 		<property name="manager" ref="manager1Manager"/>
 	</bean>
 	
 	<!-- WorkPlan -->
 
 	<bean id="workPlan01" class="acme.entities.workPlans.WorkPlan">
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="60.30" />
 		<property name="state" value="true" />
+		<property name="finished" value="false" />
 		<property name="tasks">	
 		<list>
+				<ref bean="task01"/>
 				<ref bean="task05"/>
 				<ref bean="task04"/>
+				
+		</list>
+		</property>
+	</bean>
+	
+	<bean id="workPlan02" class="acme.entities.workPlans.WorkPlan">
+		<property name="periodStart" value="2021/04/02 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="20.00" />
+		<property name="state" value="false" />
+		<property name="finished" value="true" />
+		<property name="tasks">	
+		<list>
+				<ref bean="task02"/>
+				<ref bean="task03"/>
+				
+		</list>
+		</property>
+	</bean>
+	
+	<bean id="workPlan03" class="acme.entities.workPlans.WorkPlan">
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="60.30" />
+		<property name="state" value="true" />
+		<property name="finished" value="true" />
+		<property name="tasks">	
+		<list>
+				<ref bean="task01"/>
+				<ref bean="task04"/>
+				
+		</list>
+		</property>
+	</bean>
+	
+		<bean id="workPlan04" class="acme.entities.workPlans.WorkPlan">
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="11.00" />
+		<property name="state" value="false" />
+		<property name="finished" value="false" />
+		<property name="tasks">	
+		<list>
+				<ref bean="task06"/>
 				
 		</list>
 		</property>

@@ -30,6 +30,7 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.shout-list = Lista de gritos
+master.menu.anonymous.workplan-list = List planes de trabajo
 master.menu.anonymous.create-shout = ¡Dar un grito!
 master.menu.anonymous.tasks-list = Lista de tareas
 

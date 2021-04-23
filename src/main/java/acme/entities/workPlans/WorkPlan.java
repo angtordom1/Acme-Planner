@@ -4,10 +4,16 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.List;
+import java.util.Iterator;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 
 import acme.entities.tasks.Task;
 import acme.framework.entities.DomainEntity;
@@ -20,28 +26,41 @@ import lombok.Setter;
 //@TaskStateConstraint If Public, cant private tasks
 public class WorkPlan extends DomainEntity{
 
-	/**
-	 * 
-	 */
+	// Serialisation identifier -----------------------------------------------
+	
 	private static final long serialVersionUID = 1L;
+		
+	// Attributes -------------------------------------------------------------
 
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date periodStart;
+	
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date periodEnd;
+	
+	@Digits(integer = 3, fraction = 2)
+	protected double workload;
+	
+	//If true task is public else task is private
 	protected boolean state;
-
-
-	@ManyToMany(mappedBy = "workplan")
-	protected List<Task> tasks;
-
+	
+	//If true task is finished else task is not finished
+	protected boolean finished;
 
 	// Derived attributes -----------------------------------------------------
-	public Double getworkload() {
+	
+	public Double getWorkload() {
 		double minute = 0.00;
 		double hour = 0.00;
-		final List<Task> tasks=this.tasks;
-		for (int i = 0; i<tasks.size(); i++) {
-			final Task task = tasks.get(i);
-			final double workload  = task.getWorkload();
-			final double hoursW = Math.floor(workload);
-			final double minutes = workload - hoursW;
+		Set<Task> tasks = this.tasks;
+		for (Iterator<Task> it = tasks.iterator(); it.hasNext(); ) {
+			Task task = it.next();
+			
+			double workload  = task.getWorkload();
+			double hoursW = Math.floor(workload);
+			double minutes = workload - hoursW;
 			minute+=minutes;
 			hour+= hoursW;
 			
@@ -72,13 +91,29 @@ public class WorkPlan extends DomainEntity{
 		LocalDateTime res = null;
 		if(!this.tasks.isEmpty()) {
 
-			final Date aux =this.tasks.stream().map(Task::getPeriodEnd).max(Date::compareTo).get();
+			final Date aux = this.tasks.stream().map(Task::getPeriodEnd).max(Date::compareTo).get();
 			final LocalDate tm=aux.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 			res=LocalDateTime.of(tm.getYear(),tm.getMonth(),tm.getDayOfMonth()+1,17,00);
 
 		}
 		return res;
 	}
+	
+	public boolean isFinished() {
+		Date now;
+
+		now = new Date();
+		
+		this.finished = now.after(this.periodEnd);	
+		
+		return this.finished;
+	}
+	
+	// Relationships ----------------------------------------------------------
+
+	@ManyToMany(mappedBy = "workplan", fetch = FetchType.EAGER)
+	protected Set<Task> tasks;
+
 
 }
 
