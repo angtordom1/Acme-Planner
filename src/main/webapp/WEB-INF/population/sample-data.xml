@@ -111,6 +111,20 @@
 		<property name="manager" ref="manager1Manager"/>
 	</bean>
 	
+	<!-- WorkPlan -->
+
+	<bean id="workPlan01" class="acme.entities.workPlans.WorkPlan">
+		<property name="state" value="true" />
+		<property name="tasks">	
+		<list>
+				<ref bean="task05"/>
+				<ref bean="task04"/>
+				
+		</list>
+		</property>
+	</bean>
+	
+	
 	<!-- Shouts -->
 	
 	<bean id="shout01" class="acme.entities.shouts.Shout">
