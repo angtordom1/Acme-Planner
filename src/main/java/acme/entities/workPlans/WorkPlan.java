@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -35,9 +34,25 @@ public class WorkPlan extends DomainEntity{
 
 	// Derived attributes -----------------------------------------------------
 	public Double getworkload() {
-		return this.tasks.stream().
-			map(Task::getWorkload).
-			collect(Collectors.summingDouble(Double::doubleValue));
+		double minute = 0.00;
+		double hour = 0.00;
+		final List<Task> tasks=this.tasks;
+		for (int i = 0; i<tasks.size(); i++) {
+			final Task task = tasks.get(i);
+			final double workload  = task.getWorkload();
+			final double hoursW = Math.floor(workload);
+			final double minutes = workload - hoursW;
+			minute+=minutes;
+			hour+= hoursW;
+			
+			if(minute>=0.60) {
+				hour++;
+				minute=minute-0.60;
+			}		
+		}
+		
+		return hour+minute;
+		
 	}
 
 
