@@ -47,19 +47,20 @@ public class AdministratorSpamWordCreateService implements AbstractCreateService
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "word", "size");
+		request.unbind(entity, model, "word", "size","spam");
 	}
 
 	@Override
 	public SpamWord instantiate(final Request<SpamWord> request) {
 		assert request != null;
 		
-//		Spam spam;
+		Spam spam;
 		SpamWord result;
 		
-//		spam = this.spamRepository.findMany().iterator().next();
+		spam = this.spamRepository.findMany().iterator().next();
 		result = new SpamWord();
-//		result.setSpam(spam);
+		
+		result.setSpam(spam);
 		
 		return result;
 	}
@@ -71,21 +72,19 @@ public class AdministratorSpamWordCreateService implements AbstractCreateService
 		assert errors != null;
 		
 		// SIZE: comprobar que el tamaño introducido como parámetro coincide con el de la palabra
-		final String s = entity.getWord();
-		final int tam = s.split(" ").length;
-		final int t = entity.getSize();
-		
-		errors.state(request, tam == t, "size", "administrator.spamWord.form.error.size");
+		if(!errors.hasErrors("size")) {
+			final String s = entity.getWord();
+			final int tam = s.split(" ").length;
+			final int t = entity.getSize();
+			
+			errors.state(request, tam == t, "size", "administrator.spamWord.form.error.size");
+		}
 	}
 
 	@Override
 	public void create(final Request<SpamWord> request, final SpamWord entity) {
 		assert request != null;
 		assert entity != null;
-		
-		Spam spam;
-		spam = this.spamRepository.findMany().iterator().next();
-		entity.setSpam(spam);
 		
 		this.repository.save(entity);
 	}

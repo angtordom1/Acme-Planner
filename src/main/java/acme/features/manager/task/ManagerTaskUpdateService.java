@@ -107,7 +107,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 			final double minsW = (workload-hoursW)*100;
 			boolean res = false;
 			
-			if(periodStart != null && periodStart.before(periodEnd)) {
+			if((periodStart != null || periodEnd != null) && periodStart.before(periodEnd)) {
 				final long milliseconds = Math.abs(periodEnd.getTime() - periodStart.getTime());
 				final long diff = TimeUnit.MINUTES.convert(milliseconds, TimeUnit.MILLISECONDS);
 				final double hours = Math.floor(diff/60.0);
