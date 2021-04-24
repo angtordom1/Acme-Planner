@@ -17,12 +17,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-//@TaskStateConstraint If Public, cant private tasks
 public class WorkPlan extends DomainEntity{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	protected boolean state;
@@ -36,9 +32,9 @@ public class WorkPlan extends DomainEntity{
 	public Double getworkload() {
 		double minute = 0.00;
 		double hour = 0.00;
-		final List<Task> tasks=this.tasks;
-		for (int i = 0; i<tasks.size(); i++) {
-			final Task task = tasks.get(i);
+		final List<Task> taskList = this.tasks;
+		for (int i = 0; i<taskList.size(); i++) {
+			final Task task = taskList.get(i);
 			final double workload  = task.getWorkload();
 			final double hoursW = Math.floor(workload);
 			final double minutes = workload - hoursW;
@@ -60,8 +56,8 @@ public class WorkPlan extends DomainEntity{
 		LocalDateTime res = null;
 		if(!this.tasks.isEmpty()) {
 
-			final Date aux =this.tasks.stream().map(Task::getPeriodStart).min(Date::compareTo).get();
-			final LocalDate tm=aux.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+			final Date aux =this.tasks.stream().map(Task::getPeriodStart).min(Date::compareTo).orElse(new Date());
+			final LocalDate tm = aux.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 			res=LocalDateTime.of(tm.getYear(),tm.getMonth(),tm.getDayOfMonth()-1,8,0);
 
 		}
@@ -72,7 +68,7 @@ public class WorkPlan extends DomainEntity{
 		LocalDateTime res = null;
 		if(!this.tasks.isEmpty()) {
 
-			final Date aux =this.tasks.stream().map(Task::getPeriodEnd).max(Date::compareTo).get();
+			final Date aux =this.tasks.stream().map(Task::getPeriodEnd).max(Date::compareTo).orElse(new Date());
 			final LocalDate tm=aux.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 			res=LocalDateTime.of(tm.getYear(),tm.getMonth(),tm.getDayOfMonth()+1,17,00);
 
@@ -81,12 +77,4 @@ public class WorkPlan extends DomainEntity{
 	}
 
 }
-
-
-
-
-
-
-
-
 

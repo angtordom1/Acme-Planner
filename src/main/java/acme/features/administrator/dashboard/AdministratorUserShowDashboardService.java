@@ -42,7 +42,8 @@ public class AdministratorUserShowDashboardService implements AbstractShowServic
 			"averagePeriodExecution", "deviationPeriodExecution",
 			"minimunPeriodExecution","maximunPeriodExecution",
 			"averageWorkload","deviationWorkload",
-			"minimunWorkload","maximunWorkload");
+			"minimunWorkload","maximunWorkload", "workPlansAmount",
+			"unpublishedWorkPlansAmount", "publishedWorkPlansAmount");
 	}
 
 	@Override
@@ -55,6 +56,10 @@ public class AdministratorUserShowDashboardService implements AbstractShowServic
 		Long privateTasksAmount;
 		Long finishedTasksAmount;
 		Long unfinishedTasksAmount;
+		
+		final Long workPlansAmount;
+		final Long unpublishedWorkPlansAmount;
+		final Long publishedWorkPlansAmount;
 		
 		final Double averagePeriodExecution;
 		final Double deviationPeriodExecution;
@@ -73,6 +78,10 @@ public class AdministratorUserShowDashboardService implements AbstractShowServic
 		privateTasksAmount = this.repository.findPrivateTasksAmount();
 		finishedTasksAmount = this.repository.findFinishedTasksAmount();
 		unfinishedTasksAmount = this.repository.findUnfinishedTasksAmount();
+		
+		workPlansAmount = this.repository.findWorkPlansAmount();
+		unpublishedWorkPlansAmount = this.repository.findUnpublishedWorkPlansAmount();
+		publishedWorkPlansAmount = this.repository.findPublishedWorkPlansAmount();
 		
 		
 		averagePeriodExecution = tasksList.stream()
@@ -104,6 +113,10 @@ public class AdministratorUserShowDashboardService implements AbstractShowServic
 		result.setPrivateTasksAmount(privateTasksAmount);
 		result.setFinishedTasksAmount(finishedTasksAmount);
 		result.setUnfinishedTasksAmount(unfinishedTasksAmount);
+		
+		result.setWorkPlansAmount(workPlansAmount);
+		result.setUnpublishedWorkPlansAmount(unpublishedWorkPlansAmount);
+		result.setPublishedWorkPlansAmount(publishedWorkPlansAmount);
 		
 		result.setAveragePeriodExecution(this.parseFromPercentageToSexagesimal(averagePeriodExecution));
 		result.setDeviationPeriodExecution(this.parseFromPercentageToSexagesimal(deviationPeriodExecution));

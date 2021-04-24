@@ -19,3 +19,7 @@ administrator.dashboard.form.label.maximun-workload =  Maximun workload
 
 administrator.dashboard.form.label.hours = hours
 administrator.dashboard.form.label.minutes = minutes
+
+administrator.dashboard.form.label.workplans-amount = Number of workplans
+administrator.dashboard.form.label.unpublished-workplans-amount = Number of unpublished workplans
+administrator.dashboard.form.label.published-workplans-amount = Number of published workplans
