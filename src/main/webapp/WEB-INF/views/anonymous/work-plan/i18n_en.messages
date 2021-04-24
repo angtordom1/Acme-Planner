@@ -7,8 +7,8 @@ anonymous.work-plan.form.label.periodStart = Start of period:
 anonymous.work-plan.form.label.periodEnd = End of period:
 anonymous.work-plan.form.label.workload = Workload (HH.mm):
 anonymous.work-plan.form.label.description = Description:
-anonymous.work-plan.form.label.state = Public:
-anonymous.work-plan.form.label.finished = Finished:
+anonymous.work-plan.form.label.state = Public
+anonymous.work-plan.form.label.finished = Finished
 anonymous.work-plan.form.label.tasks = Tasks:
 
 anonymous.work-plan.form.button.return = Return
