@@ -1,0 +1,15 @@
+# i18n_en.messages for spamWord's views
+
+administrator.spamWord.list.label.size = Size
+administrator.spamWord.list.label.word = Word
+administrator.spamWord.list.button.create = Create
+
+administrator.spamWord.form.label.size = Size:
+administrator.spamWord.form.label.word = Word:
+administrator.spamWord.form.label.reminder = Remember to add the word's translation when creating a new one!
+
+administrator.spamWord.form.button.create = Create
+administrator.spamWord.form.button.update = Update
+administrator.spamWord.form.button.delete = Delete
+
+administrator.spamWord.form.error.size = The size must be equal to the amount of words, splitting them by blank spaces
