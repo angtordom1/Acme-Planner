@@ -19,7 +19,7 @@ public class AnonymousWorkPlanListService implements AbstractListService<Anonymo
 		@Autowired
 		AnonymousWorkPlanRepository repository;
 		
-		// AbstractListService<Administrator, Task> interface ------------------
+		// AbstractListService<Administrator, WorkPlan> interface ------------------
 		
 		@Override
 		public boolean authorise(final Request<WorkPlan> request) {
@@ -34,7 +34,7 @@ public class AnonymousWorkPlanListService implements AbstractListService<Anonymo
 			assert entity != null;
 			assert model != null;
 			
-			request.unbind(entity, model, "periodStart", "periodEnd", "workload", "state", "finished");
+			request.unbind(entity, model, "title", "periodStart", "periodEnd", "workload", "state", "finished");
 			
 		}
 

@@ -1,5 +1,18 @@
 # i18n_es.messages for workplans's views
 
+anonymous.work-plan.form.title.show = Plan de trabajo
+
+anonymous.work-plan.form.label.title = Título:
+anonymous.work-plan.form.label.periodStart = Comienzo del período:
+anonymous.work-plan.form.label.periodEnd = Final del período:
+anonymous.work-plan.form.label.workload = Carga de trabajo (HH.mm):
+anonymous.work-plan.form.label.description = Descripción:
+anonymous.work-plan.form.label.state = Público:
+anonymous.work-plan.form.label.finished = Terminado:
+
+anonymous.work-plan.form.button.return = Volver
+
+anonymous.work-plan.list.label.title = Título
 anonymous.work-plan.list.label.periodStart = Comienzo del período
 anonymous.work-plan.list.label.periodEnd = Final del período
 anonymous.work-plan.list.label.workload = Carga de trabajo (HH.mm)

@@ -13,5 +13,8 @@ public interface AnonymousWorkPlanRepository extends AbstractRepository {
 
 	@Query("SELECT wp FROM WorkPlan wp where wp.state = true and wp.finished = false")
 	Collection<WorkPlan> findManyPublicUnfinished();
+	
+	@Query("select wp from WorkPlan wp where wp.id = ?1")
+	WorkPlan findOneWorkPlanById(int id);
 
 }
