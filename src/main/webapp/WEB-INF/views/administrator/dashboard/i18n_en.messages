@@ -1,6 +1,7 @@
 administrator.dashboard.form.title.show = Dashboard
 
 administrator.dashboard.form.title.general-indicators = General indicators
+administrator.dashboard.form.title.workplan-statuses = Workplan statuses
 
 administrator.dashboard.form.label.public-tasks-amount =  Number of public tasks
 administrator.dashboard.form.label.private-tasks-amount =  Number of private tasks
