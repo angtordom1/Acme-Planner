@@ -84,9 +84,9 @@ public class AdministratorSpamWordUpdateService implements AbstractUpdateService
 
 		Spam spam;
 		spam = this.spamRepository.findMany().iterator().next();
+		entity.setSpam(spam);
 		
 		this.repository.save(entity);
-		this.spamRepository.save(spam);	
 	}
 
 }

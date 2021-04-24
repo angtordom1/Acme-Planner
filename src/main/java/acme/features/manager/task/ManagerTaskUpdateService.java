@@ -87,16 +87,17 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 		assert entity != null;
 		assert errors != null;
 		
-		//PERIODSTART
+		
+		if(!errors.hasErrors("periodStart")){
 			final Date now = new GregorianCalendar().getTime();
 			now.setSeconds(0);
 			
 			errors.state(request, entity.getPeriodStart().after(now), "periodStart", "manager.task.form.error.pastPeriod");
-	
-		//PERIODEND
+		}
+		if(!errors.hasErrors("periodEnd")){
 			errors.state(request, entity.getPeriodEnd().after(entity.getPeriodStart()), "periodEnd", "manager.task.form.error.period");
-		
-		//WORKLOAD
+		}
+		if(!errors.hasErrors("workload")){
 			//Debe de caber dentro del tiempo de ejecución
 			final Date periodStart = entity.getPeriodStart();
 			final Date periodEnd = entity.getPeriodEnd();
@@ -106,7 +107,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 			final double minsW = (workload-hoursW)*100;
 			boolean res = false;
 			
-			if(periodStart.before(periodEnd)) {
+			if(periodStart != null && periodStart.before(periodEnd)) {
 				final long milliseconds = Math.abs(periodEnd.getTime() - periodStart.getTime());
 				final long diff = TimeUnit.MINUTES.convert(milliseconds, TimeUnit.MILLISECONDS);
 				final double hours = Math.floor(diff/60.0);
@@ -119,20 +120,22 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 			//Los decimales no pueden sobrepasar del 59
 			final double minutes = workload - hoursW;
 			errors.state(request, minutes <= 0.59, "workload", "manager.task.form.error.decimals");
-	
-		//TITLE
+		}
+		if(!errors.hasErrors("title")){
 			final String title = entity.getTitle();
 			final List<String> spamWords = this.spamService.getSpamWordsByString(title);
 			
 			errors.state(request, spamWords.isEmpty(), "title", "manager.task.form.error.spam", 
 				spamWords.toString().replaceAll("[\\[\\]]", ""));
-	
-		//DESCRIPTION
+		}
+		if(!errors.hasErrors("description")){
 			final String description = entity.getDescription();
 			final List<String> spamWordsD = this.spamService.getSpamWordsByString(description);
 			
 			errors.state(request, spamWordsD.isEmpty(), "description", "manager.task.form.error.spam", 
 				spamWordsD.toString().replaceAll("[\\[\\]]", ""));
+		}
+		
 	}
 
 	@Override

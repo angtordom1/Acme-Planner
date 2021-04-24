@@ -15,5 +15,4 @@ authenticated.task.list.label.title = Title
 authenticated.task.list.label.periodStart = Start of period
 authenticated.task.list.label.periodEnd = End of period
 authenticated.task.list.label.workload = Workload (HH.mm)
-authenticated.task.list.label.link = Link
-authenticated.task.list.label.description = Description
+authenticated.task.list.label.state = Public

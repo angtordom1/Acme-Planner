@@ -2,7 +2,9 @@ package acme.entities.spam;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -26,7 +28,9 @@ public class SpamWord extends DomainEntity{
 	
 	protected Integer size;
 	
-	@ManyToOne
+	@NotNull
+	@Valid
+	@ManyToOne(optional=false)
 	protected Spam spam;
 
 	@Override

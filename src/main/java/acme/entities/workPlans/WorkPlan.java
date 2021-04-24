@@ -7,11 +7,15 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 import acme.entities.tasks.Task;
 import acme.framework.entities.DomainEntity;
@@ -28,7 +32,11 @@ public class WorkPlan extends DomainEntity{
 	private static final long serialVersionUID = 1L;
 		
 	// Attributes -------------------------------------------------------------
-
+	
+	@NotBlank
+	@Length(min = 0, max = 80)
+	protected String title;
+	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date periodStart;
@@ -39,6 +47,10 @@ public class WorkPlan extends DomainEntity{
 	
 	@Digits(integer = 3, fraction = 2)
 	protected double workload;
+	
+	@NotBlank
+	@Length(min = 0, max = 500)
+	protected String description;
 	
 	//If true task is public else task is private
 	protected boolean state;
@@ -105,7 +117,7 @@ public class WorkPlan extends DomainEntity{
 	
 	// Relationships ----------------------------------------------------------
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	protected List<Task> tasks;
 
 

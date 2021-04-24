@@ -20,13 +20,14 @@ public class AnonymousWorkPlanController extends AbstractController<Anonymous, W
 		@Autowired
 		protected AnonymousWorkPlanListService	listService;
 		
-		
+		@Autowired
+		protected AnonymousWorkPlanShowService showService;
 
 		// Constructors -----------------------------------------------------------
 
 		@PostConstruct
 		protected void initialise() {
 			super.addBasicCommand(BasicCommand.LIST, this.listService);
-			
+			super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		}
 }

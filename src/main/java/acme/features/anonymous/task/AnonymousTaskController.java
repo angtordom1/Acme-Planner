@@ -20,7 +20,7 @@ public class AnonymousTaskController extends AbstractController<Anonymous, Task>
 	@Autowired
 	private AnonymousTaskListService listService;
   
-  @Autowired
+	@Autowired
 	protected AnonymousTaskShowService showService;
 	
 	// Constructors --------------------------------------------------------

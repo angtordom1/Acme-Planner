@@ -53,7 +53,6 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		
 		result = this.repository.findMany().stream().
 			filter(x->(TimeUnit.DAYS.convert(dia-x.getMoment().getTime(), TimeUnit.MILLISECONDS)<=30)).
-//			sorted(Comparator.comparing(Shout::getMoment,Comparator.nullsLast(Comparator.reverseOrder()))).
 			collect(Collectors.toList());
 
 		return result;
