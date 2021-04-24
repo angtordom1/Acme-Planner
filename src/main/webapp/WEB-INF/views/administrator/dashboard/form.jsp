@@ -141,5 +141,29 @@
 			${fn:replace(fn:replace(v8, ".", " "), ",", " ")}
 			<acme:message code="administrator.dashboard.form.label.minutes"/>
 		</td>
-	</tr>		
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.workplans-amount"/>
+		</th>
+		<td>
+			<acme:print value="${workPlansAmount}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.unpublished-workplans-amount"/>
+		</th>
+		<td>
+			<acme:print value="${unpublishedWorkPlansAmount}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.published-workplans-amount"/>
+		</th>
+		<td>
+			<acme:print value="${publishedWorkPlansAmount}"/>
+		</td>
+	</tr>				
 </table>

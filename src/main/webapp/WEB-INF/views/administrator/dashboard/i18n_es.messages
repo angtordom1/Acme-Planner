@@ -19,3 +19,8 @@ administrator.dashboard.form.label.maximun-workload =  Máxima carga de trabajo
 
 administrator.dashboard.form.label.hours = horas
 administrator.dashboard.form.label.minutes = minutos
+
+administrator.dashboard.form.label.workplans-amount = Número de planes de trabajo
+administrator.dashboard.form.label.unpublished-workplans-amount = Número de planes de trabajo sin publicar
+administrator.dashboard.form.label.published-workplans-amount = Número de planes de trabajo publicados
+
