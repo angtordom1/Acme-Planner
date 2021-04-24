@@ -20,6 +20,10 @@ public class Dashboard implements Serializable {
 	Long						finishedTasksAmount;
 	Long						unfinishedTasksAmount;
 	
+	Long 						workPlansAmount;
+	Long 						unpublishedWorkPlansAmount;
+	Long 						publishedWorkPlansAmount;
+	
 	Double						averagePeriodExecution;
 	Double						deviationPeriodExecution;
 	Double						minimunPeriodExecution;

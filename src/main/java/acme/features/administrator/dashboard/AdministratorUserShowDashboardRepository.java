@@ -32,4 +32,13 @@ public interface AdministratorUserShowDashboardRepository extends AbstractReposi
 	@Query("select t from Task t")
 	List<Task> findManyPublicTasks();
 	
+	@Query("select count(w) from WorkPlan w")
+	Long findWorkPlansAmount();
+	
+	@Query("select count(w) from WorkPlan w where w.state = false")
+	Long findUnpublishedWorkPlansAmount();
+	
+	@Query("select count(w) from WorkPlan w where w.state = true")
+	Long findPublishedWorkPlansAmount();
+	
 }
