@@ -36,6 +36,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		return true;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void validate(final Request<Task> request, final Task entity, final Errors errors) {
 		assert request != null;
@@ -64,7 +65,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			if(periodStart.before(periodEnd)) {
 				final long milliseconds = Math.abs(periodEnd.getTime() - periodStart.getTime());
 				final long diff = TimeUnit.MINUTES.convert(milliseconds, TimeUnit.MILLISECONDS);
-				final double hours = Math.floor(diff/60);
+				final double hours = Math.floor(diff/60.0);
 				final double mins = diff%60;
 				res =  (hoursW > hours) || (hoursW == hours && minsW > mins);
 			}

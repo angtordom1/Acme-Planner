@@ -113,12 +113,6 @@
 		<property name="state" value="true"/>
 		<property name="finished" value="true"/>
 		<property name="manager" ref="manager1Manager"/>
-		<property name="workplans">
-			<list>
-				<ref bean="workPlan001"/>
-				<ref bean="workPlan003"/>
-			</list>
-		</property>
 	</bean>
 	
 	<bean id="task002" class="acme.entities.tasks.Task">
@@ -131,11 +125,6 @@
 		<property name="state" value="false"/>
 		<property name="finished" value="true"/>
 		<property name="manager" ref="manager1Manager"/>
-		<property name="workplans">
-			<list>
-				<ref bean="workPlan002"/>
-			</list>
-		</property>
 	</bean>
 	
 	<bean id="task003" class="acme.entities.tasks.Task">
@@ -148,11 +137,6 @@
 		<property name="state" value="false"/>
 		<property name="finished" value="true"/>
 		<property name="manager" ref="manager1Manager"/>
-		<property name="workplans">
-			<list>
-				<ref bean="workPlan002"/>
-			</list>
-		</property>
 	</bean>
 	
 	<bean id="task004" class="acme.entities.tasks.Task">
@@ -165,12 +149,6 @@
 		<property name="state" value="true"/>
 		<property name="finished" value="true"/>
 		<property name="manager" ref="manager1Manager"/>
-		<property name="workplans">
-			<list>
-				<ref bean="workPlan001"/>
-				<ref bean="workPlan003"/>
-			</list>
-		</property>
 	</bean>
 	
 	<bean id="task005" class="acme.entities.tasks.Task">
@@ -183,11 +161,6 @@
 		<property name="state" value="true"/>
 		<property name="finished" value="false"/>
 		<property name="manager" ref="manager1Manager"/>
-		<property name="workplans">
-			<list>
-				<ref bean="workPlan001"/>
-			</list>
-		</property>
 	</bean>
 	
 	<bean id="task006" class="acme.entities.tasks.Task">
@@ -200,11 +173,6 @@
 		<property name="state" value="false"/>
 		<property name="finished" value="false"/>
 		<property name="manager" ref="manager1Manager"/>
-		<property name="workplans">
-			<list>
-				<ref bean="workPlan004"/>
-			</list>
-		</property>
 	</bean>
 	
 	

@@ -51,12 +51,11 @@ public class WorkPlan extends DomainEntity{
 	public Double getTotalWorkload(final List<Task> taskList) {
 		double minute = 0.00;
 		double hour = 0.00;
-		final List<Task> taskList = this.tasks;
 		for (int i = 0; i<taskList.size(); i++) {
 			final Task task = taskList.get(i);
-			final double workload  = task.getWorkload();
-			final double hoursW = Math.floor(workload);
-			final double minutes = workload - hoursW;
+			final double taskWorkload  = task.getWorkload();
+			final double hoursW = Math.floor(taskWorkload);
+			final double minutes = taskWorkload - hoursW;
 			minute+=minutes;
 			hour+= hoursW;
 			
