@@ -1,0 +1,7 @@
+# i18n_en.messages for workplans's views
+
+anonymous.work-plan.list.label.periodStart = Start of period
+anonymous.work-plan.list.label.periodEnd = End of period
+anonymous.work-plan.list.label.workload = Workload (HH.mm)
+anonymous.work-plan.list.label.state = Public
+anonymous.work-plan.list.label.finished = Finished

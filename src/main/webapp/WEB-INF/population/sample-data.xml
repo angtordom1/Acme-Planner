@@ -42,40 +42,68 @@
 	<bean name="manager1Authenticated" class="acme.framework.entities.Authenticated">
 		<property name="userAccount" ref="manager1UserAccount" />
 	</bean>
-  
-  	<!-- WorkPlan -->
+	
+	<!-- WorkPlan -->
 
-	<bean id="workPlan01" class="acme.entities.workPlans.WorkPlan">
+	<bean id="workPlan001" class="acme.entities.workPlans.WorkPlan">
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="32.50" />
 		<property name="state" value="true" />
-		<property name="tasks">	
-		<list>
-				<ref bean="task01" />
-				<ref bean="task02" />
-		</list>
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task001"/>
+				<ref bean="task004"/>
+				<ref bean="task005"/>
+			</list>
 		</property>
 	</bean>
 	
-	<bean id="workPlan02" class="acme.entities.workPlans.WorkPlan">
-		<property name="state" value="true" />
-		<property name="tasks">	
-		<list>
-				<ref bean="task01" />
-				<ref bean="task02" />
-		</list>
-		</property>
-	</bean>
-	
-	<bean id="workPlan03" class="acme.entities.workPlans.WorkPlan">
+	<bean id="workPlan002" class="acme.entities.workPlans.WorkPlan">
+		<property name="periodStart" value="2021/04/02 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="21.4" />
 		<property name="state" value="false" />
-		<property name="tasks">	
-		<list>
-		</list>
+		<property name="finished" value="true" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task002"/>
+				<ref bean="task003"/>
+			</list>
 		</property>
 	</bean>
-  
-	<!-- Tasks -->
+	
+	<bean id="workPlan003" class="acme.entities.workPlans.WorkPlan">
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="21.50" />
+		<property name="state" value="true" />
+		<property name="finished" value="true" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task001"/>
+				<ref bean="task004"/>
+			</list>
+		</property>
+	</bean>
+	
+		<bean id="workPlan004" class="acme.entities.workPlans.WorkPlan">
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="11.00" />
+		<property name="state" value="false" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref  bean="task006"/>
+			</list>
+		</property>
+	</bean>
+	
+		<!-- Tasks -->
 
-	<bean id="task01" class="acme.entities.tasks.Task">
+	<bean id="task001" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 001" />
 		<property name="periodStart" value="2021/04/01 19:59" />
 		<property name="periodEnd" value="2021/04/02 20:00" />
@@ -84,17 +112,10 @@
 		<property name="link"><null/></property>
 		<property name="state" value="true"/>
 		<property name="finished" value="true"/>
-		<!-- <property name="creationDate" value="2021/04/01 19:00"/>-->
 		<property name="manager" ref="manager1Manager"/>
-		<property name="workplan">
-			<list>
-				<ref bean="workPlan01" />
-				<ref bean="workPlan02" />
-			</list>
-		</property>
 	</bean>
 	
-	<bean id="task02" class="acme.entities.tasks.Task">
+	<bean id="task002" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 002" />
 		<property name="periodStart" value="2021/04/02 19:59" />
 		<property name="periodEnd" value="2021/04/03 20:00" />
@@ -103,17 +124,10 @@
 		<property name="link"><null/></property>
 		<property name="state" value="false"/>
 		<property name="finished" value="true"/>
-		<!-- <property name="creationDate" value="2021/04/01 19:00"/>-->
 		<property name="manager" ref="manager1Manager"/>
-		<property name="workplan">
-			<list>
-				<ref bean="workPlan01" />
-				<ref bean="workPlan02" />
-			</list>
-		</property>
 	</bean>
 	
-	<bean id="task03" class="acme.entities.tasks.Task">
+	<bean id="task003" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 003" />
 		<property name="periodStart" value="2021/04/05 19:59" />
 		<property name="periodEnd" value="2021/04/06 20:00" />
@@ -122,11 +136,10 @@
 		<property name="link"><null/></property>
 		<property name="state" value="false"/>
 		<property name="finished" value="true"/>
-		<!-- <property name="creationDate" value="2021/04/02 19:00"/>-->
 		<property name="manager" ref="manager1Manager"/>
 	</bean>
 	
-	<bean id="task04" class="acme.entities.tasks.Task">
+	<bean id="task004" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 004" />
 		<property name="periodStart" value="2021/04/04 19:59" />
 		<property name="periodEnd" value="2021/04/06 20:00" />
@@ -135,11 +148,10 @@
 		<property name="link"><null/></property>
 		<property name="state" value="true"/>
 		<property name="finished" value="true"/>
-		<!-- <property name="creationDate" value="2021/04/02 19:00"/>-->
 		<property name="manager" ref="manager1Manager"/>
 	</bean>
 	
-	<bean id="task05" class="acme.entities.tasks.Task">
+	<bean id="task005" class="acme.entities.tasks.Task">
 		<property name="title" value="Task 005" />
 		<property name="periodStart" value="2021/07/04 19:59" />
 		<property name="periodEnd" value="2021/07/05 20:00" />
@@ -148,9 +160,21 @@
 		<property name="link"><null/></property>
 		<property name="state" value="true"/>
 		<property name="finished" value="false"/>
-		<!-- <property name="creationDate" value="2021/04/02 19:00"/>-->
 		<property name="manager" ref="manager1Manager"/>
 	</bean>
+	
+	<bean id="task006" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 006" />
+		<property name="periodStart" value="2021/06/04 19:59" />
+		<property name="periodEnd" value="2021/06/05 20:00" />
+		<property name="workload" value="11.00"/>
+		<property name="description" value="Sixth Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="false"/>
+		<property name="finished" value="false"/>
+		<property name="manager" ref="manager1Manager"/>
+	</bean>
+	
 	
 	<!-- Shouts -->
 	
