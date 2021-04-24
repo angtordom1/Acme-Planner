@@ -1,10 +1,6 @@
 package acme.entities.spam;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 
 import org.hibernate.validator.constraints.Range;
 
@@ -25,9 +21,5 @@ public class Spam extends DomainEntity{
 
 	@Range(min=1,max=100)
 	protected Double umbral;
-	
-	
-	@OneToMany(mappedBy = "spam", fetch = FetchType.EAGER)
-	protected List<SpamWord> spamWords;
 	
 }

@@ -85,11 +85,9 @@ public class AdministratorSpamWordCreateService implements AbstractCreateService
 		
 		Spam spam;
 		spam = this.spamRepository.findMany().iterator().next();
-		spam.getSpamWords().add(entity);
+		entity.setSpam(spam);
 		
 		this.repository.save(entity);
-		this.spamRepository.save(spam);
-		
 	}
 
 }

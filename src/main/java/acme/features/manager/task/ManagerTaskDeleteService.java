@@ -1,10 +1,14 @@
 package acme.features.manager.task;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
+import acme.entities.workPlans.WorkPlan;
+import acme.features.manager.workPlan.ManagerWorkPlanRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -18,6 +22,9 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager,T
 
 	@Autowired
 	protected ManagerTaskRepository repository;
+	
+	@Autowired
+	protected ManagerWorkPlanRepository workPlanRepository;
 
 	// AbstractDeleteService<Manager, Task> interface -------------------------
 	
@@ -81,7 +88,13 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager,T
 	public void delete(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
-
+		
+		final Collection<WorkPlan> workPlans= this.workPlanRepository.findManyByTaskId(entity.getId());
+		for(final WorkPlan workPlan: workPlans) {
+			workPlan.getTasks().remove(entity);
+		}
+		
+		
 		this.repository.delete(entity);
 	}
 }

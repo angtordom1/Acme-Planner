@@ -32,7 +32,7 @@ public class AdministratorSpamShowService implements AbstractShowService<Adminis
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "umbral", "spamWords");
+		request.unbind(entity, model, "umbral");
 	}
 
 	@Override

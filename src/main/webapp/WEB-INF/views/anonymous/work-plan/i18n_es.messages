@@ -9,6 +9,7 @@ anonymous.work-plan.form.label.workload = Carga de trabajo (HH.mm):
 anonymous.work-plan.form.label.description = Descripción:
 anonymous.work-plan.form.label.state = Público:
 anonymous.work-plan.form.label.finished = Terminado:
+anonymous.work-plan.form.label.tasks = Tareas:
 
 anonymous.work-plan.form.button.return = Volver
 

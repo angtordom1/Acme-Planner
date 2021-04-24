@@ -42,7 +42,7 @@ public class AdministratorSpamUpdateService implements AbstractUpdateService<Adm
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "umbral","spamWords");
+		request.unbind(entity, model, "umbral");
 	}
 
 	@Override

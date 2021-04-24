@@ -14,7 +14,7 @@
 
   <import resource="classpath:/WEB-INF/population/conversion-service.xml"/>	
   	
-  	<!-- Manager -->
+  	<!-- Manager1 -->
 	
 	<bean name="manager1UserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="manager1" />
@@ -34,17 +34,10 @@
 			</list>
 		</property>
 	</bean>
-
-	<bean name="manager1Manager" class="acme.entities.roles.Manager">
-		<property name="userAccount" ref="manager1UserAccount" />
-	</bean>
-	
-	<bean name="manager1Authenticated" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" ref="manager1UserAccount" />
-	</bean>
-	
 	<!-- WorkPlan -->
 
+	<!-- WorkPlan public and unfinished -->
+	
 	<bean id="workPlan001" class="acme.entities.workPlans.WorkPlan">
 		<property name="title" value="workPlan001" />
 		<property name="periodStart" value="2021/04/01 19:59" />
@@ -60,7 +53,97 @@
 				<ref bean="task005"/>
 			</list>
 		</property>
+	</bean>	
+	<bean id="workPlan011" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan011" />
+		<property name="periodStart" value="2021/07/04 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="11.00" />
+		<property name="description" value="workPlan011 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task005"/>
+			</list>
+		</property>
 	</bean>
+	<bean id="workPlan021" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan021" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="21.50" />
+		<property name="description" value="workPlan021 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task005"/>
+				<ref bean="task001"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="workPlan031" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan031" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="0.00" />
+		<property name="description" value="workPlan031 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+			</list>
+		</property>
+	</bean>
+	<bean id="workPlan041" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan041" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="32.50" />
+		<property name="description" value="workPlan041 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task001"/>
+				<ref bean="task004"/>
+				<ref bean="task005"/>
+			</list>
+		</property>
+	</bean>	
+		<bean id="workPlan051" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan041" />
+		<property name="periodStart" value="2021/04/04 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="22.00" />
+		<property name="description" value="workPlan041 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task004"/>
+				<ref bean="task005"/>
+			</list>
+		</property>
+	</bean>	
+	<bean id="workPlan006" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan006" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="32.50" />
+		<property name="description" value="workPlan006 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task001"/>
+				<ref bean="task004"/>
+				<ref bean="task005"/>
+			</list>
+		</property>
+	</bean>	
+	<!-- Workplan finished and private -->
 	
 	<bean id="workPlan002" class="acme.entities.workPlans.WorkPlan">
 		<property name="title" value="workPlan002" />
@@ -77,6 +160,37 @@
 			</list>
 		</property>
 	</bean>
+		<bean id="workPlan012" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan012" />
+		<property name="periodStart" value="2021/04/02 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="21.4" />
+		<property name="description" value="workPlan012 of the project"/>
+		<property name="state" value="false" />
+		<property name="finished" value="true" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task002"/>
+				<ref bean="task003"/>
+			</list>
+		</property>
+	</bean>
+		<bean id="workPlan022" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan022" />
+		<property name="periodStart" value="2021/04/02 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="00.0" />
+		<property name="description" value="workPlan022 of the project"/>
+		<property name="state" value="false" />
+		<property name="finished" value="true" />
+		<property name="tasks"> 			
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- Workplan finished and public -->
 	
 	<bean id="workPlan003" class="acme.entities.workPlans.WorkPlan">
 		<property name="title" value="workPlan003" />
@@ -93,8 +207,40 @@
 			</list>
 		</property>
 	</bean>
+		<bean id="workPlan013" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan013" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="21.50" />
+		<property name="description" value="workPlan013 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="true" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task001"/>
+				<ref bean="task004"/>
+			</list>
+		</property>
+	</bean>
+		<bean id="workPlan023" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan023" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="21.50" />
+		<property name="description" value="workPlan023 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="true" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task001"/>
+				<ref bean="task004"/>
+			</list>
+		</property>
+	</bean>
 	
-		<bean id="workPlan004" class="acme.entities.workPlans.WorkPlan">
+	<!-- Workplan unfinished and private -->
+	
+	<bean id="workPlan004" class="acme.entities.workPlans.WorkPlan">
 		<property name="title" value="workPlan004" />
 		<property name="periodStart" value="2021/04/01 19:59" />
 		<property name="periodEnd" value="2021/07/05 20:00" />
@@ -105,6 +251,19 @@
 		<property name="tasks"> 			
 			<list>
 				<ref  bean="task006"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="workPlan014" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan014" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="00.00" />
+		<property name="description" value="workPlan014 of the project"/>
+		<property name="state" value="false" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
 			</list>
 		</property>
 	</bean>
@@ -165,7 +324,7 @@
 		<property name="periodEnd" value="2021/07/05 20:00" />
 		<property name="workload" value="11.00"/>
 		<property name="description" value="Fifth Task of the project"/>
-		<property name="link"><null/></property>
+		<property name="link" value="http://www.google.com"/>
 		<property name="state" value="true"/>
 		<property name="finished" value="false"/>
 		<property name="manager" ref="manager1Manager"/>
@@ -182,12 +341,254 @@
 		<property name="finished" value="false"/>
 		<property name="manager" ref="manager1Manager"/>
 	</bean>
+
+	<!-- Manager2 -->
+	<bean name="manager1Manager" class="acme.entities.roles.Manager">
+		<property name="userAccount" ref="manager1UserAccount" />
+	</bean>
+	
+	<bean name="manager1Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="manager1UserAccount" />
+	</bean>
+	
+	<bean name="manager2UserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager2" />
+		<property name="password" value="manager2" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Manager2" />
+				<property name="surname" value="Acme2.com" />
+				<property name="email" value="manager2@acme.com" />
+			</bean>
+		</property>
+		<property name="enabled" value="true" />
+		<property name="roles">
+			<list>
+				<ref bean="manager2Manager" />
+				<ref bean="manager2Authenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="manager2Manager" class="acme.entities.roles.Manager">
+		<property name="userAccount" ref="manager2UserAccount" />
+	</bean>
+	
+	<bean name="manager2Authenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="manager2UserAccount" />
+	</bean>
+	
+	<!-- WorkPlan -->
+
+	<!-- WorkPlan public and unfinished -->
+	
+	<bean id="workPlan005" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan005" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="32.50" />
+		<property name="description" value="workPlan005 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task007"/>
+				<ref bean="task010"/>
+				<ref bean="task011"/>
+			</list>
+		</property>
+	</bean>	
+	<bean id="workPlan015" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan015" />
+		<property name="periodStart" value="2021/07/04 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="11.0" />
+		<property name="description" value="workPlan015 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task011"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="workPlan025" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan025" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="22.00" />
+		<property name="description" value="workPlan025 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task011"/>
+				<ref bean="task012"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="workPlan035" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan035" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="32.50" />
+		<property name="description" value="workPlan035 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task001"/>
+				<ref bean="task004"/>
+				<ref bean="task005"/>
+			</list>
+		</property>
+	</bean>	
+	<!-- Workplan finished and private -->
+	
+	<bean id="workPlan007" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan007" />
+		<property name="periodStart" value="2021/04/02 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="21.4" />
+		<property name="description" value="workPlan007 of the project"/>
+		<property name="state" value="false" />
+		<property name="finished" value="true" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task008"/>
+				<ref bean="task009"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="workPlan027" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan027" />
+		<property name="periodStart" value="2021/04/02 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="00.0" />
+		<property name="description" value="workPlan027 of the project"/>
+		<property name="state" value="false" />
+		<property name="finished" value="true" />
+		<property name="tasks"> 			
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- Workplan finished and public -->
+	
+	<bean id="workPlan008" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan008" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="21.50" />
+		<property name="description" value="workPlan008 of the project"/>
+		<property name="state" value="true" />
+		<property name="finished" value="true" />
+		<property name="tasks"> 			
+			<list>
+				<ref bean="task007"/>
+				<ref bean="task010"/>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Workplan unfinished and private -->
+	
+	<bean id="workPlan009" class="acme.entities.workPlans.WorkPlan">
+		<property name="title" value="workPlan009" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="11.00" />
+		<property name="description" value="workPlan009 of the project"/>
+		<property name="state" value="false" />
+		<property name="finished" value="false" />
+		<property name="tasks"> 			
+			<list>
+				<ref  bean="task012"/>
+			</list>
+		</property>
+	</bean>
+	
+		<!-- Tasks -->
+
+	<bean id="task007" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 007" />
+		<property name="periodStart" value="2021/04/01 19:59" />
+		<property name="periodEnd" value="2021/04/02 20:00" />
+		<property name="workload" value="10.50"/>
+		<property name="description" value="Seventh Task of the project"/>
+		<property name="link" value="http://www.google.com"/>
+		<property name="state" value="true"/>
+		<property name="finished" value="true"/>
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	<bean id="task008" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 008" />
+		<property name="periodStart" value="2021/04/02 19:59" />
+		<property name="periodEnd" value="2021/04/03 20:00" />
+		<property name="workload" value="10.50"/>
+		<property name="description" value="Eighth Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="false"/>
+		<property name="finished" value="true"/>
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	<bean id="task009" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 009" />
+		<property name="periodStart" value="2021/04/05 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="10.50"/>
+		<property name="description" value="Nineth Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="false"/>
+		<property name="finished" value="true"/>
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	<bean id="task010" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 010" />
+		<property name="periodStart" value="2021/04/04 19:59" />
+		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="workload" value="11.00"/>
+		<property name="description" value="Tenth Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="true"/>
+		<property name="finished" value="true"/>
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	<bean id="task011" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 011" />
+		<property name="periodStart" value="2021/07/04 19:59" />
+		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="workload" value="11.00"/>
+		<property name="description" value="Eleventh Task of the project"/>
+		<property name="link" value="http://www.google.com"/>
+		<property name="state" value="true"/>
+		<property name="finished" value="false"/>
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
+	
+	<bean id="task012" class="acme.entities.tasks.Task">
+		<property name="title" value="Task 012" />
+		<property name="periodStart" value="2021/06/04 19:59" />
+		<property name="periodEnd" value="2021/06/05 20:00" />
+		<property name="workload" value="11.00"/>
+		<property name="description" value="Twelveth Task of the project"/>
+		<property name="link"><null/></property>
+		<property name="state" value="false"/>
+		<property name="finished" value="false"/>
+		<property name="manager" ref="manager2Manager"/>
+	</bean>
 	
 	
 	<!-- Shouts -->
 	
 	<bean id="shout01" class="acme.entities.shouts.Shout">
-		<property name="moment" value="2021/02/13 19:39"/>
+		<property name="moment" value="2021/04/13 19:39"/>
 		<property name="author" value="John Doe"/>
 		<property name="text" value="I'm happy!"/>
 		<property name="info"><null/></property>	
@@ -201,7 +602,7 @@
 	</bean>
 	
 	<bean id="shout03" class="acme.entities.shouts.Shout">
-		<property name="moment" value="2020/09/07 00:00"/>
+		<property name="moment" value="2021/03/17 00:00"/>
 		<property name="author" value="Foo Bar"/>
 		<property name="text" value="Just turning 50!"/>
 		<property name="info" value="http://happybirthday.com"/>		
@@ -210,21 +611,35 @@
 	<bean id="shout04" class="acme.entities.shouts.Shout">
 		<property name="author" value="Leslie Design-Testing"/>
 		<property name="text" value="Woa! This app's so cool!"/>
-		<property name="moment" value="2021/02/13 12:30"/>
+		<property name="moment" value="2021/04/13 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
 	<bean id="shout05" class="acme.entities.shouts.Shout">
 		<property name="author" value="Leslie Design-Testing"/>
 		<property name="text" value="Woa! This app's so cool!"/>
-		<property name="moment" value="2021/03/12 12:30"/>
+		<property name="moment" value="2021/04/12 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
 	<bean id="shout06" class="acme.entities.shouts.Shout">
 		<property name="author" value="Leslie Design-Testing"/>
 		<property name="text" value="Woa! This app's so cool!"/>
-		<property name="moment" value="2021/03/9 12:30"/>
+		<property name="moment" value="2021/04/9 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+	<bean id="shout07" class="acme.entities.shouts.Shout">
+		<property name="author" value="Leslie Design-Testing"/>
+		<property name="text" value="Woa! This app's so cool!"/>
+		<property name="moment" value="2021/04/21 12:30"/>
+		<property name="info" value="http://www.sample-app.com"/>
+	</bean>
+	
+	<bean id="shout08" class="acme.entities.shouts.Shout">
+		<property name="author" value="Leslie Design-Testing"/>
+		<property name="text" value="Woa! This app's so cool!"/>
+		<property name="moment" value="2021/04/20 12:30"/>
 		<property name="info" value="http://www.sample-app.com"/>
 	</bean>
 	
@@ -234,9 +649,6 @@
 
 	<bean id="spam" class="acme.entities.spam.Spam">
 		<property name="umbral" value="10"/>
-		<property name="spamWords">
-			<null/>
-		</property>  
 	</bean>
 	
 	
@@ -307,20 +719,13 @@
 		</property>
 	</bean>
 	<bean id="spamWord010" class="acme.entities.spam.SpamWord">
-		<property name="word" value="viagra"/>
-		<property name="size"  value="1"/>
-		<property name="spam">
-			<ref bean="spam" />
-		</property>
-	</bean>
-	<bean id="spamWord011" class="acme.entities.spam.SpamWord">
 		<property name="word" value="has ganado"/>
 		<property name="size"  value="2"/>
 		<property name="spam">
 			<ref bean="spam" />
 		</property>
 	</bean>
-	<bean id="spamWord012" class="acme.entities.spam.SpamWord">
+	<bean id="spamWord011" class="acme.entities.spam.SpamWord">
 		<property name="word" value="millon de euros"/>
 		<property name="size"  value="3"/>
 		<property name="spam">

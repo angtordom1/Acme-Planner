@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -116,7 +117,7 @@ public class WorkPlan extends DomainEntity{
 	
 	// Relationships ----------------------------------------------------------
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	protected List<Task> tasks;
 
 
