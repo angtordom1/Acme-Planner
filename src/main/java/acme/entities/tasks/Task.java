@@ -1,7 +1,7 @@
 package acme.entities.tasks;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -65,10 +65,6 @@ public class Task extends DomainEntity{
 	//If true task is finished else task is not finished
 	protected boolean finished;
 	
-//	@NotNull
-//	@Temporal(TemporalType.TIMESTAMP)
-//	protected Date creationDate;
-	
 	// Derived attributes -----------------------------------------------------
 	
 	public boolean isFinished() {
@@ -82,9 +78,9 @@ public class Task extends DomainEntity{
 	}
 	
 	// Relationships ----------------------------------------------------------
-
- 	@ManyToMany
-	protected Set<WorkPlan> workplan;
+	
+	@ManyToMany
+	protected List<WorkPlan> workplans;
   
 	@NotNull
 	@Valid

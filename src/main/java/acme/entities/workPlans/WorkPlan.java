@@ -4,11 +4,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -51,16 +49,14 @@ public class WorkPlan extends DomainEntity{
 
 	// Derived attributes -----------------------------------------------------
 	
-	public Double getWorkload() {
+	public Double getTotalWorkload(final List<Task> taskList) {
 		double minute = 0.00;
 		double hour = 0.00;
-		Set<Task> tasks = this.tasks;
-		for (Iterator<Task> it = tasks.iterator(); it.hasNext(); ) {
-			Task task = it.next();
-			
-			double workload  = task.getWorkload();
-			double hoursW = Math.floor(workload);
-			double minutes = workload - hoursW;
+		for (int i = 0; i<taskList.size(); i++) {
+			final Task task = taskList.get(i);
+			final double workload  = task.getWorkload();
+			final double hoursW = Math.floor(workload);
+			final double minutes = workload - hoursW;
 			minute+=minutes;
 			hour+= hoursW;
 			
@@ -81,8 +77,8 @@ public class WorkPlan extends DomainEntity{
 
 			final Date aux =this.tasks.stream().map(Task::getPeriodStart).min(Date::compareTo).get();
 			final LocalDate tm=aux.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-			res=LocalDateTime.of(tm.getYear(),tm.getMonth(),tm.getDayOfMonth()-1,8,0);
-
+			res = LocalDateTime.of(tm.getYear(),tm.getMonth(),tm.getDayOfMonth()-1,8,0);
+			
 		}
 		return res;
 	}
@@ -111,8 +107,8 @@ public class WorkPlan extends DomainEntity{
 	
 	// Relationships ----------------------------------------------------------
 
-	@ManyToMany(mappedBy = "workplan", fetch = FetchType.EAGER)
-	protected Set<Task> tasks;
+	@ManyToMany
+	protected List<Task> tasks;
 
 
 }
