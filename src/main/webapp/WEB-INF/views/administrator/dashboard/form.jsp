@@ -167,3 +167,56 @@
 		</td>
 	</tr>				
 </table>
+
+<h2>
+	<acme:message code="administrator.dashboard.form.title.workplan-statuses"/>
+</h2>
+
+<div>
+	<canvas id="canvas"></canvas>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		var data = {
+			labels : [
+					"TOTAL", "PUBLISHED", "UNPUBLISHED"
+			],
+			datasets : [
+				{
+					data : [
+						<jstl:out value="${workPlansAmount}"/>,
+						<jstl:out value="${publishedWorkPlansAmount}"/>,
+						<jstl:out value="${unpublishedWorkPlansAmount}"/>
+					]
+				}
+			]
+		};
+		var options = {
+			scales : {
+				yAxes : [
+					{
+						ticks : {
+							suggestedMin : 0.0,
+							suggestedMax : <jstl:out value="${workPlansAmount}"/>
+						}
+					}
+				]
+			},
+			legend : {
+				display : false
+			}
+		};
+		
+		var canvas, context;
+		
+		canvas = document.getElementById("canvas");
+		context = canvas.getContext("2d");
+		new Chart(context, {
+			type : "bar",
+			data : data,
+			options : options
+		});
+	});
+</script>
