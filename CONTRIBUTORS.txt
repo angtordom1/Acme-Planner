@@ -8,4 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-- Rafael Corchuelo (corchu@us.es)
+- Antonio Javier Sanchez Soria (antsansor@alum.us.es)
+- Antonio Viñuelas Perales (antvinper@alum.us.es)
+- Ángel Torregrosa Domínguez (angtordom1@alum.us.es)
+- Felipe Escalera González (felescgon@alum.us.es)

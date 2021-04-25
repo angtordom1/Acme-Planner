@@ -1,0 +1,26 @@
+administrator.dashboard.form.title.show = Dashboard
+
+administrator.dashboard.form.title.general-indicators = General indicators
+administrator.dashboard.form.title.workplan-statuses = Workplan statuses
+
+administrator.dashboard.form.label.public-tasks-amount =  Number of public tasks
+administrator.dashboard.form.label.private-tasks-amount =  Number of private tasks
+administrator.dashboard.form.label.finished-tasks-amount =  Number of finished tasks
+administrator.dashboard.form.label.unfinished-tasks-amount =  Number of unfinished tasks
+
+administrator.dashboard.form.label.average-period-execution =  Average period execution
+administrator.dashboard.form.label.deviation-period-execution =  Deviation of period execution
+administrator.dashboard.form.label.minimun-period-execution =  Minimun period execution
+administrator.dashboard.form.label.maximun-period-execution =  Maximun period execution
+
+administrator.dashboard.form.label.average-workload =  Average workload
+administrator.dashboard.form.label.deviation-workload =  Deviation of workload
+administrator.dashboard.form.label.minimun-workload =  Minimun workload
+administrator.dashboard.form.label.maximun-workload =  Maximun workload
+
+administrator.dashboard.form.label.hours = hours
+administrator.dashboard.form.label.minutes = minutes
+
+administrator.dashboard.form.label.workplans-amount = Number of workplans
+administrator.dashboard.form.label.unpublished-workplans-amount = Number of unpublished workplans
+administrator.dashboard.form.label.published-workplans-amount = Number of published workplans
