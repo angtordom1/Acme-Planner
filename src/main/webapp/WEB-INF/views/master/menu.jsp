@@ -42,6 +42,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
+			<acme:menu-suboption code="master.menu.manager.create-workplan" action="/manager/work-plan/create"/>
+			<acme:menu-suboption code="master.menu.manager.my-workplans" action="/manager/work-plan/list-mine"/>
 			<acme:menu-suboption code="master.menu.manager.create-task" action="/manager/task/create"/>
 			<acme:menu-suboption code="master.menu.manager.my-tasks" action="/manager/task/list-mine"/>
 		</acme:menu-option>

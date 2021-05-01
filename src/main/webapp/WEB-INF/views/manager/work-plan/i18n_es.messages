@@ -1,0 +1,39 @@
+# i18n_es.messages for workplans's views
+
+manager.work-plan.form.title.show = Plan de trabajo
+
+
+
+
+manager.work-plan.form.title.show = WorkPlan
+manager.work-plan.form.title.create = Crear WorkPlan
+manager.work-plan.form.title.update = Actualizar WorkPlan
+manager.work-plan.form.title.delete = Borrar WorkPlan
+
+
+manager.work-plan.form.label.title = Título:
+manager.work-plan.form.label.periodStart = Comienzo del período:
+manager.work-plan.form.label.periodEnd = Final del período:
+manager.work-plan.form.label.workload = Carga de trabajo (HH.mm):
+manager.work-plan.form.label.description = Descripción:
+manager.work-plan.form.label.state = Público
+manager.work-plan.form.label.finished = Terminado
+manager.work-plan.form.label.tasks = Tareas:
+
+manager.work-plan.form.button.return = Volver
+
+manager.work-plan.list.label.title = Título
+manager.work-plan.list.label.periodStart = Comienzo del período
+manager.work-plan.list.label.periodEnd = Final del período
+
+manager.work-plan.form.error.pastPeriod = The execution period must be in the future when the workplan is created
+manager.work-plan.form.error.period = period end cannot be before that period Start
+manager.work-plan.form.error.decimals = Decimals can just get to 59, it represents minutes
+manager.work-plan.form.error.workloadFit = Workload must fit between the execution period 
+manager.work-plan.form.error.spam = This field exceeds the amount of spam words permitted because of the following terms: {0}
+manager.workplan.form.error.state = Can't public a workplan in this state
+manager.workplan.form.error.manager = The workplan has to contain task of his manager
+manager.workplan.form.error.badtasks= A public workplan can't contain private tasks 
+manager.work-plan.list.label.workload = Carga de trabajo (HH.mm)
+manager.work-plan.list.label.state = Público
+manager.work-plan.list.label.finished = Terminado

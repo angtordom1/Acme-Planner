@@ -8,7 +8,7 @@
 	<acme:form-moment code="manager.task.form.label.periodStart" path="periodStart"/>
 	<acme:form-moment code="manager.task.form.label.periodEnd" path="periodEnd"/>
 	<acme:form-double code="manager.task.form.label.workload" path="workload"/>
-	<acme:form-textarea code="manager.task.form.label.description" path="description"/>	
+	<acme:form-textarea  code="manager.task.form.label.description" path="description"/>	
 	<acme:form-url code="manager.task.form.label.link" path="link"/>
 	<acme:form-checkbox code="manager.task.form.label.state" path="state"/>
 	

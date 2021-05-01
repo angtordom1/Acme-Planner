@@ -80,4 +80,10 @@ public class Task extends DomainEntity{
 	@Valid
 	@ManyToOne(optional = false)
 	protected Manager manager;
+
+
+
+
+	
+	
 }
