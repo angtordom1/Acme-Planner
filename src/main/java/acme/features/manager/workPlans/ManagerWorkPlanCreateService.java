@@ -14,7 +14,6 @@ import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.entities.workPlans.WorkPlan;
 import acme.features.manager.task.ManagerTaskRepository;
-import acme.features.spam.SpamService;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -31,9 +30,6 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 
 	@Autowired
 	protected ManagerTaskRepository taskRepository;
-
-	@Autowired
-	protected SpamService spamService;
 
 	// AbstractCreateService<Manager, WorkPlan> interface -------------------------
 
@@ -70,38 +66,49 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 			final Date now = new GregorianCalendar().getTime();
 			now.setSeconds(0);
 
-//			errors.state(request, entity.getPeriodStart().after(now), "periodStart", "manager.workplan.form.error.pastPeriod");
+			errors.state(request, entity.getPeriodStart().after(now), "periodStart", "manager.work-plan.form.error.pastPeriod");
+			
 			final Date aux =entity.getTasks().stream().map(Task::getPeriodStart).min(Date::compareTo).orElse(new Date());
-			errors.state(request, entity.getPeriodStart().before(aux), "periodStart", "manager.workplan.form.error.pastPeriod");
-			
+			errors.state(request, entity.getPeriodStart().before(aux), "periodStart", "manager.work-plan.form.error.periodStartTask");
+
 		}
-		
+
 		if(!errors.hasErrors("periodEnd")){
-			errors.state(request, entity.getPeriodEnd().after(entity.getPeriodStart()), "periodEnd", "manager.workplan.form.error.periodEnd");
-			final Date aux =entity.getTasks().stream().map(Task::getPeriodEnd).max(Date::compareTo).orElse(new Date());
-			errors.state(request, entity.getPeriodEnd().after(aux), "periodEnd", "manager.workplan.form.error.periodEnd");
+			final Date now = new GregorianCalendar().getTime();
+			now.setSeconds(0);
+
+			errors.state(request, entity.getPeriodEnd().after(now), "periodEnd", "manager.work-plan.form.error.pastPeriod");
 			
+			errors.state(request, entity.getPeriodEnd().after(entity.getPeriodStart()), "periodEnd", "manager.work-plan.form.error.periodEnd");
+			
+			final Date aux =entity.getTasks().stream().map(Task::getPeriodEnd).max(Date::compareTo).orElse(new Date());
+			errors.state(request, entity.getPeriodEnd().after(aux), "periodEnd", "manager.work-plan.form.error.periodEndTask");
 		}
 
 		if(!errors.hasErrors("tasks")){
 			final List<Task> tasks = entity.getTasks();
 			List<Task> badTasks=new ArrayList<Task>();
+
 			if(entity.isState()) {
 				badTasks = tasks.stream().filter(x->!x.isState()).collect(Collectors.toList());
 			}
-			errors.state(request, badTasks.isEmpty(), "tasks", "manager.workplan.form.error.badtasks", 
+
+			errors.state(request, badTasks.isEmpty(), "tasks", "manager.work-plan.form.error.badtasks", 
+				badTasks);
+
+
+			final List<Task> badTasks2 = new ArrayList<Task>();
+			final Principal principal = request.getPrincipal();
+			final Integer idPrincipal = principal.getActiveRoleId();
+
+			for(final Task task: tasks) {
+				final Integer idManager = task.getManager().getId();
+				if(!idManager.equals(idPrincipal)) badTasks.add(task);
+			}
+
+			errors.state(request, badTasks2.isEmpty(), "tasks", "manager.work-plan.form.error.tasks", 
 				badTasks);
 		}
-
-		if(!errors.hasErrors("manager")){
-			final List<Task> tasks = entity.getTasks();
-			final List<Task> badTasks= tasks.stream().filter(x->x.getManager().getId()!=request.getPrincipal()
-				.getAccountId()).collect(Collectors.toList());
-
-			errors.state(request, badTasks.isEmpty(), "manager", "manager.workplan.form.error.manager", 
-				badTasks);
-		}
-		request.bind(entity, errors);
 
 	}
 
@@ -109,8 +116,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 	public void bind(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
-		assert errors != null;
-		
+		assert errors != null;	
 		
 		request.bind(entity, errors);
 	}
@@ -120,7 +126,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
+		
 		request.unbind(entity, model,  "periodStart", "periodEnd", "state", "tasks");
 	}
 
@@ -134,9 +140,8 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		principal = request.getPrincipal();
 
 
-		final Collection<Task> tasks = this.taskRepository.findManyByManagerId(principal.getActiveRoleId());
+		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId());
 		result.setTasks(tasks.stream().collect(Collectors.toList()));
-		result.setFinished(false);
 		return result;
 	}
 
@@ -146,11 +151,11 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 	public void create(final Request<WorkPlan> request, final WorkPlan entity) {
 		assert request != null;
 		assert entity != null;
-		entity.isFinished();
 
-		
+		entity.setFinished(false);
 		final double workload =entity.getTotalWorkload(entity.getTasks());
 		entity.setWorkload(workload);
+
 		this.repository.save(entity);
 	}
 
