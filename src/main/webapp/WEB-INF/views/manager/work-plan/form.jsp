@@ -8,7 +8,12 @@
 
 	<acme:form-moment  code="manager.work-plan.form.label.periodStart" path="periodStart"/>
 	<acme:form-moment  code="manager.work-plan.form.label.periodEnd" path="periodEnd"/>
+	<jstl:if test="${command == 'show'}">
+		<acme:form-checkbox code="manager.work-plan.form.label.workload" path="workload"/>
+	</jstl:if>
 	<acme:form-checkbox code="manager.work-plan.form.label.state" path="state"/>
+
+	
 	
 	<jstl:if test="${command == 'create' || command =='update'}">
 	<acme:form-select code="manager.work-plan.form.label.tasks" path="tasks" multiple="true">
