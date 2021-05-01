@@ -8,6 +8,7 @@ authenticated.task.form.label.periodEnd = Final del período:
 authenticated.task.form.label.workload = Carga de trabajo (HH.mm):
 authenticated.task.form.label.link = Enlace (Opcional):
 authenticated.task.form.label.description = Descripción:
+authenticated.task.form.label.state = Estado
 
 authenticated.task.form.button.return = Volver
 
@@ -15,5 +16,4 @@ authenticated.task.list.label.title = Título
 authenticated.task.list.label.periodStart = Comienzo del período
 authenticated.task.list.label.periodEnd = Final del período
 authenticated.task.list.label.workload = Carga de trabajo (HH.mm)
-authenticated.task.list.label.state = Público
 authenticated.task.list.label.finished = Finalizado
