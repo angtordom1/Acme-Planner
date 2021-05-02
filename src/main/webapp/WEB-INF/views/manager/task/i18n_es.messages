@@ -19,6 +19,7 @@ manager.task.form.label.workload = Carga de trabajo (HH.mm):
 manager.task.form.label.link = Enlace (Opcional):
 manager.task.form.label.description = Descripción:
 manager.task.form.label.state = Público
+manager.task.form.label.finished = Finalizado
 
 manager.task.form.button.update = Actualizar
 manager.task.form.button.delete = Borrar

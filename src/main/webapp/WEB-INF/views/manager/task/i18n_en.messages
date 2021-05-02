@@ -19,6 +19,7 @@ manager.task.form.label.workload = Workload (HH.mm):
 manager.task.form.label.link = Link (Optional):
 manager.task.form.label.description = Description:
 manager.task.form.label.state = Public
+manager.task.form.label.finished = Finished
 
 manager.task.form.button.update = Update
 manager.task.form.button.delete = Delete
