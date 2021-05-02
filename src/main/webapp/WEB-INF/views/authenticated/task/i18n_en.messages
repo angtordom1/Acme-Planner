@@ -8,6 +8,7 @@ authenticated.task.form.label.periodEnd = End of period:
 authenticated.task.form.label.workload = Workload (HH.mm):
 authenticated.task.form.label.link = Link (Optional):
 authenticated.task.form.label.description = Description:
+authenticated.task.form.label.state = State
 
 authenticated.task.form.button.return = Return
 
@@ -15,5 +16,4 @@ authenticated.task.list.label.title = Title
 authenticated.task.list.label.periodStart = Start of period
 authenticated.task.list.label.periodEnd = End of period
 authenticated.task.list.label.workload = Workload (HH.mm)
-authenticated.task.list.label.state = Public
 authenticated.task.list.label.finished = Finished

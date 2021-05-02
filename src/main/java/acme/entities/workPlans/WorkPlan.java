@@ -30,7 +30,6 @@ public class WorkPlan extends DomainEntity{
 		
 	// Attributes -------------------------------------------------------------
 	
-	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date periodStart;
@@ -41,7 +40,6 @@ public class WorkPlan extends DomainEntity{
 	
 	@Digits(integer = 3, fraction = 2)
 	protected double workload;
-
 	
 	//If true task is public else task is private
 	protected boolean state;

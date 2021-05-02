@@ -11,3 +11,11 @@
 This is the Acme Planner, which is intended to be the project that we will work on D02.
 Github Repository: https://github.com/angtordom1/Acme-Planner.git
 Github Release:
+
+
+Sobre workplans:
+- Debido a que nuestra implementación de spam no permite que ninguna tarea pueda ser creada si se considera spam, 
+workplans nunca podrá tener ninguna tarea spam y por consiguiente nunca se podrá considerar spam.
+- Hemos decidido dejar workload como atributo dado que el hecho de dejarlo solo como atributo derivado hubiera
+resultado en un cálculo de todas las workplans cada vez que se accediera a una lista o un show. En nuestro caso,
+al dejarlo como atributo, solo se tendría que hacer dicho cálculo al actualizar o crear una workplan.

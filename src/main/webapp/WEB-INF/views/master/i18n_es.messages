@@ -29,7 +29,7 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.shout-list = Lista de gritos
+master.menu.anonymous.shouts-list = Lista de gritos
 master.menu.anonymous.workplan-list = Lista de planes de trabajo
 master.menu.anonymous.create-shout = ¡Dar un grito!
 master.menu.anonymous.tasks-list = Lista de tareas
@@ -73,6 +73,7 @@ master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
+master.menu.user-account.become-manager = Hazte manager
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 

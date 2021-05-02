@@ -5,7 +5,6 @@ manager.task.list.label.title = Title
 manager.task.list.label.periodStart = Start of period
 manager.task.list.label.periodEnd = End of period
 manager.task.list.label.workload = Workload (HH.mm)
-manager.task.list.label.state = Public
 
 
 manager.task.form.title.show = Task
