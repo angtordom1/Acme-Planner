@@ -62,12 +62,13 @@ public class Task extends DomainEntity{
 	
 	public boolean isFinished() {
 		Date now;
-
+		boolean res;
 		now = new Date();
 		
-		this.finished = now.after(this.periodEnd);	
+		res = this.finished || now.after(this.periodEnd);	
+		this.setFinished(res);
 		
-		return this.finished;
+		return res;
 	}
 	
 	// Relationships ----------------------------------------------------------

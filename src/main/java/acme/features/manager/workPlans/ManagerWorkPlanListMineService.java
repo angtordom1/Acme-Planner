@@ -37,9 +37,8 @@ public class ManagerWorkPlanListMineService implements AbstractListService<Manag
 			assert request != null;
 			assert entity != null;
 			assert model != null;
-			
-			request.unbind(entity, model,  "periodStart", "periodEnd", "workload", "state", "finished");
-			
+
+			request.unbind(entity, model,  "periodStart", "periodEnd", "workload");
 		}
 
 		@Override

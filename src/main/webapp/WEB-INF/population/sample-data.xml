@@ -82,7 +82,7 @@
 		<property name="periodEnd" value="2021/04/02 20:00" />
 		<property name="workload" value="10.50"/>
 		<property name="state" value="true" />
-		<property name="finished" value="false" />
+		<property name="finished" value="true" />
 		<property name="tasks"> 			
 			<list>
 				<ref bean="task001"/>
@@ -426,7 +426,7 @@
 		<property name="tasks"> 			
 			<list>
 				<ref bean="task011"/>
-				<ref bean="task012"/>
+				<ref bean="task013"/>
 			</list>
 		</property>
 	</bean>

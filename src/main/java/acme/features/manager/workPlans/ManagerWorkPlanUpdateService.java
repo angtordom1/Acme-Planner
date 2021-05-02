@@ -66,7 +66,8 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "periodStart", "periodEnd", "workload", "state", "finished");
+		
+		request.unbind(entity, model, "periodStart", "periodEnd", "workload", "state","finished", "tasks");
 		}
 
 	@Override
@@ -98,9 +99,11 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 			final Object object = ids.get(i);
 			final String cadena = object.toString();
 			final int ps = cadena.indexOf("id");
-			final String id = cadena.subSequence(ps+3, ps+6).toString();
-			final Task task = this.taskRepository.findOneTaskById(Integer.parseInt(id));
-			newTasks.add(task);
+			if(ps!=-1) {
+				final String id = cadena.subSequence(ps+3, ps+6).toString();
+				final Task task = this.taskRepository.findOneTaskById(Integer.parseInt(id));
+				newTasks.add(task);
+			}
 		}
 		entity.setTasks(newTasks);
 		
