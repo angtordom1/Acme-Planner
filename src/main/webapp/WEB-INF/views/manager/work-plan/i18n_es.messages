@@ -6,6 +6,7 @@ manager.work-plan.form.button.show = WorkPlan
 manager.work-plan.form.button.create = Crear WorkPlan
 manager.work-plan.form.button.update = Actualizar WorkPlan
 manager.work-plan.form.button.delete = Borrar WorkPlan
+manager.work-plan.form.button.publish= Publicar WorkPlan
 
 manager.work-plan.form.label.title = Título:
 manager.work-plan.form.label.periodStart = Comienzo del período:

@@ -11,7 +11,14 @@
 	<jstl:if test="${command == 'show'}">
 		<acme:form-double code="manager.work-plan.form.label.workload" path="workload"/>
 	</jstl:if>
-	<acme:form-checkbox code="manager.work-plan.form.label.state" path="state"/>
+	
+	<jstl:if test="${command == 'create'}">
+		<acme:form-checkbox code="manager.work-plan.form.label.state" path="state"/>
+	</jstl:if>
+	
+	<jstl:if test="${command == 'show' || command =='publish'}">
+		<acme:form-checkbox code="manager.work-plan.form.label.state" path="state" readonly="true"/>
+	</jstl:if>
 	
 	<jstl:if test="${command == 'create' || command =='update'}">
 		<acme:form-select code="manager.work-plan.form.label.tasks" path="tasks" multiple="true">
@@ -21,7 +28,7 @@
 		</acme:form-select>
   	</jstl:if>
 	
-	<jstl:if test="${command == 'show'}">
+	<jstl:if test="${command == 'show' || command =='publish'}">
 		<br>
 		<h3><acme:message code="manager.work-plan.form.label.tasks"/></h3>
 		
@@ -62,6 +69,7 @@
     
     <acme:form-submit test="${command == 'show' && finished == 'false'}" code="manager.work-plan.form.button.update" action="/manager/work-plan/update"/>
 	<acme:form-submit test="${command == 'show' && finished == 'false'}" code="manager.work-plan.form.button.delete" action="/manager/work-plan/delete"/>
+	<acme:form-submit test="${command == 'show' && finished == 'false' && state=='false'}" code="manager.work-plan.form.button.publish" action="/manager/work-plan/publish"/>
 	<acme:form-submit test="${command == 'create'}" code="manager.work-plan.form.button.create" action="/manager/work-plan/create"/>
 	<acme:form-submit test="${command == 'update'}" code="manager.work-plan.form.button.update" action="/manager/work-plan/update"/>
 	<acme:form-submit test="${command == 'delete'}" code="manager.work-plan.form.button.delete" action="/manager/work-plan/delete"/>	

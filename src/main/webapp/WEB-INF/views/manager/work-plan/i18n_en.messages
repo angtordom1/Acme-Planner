@@ -7,6 +7,7 @@ manager.work-plan.form.button.show = WorkPlan
 manager.work-plan.form.button.create = Create WorkPlan
 manager.work-plan.form.button.update = Update WorkPlan
 manager.work-plan.form.button.delete = Delete WorkPlan
+manager.work-plan.form.button.publish= Publish WorkPlan
 
 
 manager.work-plan.form.label.title = Title:

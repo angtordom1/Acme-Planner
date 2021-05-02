@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.entities.workPlans.WorkPlan;
-import acme.features.spam.SpamService;
+import acme.features.manager.task.ManagerTaskRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -25,7 +25,9 @@ public class ManagerWorkPlanPublishService implements AbstractUpdateService<Mana
 	protected ManagerWorkPlanRepository repository;
 	
 	@Autowired
-	protected SpamService spamService;
+	protected ManagerTaskRepository taskRepository;
+	
+
 	
 	// AbstractUpdateService<Manager, WorkPlan> interface -------------------------
 	
@@ -39,8 +41,7 @@ public class ManagerWorkPlanPublishService implements AbstractUpdateService<Mana
 		
 		id = request.getModel().getInteger("id");
 		workplan = this.repository.findOneWorkPlanById(id);
-		result = workplan.isState() && !workplan.isFinished() && 
-			workplan.getTasks().get(0).getManager().getId()==request.getPrincipal().getAccountId();
+		result = workplan.getTasks().get(0).getManager().getId()==request.getPrincipal().getActiveRoleId();
 		
 		return result;
 	}
@@ -60,7 +61,7 @@ public class ManagerWorkPlanPublishService implements AbstractUpdateService<Mana
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "periodStart", "periodEnd", "workload", "state", "finished");
+		request.unbind(entity, model, "state");
 		}
 
 	@Override
@@ -82,33 +83,30 @@ public class ManagerWorkPlanPublishService implements AbstractUpdateService<Mana
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		request.getModel().setAttribute("tasks", this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId()));
+		
+		final List<Task> ids = entity.getTasks();
+		final List<Task> newTasks = new ArrayList<Task>();
 
+		for (int i = 0; i < ids.size(); i++) {
+			final Object object = ids.get(i);
+			final String cadena = object.toString();
+			final int ps = cadena.indexOf("id");
+			final String id = cadena.subSequence(ps+3, ps+6).toString();
+			final Task task = this.taskRepository.findOneTaskById(Integer.parseInt(id));
+			newTasks.add(task);
+		}
+		entity.setTasks(newTasks);
 		
 		if(!errors.hasErrors("tasks")){
 			final List<Task> tasks = entity.getTasks();
-			List<Task> badTasks=new ArrayList<Task>();
-			if(entity.isState()) {
-				badTasks = tasks.stream().filter(x->!x.isState()).collect(Collectors.toList());
-			}
-			errors.state(request, badTasks.isEmpty(), "tasks", "manager.workplan.form.error.badtasks", 
-				badTasks.toString());
-		}
-		
-		if(!errors.hasErrors("manager")){
-			final List<Task> tasks = entity.getTasks();
-			final List<Task> badTasks= tasks.stream().filter(x->x.getManager().getId()!=request.getPrincipal()
-				.getAccountId()).collect(Collectors.toList());
+			final List<Task> badTasks = tasks.stream().filter(x->!x.isState()).collect(Collectors.toList());
 			
-			errors.state(request, badTasks.isEmpty(), "manager", "manager.workplan.form.error.manager", 
-				badTasks.toString());
+
+			errors.state(request, badTasks.isEmpty(), "state", "manager.work-plan.form.error.badtasks", 
+				badTasks);
 		}
-		
-		if(!errors.hasErrors("state")){
-			final Boolean publicated=entity.isState();
-			
-			errors.state(request, !publicated, "state", "manager.workplan.form.error.state");
-		}
-		
 	}
 
 	@Override

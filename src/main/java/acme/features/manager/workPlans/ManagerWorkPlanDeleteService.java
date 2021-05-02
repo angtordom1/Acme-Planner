@@ -33,7 +33,7 @@ public class ManagerWorkPlanDeleteService implements AbstractDeleteService<Manag
 		
 		id = request.getModel().getInteger("id");
 		workplan = this.repository.findOneWorkPlanById(id);
-		result = workplan.getTasks().get(0).getManager().getId()==request.getPrincipal().getAccountId() 
+		result = workplan.getTasks().get(0).getManager().getId()==request.getPrincipal().getActiveRoleId() 
 			|| workplan.getTasks().isEmpty();
 		
 		return result;
