@@ -41,6 +41,8 @@ public class WorkPlan extends DomainEntity{
 	@Digits(integer = 3, fraction = 2)
 	protected double workload;
 	
+	protected Integer managerId;
+	
 	//If true task is public else task is private
 	protected boolean state;
 	

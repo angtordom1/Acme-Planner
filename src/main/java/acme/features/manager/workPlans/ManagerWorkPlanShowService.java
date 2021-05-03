@@ -33,12 +33,10 @@ public class ManagerWorkPlanShowService implements AbstractShowService<Manager, 
 		boolean result;
 		int id;
 		WorkPlan workplan;
-		Principal principal;
-		principal = request.getPrincipal();
 		
 		id = request.getModel().getInteger("id");
 		workplan = this.repository.findOneWorkPlanById(id);
-		result = workplan.getTasks().get(0).getManager().getId()==request.getPrincipal().getActiveRoleId();
+		result = workplan.getManagerId()==request.getPrincipal().getActiveRoleId();
 		
 		return result;
 	}
