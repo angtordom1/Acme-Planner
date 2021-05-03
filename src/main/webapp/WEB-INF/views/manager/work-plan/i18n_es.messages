@@ -32,3 +32,5 @@ manager.work-plan.form.error.periodStartTask = El comienzo del periodo no puede 
 manager.work-plan.form.error.periodEndTask = El final del periodo no puede ser antes del final de la última tarea  
 manager.work-plan.form.error.tasks = El plan de trabajo debe de tener tareas del manager
 manager.work-plan.form.error.badtasks= Un plan de trabajo público no puede tener tareas privadas
+
+administrator.dashboard.form.recommendedPeriodStart = Le recomendamos que este WorkPlan comience en {0}
