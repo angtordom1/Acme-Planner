@@ -20,6 +20,9 @@ public interface ManagerWorkPlanRepository extends AbstractRepository{
 	@Query("SELECT wp FROM WorkPlan wp order by wp.periodStart")
 	Collection<WorkPlan> findMany();
 
+	@Query("select wp from WorkPlan wp where wp.managerId = ?1")
+	Collection<WorkPlan> findManyByManager(int id);
+
 
 
 }

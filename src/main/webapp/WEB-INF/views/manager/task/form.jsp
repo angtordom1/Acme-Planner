@@ -11,8 +11,10 @@
 	<acme:form-textarea  code="manager.task.form.label.description" path="description"/>	
 	<acme:form-url code="manager.task.form.label.link" path="link"/>
 	<acme:form-checkbox code="manager.task.form.label.state" path="state"/>
-	<acme:form-checkbox code="manager.task.form.label.finished" path="finished"/>
 	
+	<jstl:if test="${command == 'update' || command == 'show'}">
+		<acme:form-checkbox code="manager.task.form.label.finished" path="finished"/>
+	</jstl:if>
 			
 	<acme:form-submit test="${command == 'show' && finished == 'false'}" code="manager.task.form.button.update" action="/manager/task/update"/>
 	<acme:form-submit test="${command == 'show' && finished == 'false'}" code="manager.task.form.button.delete" action="/manager/task/delete"/>
