@@ -19,6 +19,7 @@ manager.task.form.label.workload = Carga de trabajo (HH.mm):
 manager.task.form.label.link = Enlace (Opcional):
 manager.task.form.label.description = Descripción:
 manager.task.form.label.state = Público
+manager.task.form.label.finished = Finalizado
 
 manager.task.form.button.update = Actualizar
 manager.task.form.button.delete = Borrar
@@ -29,4 +30,5 @@ manager.task.form.error.pastPeriod = El periodo de ejecución debe ser posterior
 manager.task.form.error.period = El final del periodo debe ser posterior al comienzo 
 manager.task.form.error.decimals = Los decimales solo pueden llegar hasta 59 dado que representan minutos
 manager.task.form.error.workloadFit = La carga de trabajo debe coincidir dentro del periodo de ejecución
-manager.task.form.error.spam = Este campo excede la cantidad de palabras spam permitidas a causa de estos términos: {0} 
+manager.task.form.error.spam = Esta tarea excede la cantidad de palabras spam permitidas a causa de estos términos: {0} 
+manager.task.form.error.finished = Una tarea no puede estar acabada si aún no ha empezado
