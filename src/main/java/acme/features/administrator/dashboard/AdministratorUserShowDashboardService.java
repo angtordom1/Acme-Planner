@@ -43,7 +43,8 @@ public class AdministratorUserShowDashboardService implements AbstractShowServic
 			"minimunPeriodExecution","maximunPeriodExecution",
 			"averageWorkload","deviationWorkload",
 			"minimunWorkload","maximunWorkload", "workPlansAmount",
-			"unpublishedWorkPlansAmount", "publishedWorkPlansAmount");
+			"unpublishedWorkPlansAmount", "publishedWorkPlansAmount",
+			"unfinishedWorkPlansAmount", "finishedWorkPlansAmount");
 	}
 
 	@Override
@@ -60,6 +61,8 @@ public class AdministratorUserShowDashboardService implements AbstractShowServic
 		final Long workPlansAmount;
 		final Long unpublishedWorkPlansAmount;
 		final Long publishedWorkPlansAmount;
+		final Long unfinishedWorkPlansAmount;
+		final Long finishedWorkPlansAmount;
 		
 		final Double averagePeriodExecution;
 		final Double deviationPeriodExecution;
@@ -82,7 +85,8 @@ public class AdministratorUserShowDashboardService implements AbstractShowServic
 		workPlansAmount = this.repository.findWorkPlansAmount();
 		unpublishedWorkPlansAmount = this.repository.findUnpublishedWorkPlansAmount();
 		publishedWorkPlansAmount = this.repository.findPublishedWorkPlansAmount();
-		
+		unfinishedWorkPlansAmount = this.repository.findUnfinishedWorkPlansAmount();
+		finishedWorkPlansAmount = this.repository.findFinishedWorkPlansAmount();
 		
 		averagePeriodExecution = tasksList.stream()
 			.mapToLong(x -> x.getPeriodEnd().getTime() - x.getPeriodStart().getTime())
@@ -117,6 +121,8 @@ public class AdministratorUserShowDashboardService implements AbstractShowServic
 		result.setWorkPlansAmount(workPlansAmount);
 		result.setUnpublishedWorkPlansAmount(unpublishedWorkPlansAmount);
 		result.setPublishedWorkPlansAmount(publishedWorkPlansAmount);
+		result.setUnfinishedWorkPlansAmount(unfinishedWorkPlansAmount);
+		result.setFinishedWorkPlansAmount(finishedWorkPlansAmount);
 		
 		result.setAveragePeriodExecution(this.parseFromPercentageToSexagesimal(averagePeriodExecution));
 		result.setDeviationPeriodExecution(this.parseFromPercentageToSexagesimal(deviationPeriodExecution));

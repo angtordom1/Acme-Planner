@@ -13,9 +13,18 @@ Github Repository: https://github.com/angtordom1/Acme-Planner.git
 Github Release:
 
 
+Sobre el atributo title en tasks al crear y updatear una tarea:
+Debido a la implementación de las sugerencias al crear una workplan, hemos decidido evitar que una tarea
+pueda tener una coma en su título. Si el usuario escribe una coma, esta será reemplazada por un carácter vacío.
+
 Sobre workplans:
 - Debido a que nuestra implementación de spam no permite que ninguna tarea pueda ser creada si se considera spam, 
 workplans nunca podrá tener ninguna tarea spam y por consiguiente nunca se podrá considerar spam.
+
 - Hemos decidido dejar workload como atributo dado que el hecho de dejarlo solo como atributo derivado hubiera
 resultado en un cálculo de todas las workplans cada vez que se accediera a una lista o un show. En nuestro caso,
 al dejarlo como atributo, solo se tendría que hacer dicho cálculo al actualizar o crear una workplan.
+
+- Debido a la última reunión con nuestra tutora, hemos decidido añadir una propiedad a Workplan que será el id del manager
+que crea dicha workplan, esto conlleva a que cuando una workplan no tenga tareas, esta pueda seguir viéndose en el listado.
+Sin embargo, dicha tarea finalizará al no tener ninguna tarea.

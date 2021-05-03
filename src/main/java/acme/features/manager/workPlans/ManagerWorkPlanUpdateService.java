@@ -57,7 +57,7 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors,"periodStart");
 	}
 
 	@Override
@@ -108,10 +108,6 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 		entity.setTasks(newTasks);
 		
 		if(!errors.hasErrors("periodStart")){
-			final Date now = new GregorianCalendar().getTime();
-			now.setSeconds(0);
-
-			errors.state(request, entity.getPeriodStart().after(now), "periodStart", "manager.work-plan.form.error.pastPeriod");
 			
 			final Date aux =entity.getTasks().stream().map(Task::getPeriodStart).min(Date::compareTo).orElse(new Date());
 			errors.state(request, entity.getPeriodStart().before(aux), "periodStart", "manager.work-plan.form.error.periodStartTask");
