@@ -95,11 +95,16 @@ public class WorkPlan extends DomainEntity{
 	}
 	
 	public boolean isFinished() {
-		Date now;
 		boolean res;
-		now = new Date();
+		boolean aux;
 		
-		res = this.finished || now.after(this.periodEnd);	
+		aux = true;
+		for(final Task t : this.tasks) {
+			boolean acabado;
+			acabado = t.isFinished();
+			aux = aux && acabado;
+		}
+		res = this.finished || aux;	
 		this.setFinished(res);
 		
 		return res;

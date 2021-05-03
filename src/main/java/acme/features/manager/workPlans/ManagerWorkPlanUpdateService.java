@@ -67,7 +67,7 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 		assert model != null;
 		
 		
-		request.unbind(entity, model, "periodStart", "periodEnd", "workload", "state","finished", "tasks");
+		request.unbind(entity, model, "periodStart", "periodEnd", "workload", "state", "tasks");
 		}
 
 	@Override

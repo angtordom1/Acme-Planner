@@ -21,7 +21,7 @@
 	</jstl:if>
 	
 	<jstl:if test="${command == 'show'}">
-		<acme:form-checkbox code="manager.work-plan.form.label.finished" path="finished"/>
+		<acme:form-checkbox code="manager.work-plan.form.label.finished" path="finished" readonly="true"/>
 	</jstl:if>
   
 	<jstl:if test="${command == 'create' || command =='update'}">

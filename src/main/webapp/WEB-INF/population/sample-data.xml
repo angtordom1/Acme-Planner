@@ -39,8 +39,8 @@
 	<!-- WorkPlan public and unfinished -->
 	
 	<bean id="workPlan001" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="32.50" />
 		<property name="state" value="true" />
 		<property name="finished" value="false" />
@@ -53,8 +53,8 @@
 		</property>
 	</bean>	
 	<bean id="workPlan011" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/07/04 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/07/04 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="11.00" />
 		<property name="state" value="true" />
 		<property name="finished" value="false" />
@@ -65,8 +65,8 @@
 		</property>
 	</bean>
 	<bean id="workPlan021" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="21.50" />
 		<property name="state" value="true" />
 		<property name="finished" value="false" />
@@ -78,8 +78,8 @@
 		</property>
 	</bean>
 	<bean id="workPlan031" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/04/02 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/04/02 20:10" />
 		<property name="workload" value="10.50"/>
 		<property name="state" value="true" />
 		<property name="finished" value="true" />
@@ -90,8 +90,8 @@
 		</property>
 	</bean>
 	<bean id="workPlan041" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="32.50" />
 		<property name="state" value="true" />
 		<property name="finished" value="false" />
@@ -104,8 +104,8 @@
 		</property>
 	</bean>	
 		<bean id="workPlan051" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/04 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/04 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="22.00" />
 		<property name="state" value="true" />
 		<property name="finished" value="false" />
@@ -117,8 +117,8 @@
 		</property>
 	</bean>	
 	<bean id="workPlan006" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="32.50" />
 		<property name="state" value="true" />
 		<property name="finished" value="false" />
@@ -133,8 +133,8 @@
 	<!-- Workplan finished and private -->
 	
 	<bean id="workPlan002" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/02 19:59" />
-		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="periodStart" value="2021/04/02 19:50" />
+		<property name="periodEnd" value="2021/04/06 20:10" />
 		<property name="workload" value="21.4" />
 		<property name="state" value="false" />
 		<property name="finished" value="true" />
@@ -146,8 +146,8 @@
 		</property>
 	</bean>
 		<bean id="workPlan012" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/02 19:59" />
-		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="periodStart" value="2021/04/02 19:50" />
+		<property name="periodEnd" value="2021/04/06 20:10" />
 		<property name="workload" value="21.4" />
 		<property name="state" value="false" />
 		<property name="finished" value="true" />
@@ -159,8 +159,8 @@
 		</property>
 	</bean>
 		<bean id="workPlan022" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/05 19:59" />
-		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="periodStart" value="2021/04/05 19:50" />
+		<property name="periodEnd" value="2021/04/06 20:10" />
 		<property name="workload" value="10.50"/>
 		<property name="state" value="false" />
 		<property name="finished" value="true" />
@@ -175,8 +175,8 @@
 	<!-- Workplan finished and public -->
 	
 	<bean id="workPlan003" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="21.50" />
 		<property name="state" value="true" />
 		<property name="finished" value="true" />
@@ -188,8 +188,8 @@
 		</property>
 	</bean>
 		<bean id="workPlan013" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="21.50" />
 		<property name="state" value="true" />
 		<property name="finished" value="true" />
@@ -201,8 +201,8 @@
 		</property>
 	</bean>
 		<bean id="workPlan023" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="21.50" />
 		<property name="state" value="true" />
 		<property name="finished" value="true" />
@@ -217,8 +217,8 @@
 	<!-- Workplan unfinished and private -->
 	
 	<bean id="workPlan004" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="11.00" />
 		<property name="state" value="false" />
 		<property name="finished" value="false" />
@@ -229,8 +229,8 @@
 		</property>
 	</bean>
 	<bean id="workPlan014" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="11.00" />
 		<property name="state" value="false" />
 		<property name="finished" value="false" />
@@ -392,8 +392,8 @@
 	<!-- WorkPlan public and unfinished -->
 	
 	<bean id="workPlan005" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="32.50" />
 		<property name="state" value="true" />
 		<property name="finished" value="false" />
@@ -406,8 +406,8 @@
 		</property>
 	</bean>	
 	<bean id="workPlan015" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/07/04 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/07/04 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="11.0" />
 		<property name="state" value="true" />
 		<property name="finished" value="false" />
@@ -418,8 +418,8 @@
 		</property>
 	</bean>
 	<bean id="workPlan025" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="22.00" />
 		<property name="state" value="true" />
 		<property name="finished" value="false" />
@@ -431,8 +431,8 @@
 		</property>
 	</bean>
 	<bean id="workPlan035" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="32.50" />
 		<property name="state" value="true" />
 		<property name="finished" value="false" />
@@ -447,8 +447,8 @@
 	<!-- Workplan finished and private -->
 	
 	<bean id="workPlan007" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/02 19:59" />
-		<property name="periodEnd" value="2021/04/06 20:00" />
+		<property name="periodStart" value="2021/04/02 19:50" />
+		<property name="periodEnd" value="2021/04/06 20:10" />
 		<property name="workload" value="21.4" />
 		<property name="state" value="false" />
 		<property name="finished" value="true" />
@@ -461,7 +461,7 @@
 	</bean>
 	<bean id="workPlan027" class="acme.entities.workPlans.WorkPlan">
 		<property name="periodStart" value="2021/04/02 19:50" />
-		<property name="periodEnd" value="2021/04/05 20:00" />
+		<property name="periodEnd" value="2021/04/05 20:10" />
 		<property name="workload" value="10.50" />
 		<property name="state" value="false" />
 		<property name="finished" value="true" />
@@ -476,8 +476,8 @@
 	<!-- Workplan finished and public -->
 	
 	<bean id="workPlan008" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="21.50" />
 		<property name="state" value="true" />
 		<property name="finished" value="true" />
@@ -492,8 +492,8 @@
 	<!-- Workplan unfinished and private -->
 	
 	<bean id="workPlan009" class="acme.entities.workPlans.WorkPlan">
-		<property name="periodStart" value="2021/04/01 19:59" />
-		<property name="periodEnd" value="2021/07/05 20:00" />
+		<property name="periodStart" value="2021/04/01 19:50" />
+		<property name="periodEnd" value="2021/07/05 20:10" />
 		<property name="workload" value="11.00" />
 		<property name="state" value="false" />
 		<property name="finished" value="false" />
