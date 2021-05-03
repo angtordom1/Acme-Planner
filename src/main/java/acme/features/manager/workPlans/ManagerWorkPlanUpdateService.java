@@ -46,7 +46,7 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 		
 		id = request.getModel().getInteger("id");
 		workplan = this.repository.findOneWorkPlanById(id);
-		result = workplan.getTasks().get(0).getManager().getId()==request.getPrincipal().getActiveRoleId();
+		result = workplan.getManagerId()==request.getPrincipal().getActiveRoleId();
 		
 		return result;
 	}
@@ -67,7 +67,7 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 		assert model != null;
 		
 		
-		request.unbind(entity, model, "periodStart", "periodEnd", "workload", "state","finished", "tasks");
+		request.unbind(entity, model, "periodStart", "periodEnd", "workload", "state", "tasks", "manager");
 		}
 
 	@Override

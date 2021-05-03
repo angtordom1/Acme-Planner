@@ -41,6 +41,8 @@ public class WorkPlan extends DomainEntity{
 	@Digits(integer = 3, fraction = 2)
 	protected double workload;
 	
+	protected Integer managerId;
+	
 	//If true task is public else task is private
 	protected boolean state;
 	
@@ -95,11 +97,16 @@ public class WorkPlan extends DomainEntity{
 	}
 	
 	public boolean isFinished() {
-		Date now;
 		boolean res;
-		now = new Date();
+		boolean aux;
 		
-		res = this.finished || now.after(this.periodEnd);	
+		aux = true;
+		for(final Task t : this.tasks) {
+			boolean acabado;
+			acabado = t.isFinished();
+			aux = aux && acabado;
+		}
+		res = this.finished || aux;	
 		this.setFinished(res);
 		
 		return res;

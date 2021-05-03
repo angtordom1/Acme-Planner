@@ -165,7 +165,23 @@
 		<td>
 			<acme:print value="${publishedWorkPlansAmount}"/>
 		</td>
-	</tr>				
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.unfinished-workplans-amount"/>
+		</th>
+		<td>
+			<acme:print value="${unfinishedWorkPlansAmount}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.finished-workplans-amount"/>
+		</th>
+		<td>
+			<acme:print value="${finishedWorkPlansAmount}"/>
+		</td>
+	</tr>					
 </table>
 
 <h2>
@@ -181,7 +197,7 @@
 		
 		var data = {
 			labels : [
-					"TOTAL", "PUBLISHED", "UNPUBLISHED"
+					"TOTAL", "PUBLIC", "PRIVATE"
 			],
 			datasets : [
 				{

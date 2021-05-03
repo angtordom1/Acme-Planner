@@ -20,8 +20,10 @@
 		<acme:form-checkbox code="manager.work-plan.form.label.state" path="state" readonly="true"/>
 	</jstl:if>
 	
-	<acme:form-checkbox code="manager.work-plan.form.label.finished" path="finished"/>
-	
+	<jstl:if test="${command == 'show'}">
+		<acme:form-checkbox code="manager.work-plan.form.label.finished" path="finished" readonly="true"/>
+	</jstl:if>
+  
 	<jstl:if test="${command == 'create' || command =='update'}">
 		<acme:form-select code="manager.work-plan.form.label.tasks" path="tasks" multiple="true">
 			<jstl:forEach items="${tasks}" var="task">

@@ -121,20 +121,21 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 			final double minutes = workload - hoursW;
 			errors.state(request, minutes <= 0.59, "workload", "manager.task.form.error.decimals");
 		}
-		if(!errors.hasErrors("title")){
-			final String title = entity.getTitle();
-			final List<String> spamWords = this.spamService.getSpamWordsByString(title);
+		if(!errors.hasErrors("finished")) {
+			final Date now = new GregorianCalendar().getTime();
+			now.setSeconds(0);
+			final boolean finish = entity.isFinished();
+			final Date periodStart = entity.getPeriodStart();
 			
-			errors.state(request, spamWords.isEmpty(), "title", "manager.task.form.error.spam", 
-				spamWords.toString().replaceAll("[\\[\\]]", ""));
+			errors.state(request, !(periodStart.before(now) && finish), "finished", "manager.task.form.error.finished");
 		}
-		if(!errors.hasErrors("description")){
-			final String description = entity.getDescription();
-			final List<String> spamWordsD = this.spamService.getSpamWordsByString(description);
-			
-			errors.state(request, spamWordsD.isEmpty(), "description", "manager.task.form.error.spam", 
-				spamWordsD.toString().replaceAll("[\\[\\]]", ""));
-		}
+
+		final String title = entity.getTitle();
+		final String description = entity.getDescription();
+		final List<String> spamWords = this.spamService.getSpamWordsByString(title+" "+description);
+
+		errors.state(request, spamWords.isEmpty(), "*", "manager.task.form.error.spam", 
+			spamWords.toString().replaceAll("[\\[\\]]", ""));
 		
 	}
 

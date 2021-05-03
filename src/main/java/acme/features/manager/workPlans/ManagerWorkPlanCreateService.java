@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
 import acme.entities.workPlans.WorkPlan;
+import acme.features.authenticated.manager.AuthenticatedManagerRepository;
 import acme.features.manager.task.ManagerTaskRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -30,6 +31,9 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 
 	@Autowired
 	protected ManagerTaskRepository taskRepository;
+	
+	@Autowired
+	protected AuthenticatedManagerRepository managerRepository;
 
 	// AbstractCreateService<Manager, WorkPlan> interface -------------------------
 
@@ -142,7 +146,6 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		final Principal principal;
 		principal = request.getPrincipal();
 
-
 		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId());
 		result.setTasks(tasks.stream().collect(Collectors.toList()));
 		return result;
@@ -154,7 +157,10 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 	public void create(final Request<WorkPlan> request, final WorkPlan entity) {
 		assert request != null;
 		assert entity != null;
-
+		final Principal principal;
+		principal = request.getPrincipal();
+		
+		entity.setManagerId(principal.getActiveRoleId());
 		entity.setFinished(false);
 		final double workload =entity.getTotalWorkload(entity.getTasks());
 		entity.setWorkload(workload);
