@@ -33,4 +33,12 @@ manager.work-plan.form.error.periodEndTask = El final del periodo no puede ser a
 manager.work-plan.form.error.tasks = El plan de trabajo debe de tener tareas del manager
 manager.work-plan.form.error.badtasks= Un plan de trabajo público no puede tener tareas privadas
 
-administrator.dashboard.form.recommendedPeriodStart = Le recomendamos que este WorkPlan comience en {0}
+manager.work-plan.form.label.recommendedYearStart = Le recomendamos comenzar el plan de trabajo en el año:
+manager.work-plan.form.label.recommendedMonthStart = Le recomendamos comenzar el plan de trabajo en el mes:
+manager.work-plan.form.label.recommendedDayStart = Le recomendamos comenzar el plan de trabajo en el día:
+
+manager.work-plan.form.label.recommendedYearEnd = Le recomendamos finalizar el plan de trabajo en el año:
+manager.work-plan.form.label.recommendedMonthEnd = Le recomendamos finalizar el plan de trabajo en el mes:
+manager.work-plan.form.label.recommendedDayEnd = Le recomendamos finalizar el plan de trabajo en el día:
+
+manager.work-plan.form.label.recommendations = Por favor, selecciona alguna tarea para ver nuestra recomendación.

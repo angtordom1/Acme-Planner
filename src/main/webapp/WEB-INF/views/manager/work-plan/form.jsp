@@ -2,7 +2,6 @@
 
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
-<%@ page import="java.util.Date"%>
 
 <acme:form>
 
@@ -12,11 +11,70 @@
 	<jstl:if test="${command == 'create' || command =='update'}">
 		<acme:print value="${periodStart}" />
 	</jstl:if>
+	<jstl:if test="${command == 'create' || command =='update'}">
+		<table class="table table-sm">
+	<caption>
+		<acme:message code="manager.work-plan.form.label.recommendations"/>
+	</caption>	
+			<tr>
+				<th scope="row"><acme:message
+						code="manager.work-plan.form.label.recommendedYearStart" /></th>
+				<td>
+					<p id="yearStart">1970</p>
+				</td>
+			</tr>
+
+			<tr>
+				<th scope="row"><acme:message
+						code="manager.work-plan.form.label.recommendedMonthStart" /></th>
+				<td>
+					<p id="monthStart">06</p>
+				</td>
+			</tr>
+
+			<tr>
+				<th scope="row"><acme:message
+						code="manager.work-plan.form.label.recommendedDayStart" /></th>
+				<td>
+					<p id="dayStart">06</p>
+				</td>
+			</tr>
+		</table>
+	</jstl:if>
+
 	<acme:form-moment code="manager.work-plan.form.label.periodEnd"
 		path="periodEnd" />
 	<jstl:if test="${command == 'create' || command =='update'}">
 		<acme:print value="${periodEnd}" />
 	</jstl:if>
+	<jstl:if test="${command == 'create' || command =='update'}">
+		<table class="table table-sm">
+			<caption>
+		<acme:message code="manager.work-plan.form.label.recommendations"/>
+	</caption>	
+			<tr>
+				<th scope="row"><acme:message
+						code="manager.work-plan.form.label.recommendedYearEnd" /></th>
+				<td>
+					<p id="yearEnd">1970</p>
+			<tr>
+
+				<th scope="row"><acme:message
+						code="manager.work-plan.form.label.recommendedMonthEnd" /></th>
+				<td>
+					<p id="monthEnd">06</p>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row"><acme:message
+						code="manager.work-plan.form.label.recommendedDayEnd" /></th>
+				<td>
+					<p id="dayEnd">07</p>
+				</td>
+			</tr>
+		</table>
+	</jstl:if>
+
 	<jstl:if test="${command == 'show'}">
 		<acme:form-double code="manager.work-plan.form.label.workload"
 			path="workload" />
@@ -57,8 +115,6 @@
 		</acme:form-select>
 	</jstl:if>
 
-	<jstl:set var="flag" value="<%=0%>" />
-
 	<jstl:if test="${command == 'show' || command =='publish'}">
 		<br>
 		<h3>
@@ -92,23 +148,6 @@
 									<acme:message code="manager.work-plan.list.value.false" />
 								</jstl:otherwise>
 							</jstl:choose></td>
-						<jstl:choose>
-							<jstl:when test="${flag == 0}">
-								<jstl:set var="flag" value="<%=1%>" />
-								<jstl:set var="periodStart" value="${task.periodStart}" />
-								<jstl:set var="periodEnd" value="${task.periodEnd}" />
-							</jstl:when>
-							<jstl:otherwise>
-								<jstl:when test="${task.periodStart < periodStart}">
-									<jstl:set var="periodStart" value="${task.periodStart}" />
-								</jstl:when>
-
-								<jstl:when test="${task.periodEnd > periodEnd}">
-									<jstl:set var="periodEnd" value="${task.periodEnd}" />
-									<jstl:set var="flag" value="<%=2%>" />
-								</jstl:when>
-							</jstl:otherwise>
-						</jstl:choose>
 					</tr>
 				</jstl:forEach>
 			</tbody>
@@ -136,7 +175,54 @@
 		action="/manager/work-plan/delete" />
 
 	<acme:form-return code="manager.work-plan.form.button.return" />
-	<jstl:if test="${command == 'create' || command =='update'}">
-		<acme:print value="${flag}" />
-	</jstl:if>
 </acme:form>
+
+<script>
+	document.getElementById('tasks').addEventListener('change',function(){
+	    var selected = [];
+	    var min = [];
+	    var max = [];
+	    for (var option of document.getElementById('tasks').options)
+	    {
+	        if (option.selected) {
+	        	var periodStart = option.innerText.split(',')[0].split(" ")[4];
+	        	var periodEnd = option.innerText.split(',')[1].split(" ")[2];
+        		var earliestDate = new Date(periodStart);
+        		var latestDate = new Date(periodEnd);
+	        	
+	        	if(min.length==0){
+	        		min.push(earliestDate);
+	        	}
+	        	
+	        	else{
+	        		if(min[0] > earliestDate){
+	        			min.pop();
+	        			min.push(earliestDate);
+	        		}
+	        	}
+	        	
+	        	if(max.length==0){
+	        		max.push(latestDate);
+	        	}
+	        	
+	        	else{
+	        		if(max[0] < latestDate){
+	        			max.pop();
+	        			max.push(latestDate);
+	        		}
+	        		
+	        	}
+	        }
+	    }
+	    
+	    max[0].setDate(max[0].getDate() + 1);
+	    min[0].setDate(min[0].getDate() - 1);
+	    document.getElementById("yearStart").innerHTML = min[0].getFullYear();
+	    document.getElementById("monthStart").innerHTML = min[0].getMonth() + 1;
+	    document.getElementById("dayStart").innerHTML = min[0].getDate();
+	    
+	    document.getElementById("yearEnd").innerHTML = max[0].getFullYear();
+	    document.getElementById("monthEnd").innerHTML = max[0].getMonth() + 1;
+	    document.getElementById("dayEnd").innerHTML = max[0].getDate();
+	});
+	</script>
