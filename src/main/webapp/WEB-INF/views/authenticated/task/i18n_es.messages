@@ -9,6 +9,7 @@ authenticated.task.form.label.workload = Carga de trabajo (HH.mm):
 authenticated.task.form.label.link = Enlace (Opcional):
 authenticated.task.form.label.description = Descripción:
 authenticated.task.form.label.state = Estado
+authenticated.task.form.label.finished = Finalizado
 
 authenticated.task.form.button.return = Volver
 

@@ -9,7 +9,7 @@ anonymous.work-plan.form.label.workload = Carga de trabajo (HH.mm):
 anonymous.work-plan.form.label.description = Descripción:
 anonymous.work-plan.form.label.state = Público
 anonymous.work-plan.form.label.finished = Terminado
-anonymous.work-plan.form.label.tasks = Tareas:
+anonymous.work-plan.form.label.tasks = Tareas
 
 anonymous.work-plan.form.button.return = Volver
 
@@ -19,3 +19,6 @@ anonymous.work-plan.list.label.periodEnd = Final del período
 anonymous.work-plan.list.label.workload = Carga de trabajo (HH.mm)
 anonymous.work-plan.list.label.state = Público
 anonymous.work-plan.list.label.finished = Terminado
+anonymous.work-plan.list.label.state = Estado
+anonymous.work-plan.list.value.true = Público
+anonymous.work-plan.list.value.false = Privado

@@ -23,7 +23,7 @@
 	<jstl:if test="${command == 'show'}">
 		<acme:form-checkbox code="manager.work-plan.form.label.finished" path="finished"/>
 	</jstl:if>
-	
+  
 	<jstl:if test="${command == 'create' || command =='update'}">
 		<acme:form-select code="manager.work-plan.form.label.tasks" path="tasks" multiple="true">
 			<jstl:forEach items="${tasks}" var="task">

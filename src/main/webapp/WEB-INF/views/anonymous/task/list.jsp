@@ -8,6 +8,4 @@
 	<acme:list-column code="anonymous.task.list.label.periodStart" path="periodStart" width="25%"/>
 	<acme:list-column code="anonymous.task.list.label.periodEnd" path="periodEnd" width="25%"/>
 	<acme:list-column code="anonymous.task.list.label.workload" path="workload" width="25%"/>
-	<acme:list-column code="anonymous.task.list.label.state" path="state" width="15%" sortable="false"/>
-	<acme:list-column code="anonymous.task.list.label.finished" path="finished" width="15%" sortable="false"/>
 </acme:list>

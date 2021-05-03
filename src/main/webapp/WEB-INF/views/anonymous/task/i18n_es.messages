@@ -8,6 +8,8 @@ anonymous.task.form.label.periodEnd = Final del período:
 anonymous.task.form.label.workload = Carga de trabajo (HH.mm):
 anonymous.task.form.label.link = Enlace (Opcional):
 anonymous.task.form.label.description = Descripción:
+anonymous.task.form.label.finished = Terminado
+anonymous.task.form.label.tasks = Tareas
 
 anonymous.task.form.button.return = Volver
 

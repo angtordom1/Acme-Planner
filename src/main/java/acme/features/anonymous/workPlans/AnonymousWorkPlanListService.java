@@ -34,7 +34,7 @@ public class AnonymousWorkPlanListService implements AbstractListService<Anonymo
 			assert entity != null;
 			assert model != null;
 			
-			request.unbind(entity, model, "title", "periodStart", "periodEnd", "workload", "state", "finished");
+			request.unbind(entity, model, "periodStart", "periodEnd", "workload");
 			
 		}
 

@@ -11,6 +11,8 @@
 	<acme:form-double code="anonymous.task.form.label.workload" path="workload"/>
 	<acme:form-url code="anonymous.task.form.label.link" path="link"/>
 	<acme:form-textarea code="anonymous.task.form.label.description" path="description"/>
+	<acme:form-checkbox code="anonymous.task.form.label.state" path="state"/>
+	<acme:form-checkbox code="anonymous.task.form.label.finished" path="finished"/>
 
 	<acme:form-return code="anonymous.task.form.button.return"/>	
 
