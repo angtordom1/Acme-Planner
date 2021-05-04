@@ -9,7 +9,7 @@ anonymous.work-plan.form.label.workload = Workload (HH.mm):
 anonymous.work-plan.form.label.description = Description:
 anonymous.work-plan.form.label.state = Public
 anonymous.work-plan.form.label.finished = Finished
-anonymous.work-plan.form.label.tasks = Tasks:
+anonymous.work-plan.form.label.tasks = Tasks
 
 anonymous.work-plan.form.button.return = Return
 
@@ -19,3 +19,6 @@ anonymous.work-plan.list.label.periodEnd = End of period
 anonymous.work-plan.list.label.workload = Workload (HH.mm)
 anonymous.work-plan.list.label.state = Public
 anonymous.work-plan.list.label.finished = Finished
+anonymous.work-plan.list.label.state = State
+anonymous.work-plan.list.value.true = Public
+anonymous.work-plan.list.value.false = Private

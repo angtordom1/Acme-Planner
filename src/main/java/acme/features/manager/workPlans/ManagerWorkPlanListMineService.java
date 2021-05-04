@@ -1,30 +1,31 @@
-package acme.features.anonymous.workPlans;
+package acme.features.manager.workPlans;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.roles.Manager;
 import acme.entities.workPlans.WorkPlan;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Anonymous;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousWorkPlanListService implements AbstractListService<Anonymous, WorkPlan>{
+public class ManagerWorkPlanListMineService implements AbstractListService<Manager, WorkPlan>{
 
 	// Internal state ------------------------------------------------------
 	
 		@Autowired
-		AnonymousWorkPlanRepository repository;
+		ManagerWorkPlanRepository repository;
 		
-		// AbstractListService<Administrator, WorkPlan> interface ------------------
+		
+		// AbstractListService<Manager, WorkPlan> interface ------------------
 		
 		@Override
 		public boolean authorise(final Request<WorkPlan> request) {
 			assert request != null;
-			
 			return true;
 		}
 
@@ -33,9 +34,8 @@ public class AnonymousWorkPlanListService implements AbstractListService<Anonymo
 			assert request != null;
 			assert entity != null;
 			assert model != null;
-			
-			request.unbind(entity, model, "periodStart", "periodEnd", "workload");
-			
+
+			request.unbind(entity, model,  "periodStart", "periodEnd", "workload");
 		}
 
 		@Override
@@ -43,8 +43,10 @@ public class AnonymousWorkPlanListService implements AbstractListService<Anonymo
 			assert request != null;
 			
 			Collection<WorkPlan> result;
+			Principal principal;
 			
-			result = this.repository.findManyPublicUnfinished();
+			principal = request.getPrincipal();
+			result = this.repository.findManyByManager(principal.getActiveRoleId());
 			
 			return result;
 		}

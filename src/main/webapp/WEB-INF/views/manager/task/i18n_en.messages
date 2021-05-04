@@ -5,7 +5,6 @@ manager.task.list.label.title = Title
 manager.task.list.label.periodStart = Start of period
 manager.task.list.label.periodEnd = End of period
 manager.task.list.label.workload = Workload (HH.mm)
-manager.task.list.label.state = Public
 
 
 manager.task.form.title.show = Task
@@ -20,6 +19,7 @@ manager.task.form.label.workload = Workload (HH.mm):
 manager.task.form.label.link = Link (Optional):
 manager.task.form.label.description = Description:
 manager.task.form.label.state = Public
+manager.task.form.label.finished = Finished
 
 manager.task.form.button.update = Update
 manager.task.form.button.delete = Delete
@@ -30,4 +30,5 @@ manager.task.form.error.pastPeriod = The execution period must be in the future 
 manager.task.form.error.period = period end cannot be before that period Start
 manager.task.form.error.decimals = Decimals can just get to 59, it represents minutes
 manager.task.form.error.workloadFit = Workload must fit between the execution period 
-manager.task.form.error.spam = This field exceeds the amount of spam words permitted because of the following terms: {0} 
+manager.task.form.error.spam = This task exceeds the amount of spam words permitted because of the following terms: {0} 
+manager.task.form.error.finished = A task cannot be finished if it hasn't yet started

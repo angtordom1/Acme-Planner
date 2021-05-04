@@ -1,0 +1,47 @@
+# i18n_en.messages for workplans's views
+
+manager.work-plan.form.title.show = Work plan
+
+
+manager.work-plan.form.button.show = WorkPlan
+manager.work-plan.form.button.create = Create WorkPlan
+manager.work-plan.form.button.update = Update WorkPlan
+manager.work-plan.form.button.delete = Delete WorkPlan
+manager.work-plan.form.button.publish= Publish WorkPlan
+
+
+manager.work-plan.form.label.title = Title:
+manager.work-plan.form.label.periodStart = Start of period:
+manager.work-plan.form.label.periodEnd = End of period:
+manager.work-plan.form.label.workload = Workload (HH.mm):
+manager.work-plan.form.label.description = Description:
+manager.work-plan.form.label.state = Public
+manager.work-plan.form.label.finished = Finished
+manager.work-plan.form.label.tasks = Tasks:
+
+manager.work-plan.form.button.return = Return
+
+manager.work-plan.list.label.title = Title
+manager.work-plan.list.label.periodStart = Start of period
+manager.work-plan.list.label.periodEnd = End of period
+manager.work-plan.list.label.workload = Workload (HH.mm)
+manager.work-plan.list.label.state = State
+manager.work-plan.list.value.true = Public
+manager.work-plan.list.value.false = Private
+
+manager.work-plan.form.error.pastPeriod = The execution period must be in the future when the workplan is created
+manager.work-plan.form.error.period = period end cannot be before that period Start
+manager.work-plan.form.error.periodStartTask = The period start cannot be after the start of its first task
+manager.work-plan.form.error.periodEndTask = The period end cannot be before the end of its last task  
+manager.work-plan.form.error.manager = The workplan has to contain task of his manager
+manager.work-plan.form.error.badtasks= A public workplan can't contain private tasks 
+
+manager.work-plan.form.label.recommendedYearStart = Our recommendation is to start the work plan the following year:
+manager.work-plan.form.label.recommendedMonthStart = Our recommendation is to start the work plan the following month:
+manager.work-plan.form.label.recommendedDayStart = Our recommendation is to start the work plan the following day:
+
+manager.work-plan.form.label.recommendedYearEnd = Our recommendation is to end the work plan the following year:
+manager.work-plan.form.label.recommendedMonthEnd = Our recommendation is to end the work plan the following month:
+manager.work-plan.form.label.recommendedDayEnd = Our recommendation is to end the work plan the following day:
+
+manager.work-plan.form.label.recommendations = Please, select some tasks to view our recommendation.

@@ -23,31 +23,31 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 
 	@Autowired
 	protected ManagerTaskRepository repository;
-	
+
 	@Autowired
 	protected SpamService spamService;
-		
+
 	// AbstractCreateService<Manager, Task> interface -------------------------
-	
+
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
 
 		return true;
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public void validate(final Request<Task> request, final Task entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-	
+
+
 		if(!errors.hasErrors("periodStart")){
 			final Date now = new GregorianCalendar().getTime();
 			now.setSeconds(0);
-			
+
 			errors.state(request, entity.getPeriodStart().after(now), "periodStart", "manager.task.form.error.pastPeriod");
 		}
 		if(!errors.hasErrors("periodEnd")){
@@ -58,11 +58,11 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			final Date periodStart = entity.getPeriodStart();
 			final Date periodEnd = entity.getPeriodEnd();
 			final double workload = entity.getWorkload();
-			
+
 			final double hoursW = Math.floor(workload);
 			final double minsW = (workload-hoursW)*100;
 			boolean res = false;
-			
+
 			if((periodStart != null || periodEnd != null) && periodStart.before(periodEnd)) {
 				final long milliseconds = Math.abs(periodEnd.getTime() - periodStart.getTime());
 				final long diff = TimeUnit.MINUTES.convert(milliseconds, TimeUnit.MILLISECONDS);
@@ -70,28 +70,22 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 				final double mins = diff%60;
 				res =  (hoursW > hours) || (hoursW == hours && minsW > mins);
 			}
-			
+
 			errors.state(request, !res, "workload", "manager.task.form.error.workloadFit");
-			
+
 			//Los decimales no pueden sobrepasar del 59
 			final double minutes = workload - hoursW;
 			errors.state(request, minutes <= 0.59, "workload", "manager.task.form.error.decimals");
 		}
-		if(!errors.hasErrors("title")){
-			final String title = entity.getTitle();
-			final List<String> spamWords = this.spamService.getSpamWordsByString(title);
-			
-			errors.state(request, spamWords.isEmpty(), "title", "manager.task.form.error.spam", 
-				spamWords.toString().replaceAll("[\\[\\]]", ""));
-		}
-		if(!errors.hasErrors("description")){
-			final String description = entity.getDescription();
-			final List<String> spamWordsD = this.spamService.getSpamWordsByString(description);
-			
-			errors.state(request, spamWordsD.isEmpty(), "description", "manager.task.form.error.spam", 
-				spamWordsD.toString().replaceAll("[\\[\\]]", ""));
-		}
-		
+
+		final String title = entity.getTitle();
+		final String description = entity.getDescription();
+		final List<String> spamWords = this.spamService.getSpamWordsByString(title+" "+description);
+
+		errors.state(request, spamWords.isEmpty(), "*", "manager.task.form.error.spam", 
+			spamWords.toString().replaceAll("[\\[\\]]", ""));
+
+
 	}
 
 	@Override
@@ -108,21 +102,21 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+
 		request.unbind(entity, model,"title","periodStart","periodEnd","workload","description","link","state");
 	}
 
 	@Override
 	public Task instantiate(final Request<Task> request) {
 		assert request != null;
-		
+
 		Task result;
 		Manager manager;
-		
+
 		manager = this.repository.findOneManagerById(request.getPrincipal().getActiveRoleId());
 		result = new Task();
 		result.setManager(manager);
-		
+
 		return result;
 	}
 
@@ -132,6 +126,9 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 	public void create(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
+		
+		final String title = entity.getTitle().replace(",", "");
+		entity.setTitle(title);
 		entity.isFinished();
 		this.repository.save(entity);
 	}

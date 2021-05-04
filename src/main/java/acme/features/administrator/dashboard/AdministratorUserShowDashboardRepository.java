@@ -41,4 +41,10 @@ public interface AdministratorUserShowDashboardRepository extends AbstractReposi
 	@Query("select count(w) from WorkPlan w where w.state = true")
 	Long findPublishedWorkPlansAmount();
 	
+	@Query("select count(w) from WorkPlan w where w.finished = false")
+	Long findUnfinishedWorkPlansAmount();
+	
+	@Query("select count(w) from WorkPlan w where w.finished = true")
+	Long findFinishedWorkPlansAmount();
+	
 }

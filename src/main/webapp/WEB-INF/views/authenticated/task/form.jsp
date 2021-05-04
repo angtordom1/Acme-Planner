@@ -11,6 +11,8 @@
 	<acme:form-double code="authenticated.task.form.label.workload" path="workload"/>
 	<acme:form-url code="authenticated.task.form.label.link" path="link"/>
 	<acme:form-textarea code="authenticated.task.form.label.description" path="description"/>
+	<acme:form-checkbox code="authenticated.task.form.label.state" path="state"/>
+	<acme:form-checkbox code="authenticated.task.form.label.finished" path="finished"/>
 
 	<acme:form-return code="authenticated.task.form.button.return"/>	
 

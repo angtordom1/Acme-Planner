@@ -41,7 +41,7 @@ public class AuthenticatedTaskShowService implements AbstractShowService<Authent
 		assert model != null;
 		
 		request.unbind(entity, model, "title","periodStart","periodEnd","workload",
-						"description","link");
+						"description","link", "state", "finished");
 	}
 
 	@Override
