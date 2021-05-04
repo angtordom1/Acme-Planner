@@ -12,6 +12,9 @@ This is the Acme Planner, which is intended to be the project that we will work 
 Github Repository: https://github.com/angtordom1/Acme-Planner.git
 Github Release:
 
+Credenciales Clevercloud:
+Email: angtordom1@alum.us.es
+contraseña: DP2P@ssword
 
 Sobre el atributo title en tasks al crear y updatear una tarea:
 Debido a la implementación de las sugerencias al crear una workplan, hemos decidido evitar que una tarea
