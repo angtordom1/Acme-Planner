@@ -7,3 +7,7 @@
 # this software. It has been tested carefully, but it is not guaranteed for any particular
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
+
+21.1   The version scheme was changed. Many improvements to profiles, population, launcher, error handling, and testing support.
+21.2   Fixed minor bugs with tags acme:form-select and acme:form-checkbox.
+21.3   Fixed some bugs that prevented the populator from working well when deployed to Clever Cloud.
