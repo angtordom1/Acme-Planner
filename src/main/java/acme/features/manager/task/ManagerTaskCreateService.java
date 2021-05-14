@@ -126,6 +126,9 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 	public void create(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
+		
+		final String title = entity.getTitle().replace(",", "");
+		entity.setTitle(title);
 		entity.isFinished();
 		this.repository.save(entity);
 	}
