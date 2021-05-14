@@ -22,7 +22,7 @@
 	<description>This is the Acme Planner for D02 of Design &amp; Testing.</description>
 
 	<artifactId>Acme-Planner</artifactId>
-	<version>21.2</version>
+	<version>21.4</version>
 	<packaging>war</packaging>
 
 	<parent>
@@ -179,9 +179,14 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
+			<!-- <scope>runtime</scope> -->
 		</dependency>
 		
+		<dependency>
+	    	<groupId>com.zaxxer</groupId>
+	        <artifactId>HikariCP</artifactId>	        
+	    </dependency>
+	    
 		<!-- Testing -->
 
 		<dependency>
