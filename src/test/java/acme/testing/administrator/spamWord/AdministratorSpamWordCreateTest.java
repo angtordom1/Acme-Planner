@@ -15,6 +15,7 @@ public class AdministratorSpamWordCreateTest extends AcmePlannerTest{
 		super.signIn("administrator", "administrator");
 		
 		super.clickOnMenu("Administrator", "Spam's parameter");
+		super.clickOnSubmitButton("Show spam words");
 		super.clickOnSubmitButton("Create");
 		
 		

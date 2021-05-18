@@ -10,7 +10,7 @@ public class AdministratorDashboardShowTest extends AcmePlannerTest {
 
 
 	@ParameterizedTest
-	@CsvFileSource(resources="/administrator/dashboar/show.csv",encoding="utf-8",numLinesToSkip = 1)
+	@CsvFileSource(resources="/administrator/dashboard/show.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(5)
 	public void show(final int recordIndex, 
 		final String nTaskPublic, final String nTaskPriv, final String nTaskEnd, final String nTaskNoEnd, 
@@ -23,7 +23,7 @@ public class AdministratorDashboardShowTest extends AcmePlannerTest {
 		
 		super.clickOnMenu("Administrator", "Dashboard");
 		
-		super.checkInputBoxHasValue("Number of public tasks", nTaskPublic);
+		super.checkInputBoxHasValue("Number of public tasks" , nTaskPublic);
 		super.checkInputBoxHasValue("Number of private tasks", nTaskPriv);
 		super.checkInputBoxHasValue("Number of finished tasks", nTaskEnd);
 		super.checkInputBoxHasValue("Number of unfinished tasks", nTaskNoEnd);
