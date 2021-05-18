@@ -1,0 +1,7 @@
+recordIndex,title,periodStart,periodEnd,workload,description,link,state,finished
+8,Task Test 1,2021/10/01 10:29,2021/10/02 10:29,1.00,Test task number 1,,true,false
+9,Task Test 2,2021/10/03 10:29,2021/10/04 10:29,23.00,Test task number 2,,true,false
+10,Task Test 3,2021/10/05 10:29,2021/10/06 10:29,1.00,Test task number 3,http://www.ejemplo.es,false,false
+11,Task Test 4,2021/10/07 13:29,2021/10/08 17:29,7.00,Test task number 4,http://www.ejemplo.es,false,false
+12,Task Test 5,2021/10/09 00:29,2021/10/10 21:29,16.00,Test task number 5,http://www.twitch.tv,true,false
+13,Task Test 6,2021/10/11 10:29,2021/10/12 10:29,5.00,Test task number 6,http://www.twitch.tv,false,false

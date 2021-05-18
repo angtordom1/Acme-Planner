@@ -1,0 +1,5 @@
+periodStart,periodEnd,workload,state,tasks,finished
+2021/12/31 00:00,2022/01/01 23:59,11.00,true,,false
+2020/01/01 00:00,2021/07/01 23:59,11.00,true,,false
+2021/07/01 00:00,2021/06/01 00:00,11.00,true,,false
+2021/07/01 00:00,2021/07/05 23:59,11.00,false,,false

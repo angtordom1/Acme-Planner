@@ -19,7 +19,7 @@ public class ManagerWorkplanCreateTest extends AcmePlannerTest{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void createPositive(final int recordIndex, final String periodStart, final String periodEnd, final String workload, final String state, final String finished) {
+	public void createPositive(final int recordIndex, final String periodStart, final String periodEnd, final String workload, final String state, final String tasks, final String finished) {
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Manager", "Create WorkPlan");
@@ -27,6 +27,7 @@ public class ManagerWorkplanCreateTest extends AcmePlannerTest{
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
 		super.fillInputBoxIn("state", state);
+//		super.fillInputBoxIn("tasks", tasks); // ver si se pueden meter varias entradas, pero funciona con el select
 		super.clickOnSubmitButton("Create");
 		
 		super.clickOnMenu("Manager", "My workplans");
@@ -54,7 +55,7 @@ public class ManagerWorkplanCreateTest extends AcmePlannerTest{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void createNegative(final int recordIndex, final String periodStart, final String periodEnd, final String state) {
+	public void createNegative(final String periodStart, final String periodEnd, final String tasks, final String state) {
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Manager", "Create WorkPlan");
@@ -62,6 +63,7 @@ public class ManagerWorkplanCreateTest extends AcmePlannerTest{
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
 		super.fillInputBoxIn("state", state);
+//		super.fillInputBoxIn("tasks", tasks); // ver si se pueden meter varias entradas, pero funciona con el select
 		super.clickOnSubmitButton("Create");
 		
 		super.checkErrorsExist();
