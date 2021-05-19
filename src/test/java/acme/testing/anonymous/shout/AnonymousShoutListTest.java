@@ -9,6 +9,10 @@ import acme.testing.AcmePlannerTest;
 public class AnonymousShoutListTest extends AcmePlannerTest{
 
 	//Test cases
+	/*
+	 * Esta función testea el listado de Shouts para Anonymous, pasamos como parámetros los valores de los objetos de la base de datos
+	 * que van a aparecer en el listado y comprobamos que cada columna tenga los mismos valores que los esperados.
+	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)

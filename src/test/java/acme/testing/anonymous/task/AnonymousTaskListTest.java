@@ -9,6 +9,11 @@ import acme.testing.AcmePlannerTest;
 public class AnonymousTaskListTest extends AcmePlannerTest{
 	
 	//Test cases
+	/*
+	 * Esta función testea el listado de Tasks para Anonymous, pasamos como parámetros los valores de los objetos de la base de datos
+	 * que van a aparecer en el listado y, dado que se puede mostrar con detalle los datos, cliclamos sobre cada objeto para obtener
+	 * el formulario de show y ahí testeamos que los valores dados como parámetros sean los mismos que los que están en el formulario.
+	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
