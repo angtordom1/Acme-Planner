@@ -8,21 +8,22 @@ import acme.testing.AcmePlannerTest;
 
 public class AdministratorSpamUpdateTest extends AcmePlannerTest{
 	
+	//Actualizacion del umbral correctamente
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spam/updatePositive.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(30)
 	public void updatePositive(final int recordIndex 	, final String threshold) {
 		super.signIn("administrator", "administrator");
 		
-		super.clickOnMenu("Administrator", "Spam's parameter");
+		super.clickOnMenu("Administrator", "Spams parameters");
 		
-		super.fillInputBoxIn("threshold", threshold);
+		super.fillInputBoxIn("umbral", threshold);
 		
 		super.clickOnSubmitButton("Update");
 		
-		super.clickOnMenu("Administrator", "Spam's parameter");
+		super.clickOnMenu("Administrator", "Spams parameters");
 		
-		super.checkInputBoxHasValue("threshold", threshold);
+		super.checkInputBoxHasValue("umbral", threshold);
 		
 		super.signOut();
 		
