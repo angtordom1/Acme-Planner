@@ -26,11 +26,9 @@ public class ManagerWorkplanDeleteTest extends AcmePlannerTest{
 		
 		super.clickOnListingRecord(recordIndex);
 		
-		super.checkButtonExists("Delete");
-		super.clickOnSubmitButton("Delete");
-		
-		super.checkErrorsExist();
-		
+		super.checkButtonExists("Delete WorkPlan");
+		super.clickOnSubmitButton("Delete WorkPlan");
+				
 		super.signOut();
 	}
 }

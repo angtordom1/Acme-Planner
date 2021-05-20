@@ -40,6 +40,11 @@ public class ManagerTaskListTest extends AcmePlannerTest{
 		super.checkInputBoxHasValue("state", state);
 		super.checkInputBoxHasValue("finished", finished);
 		
+		if(finished.equals("false")) {
+			super.checkButtonExists("Update");
+			super.checkButtonExists("Delete");
+		}
+		
 		super.signOut();
 	}
 

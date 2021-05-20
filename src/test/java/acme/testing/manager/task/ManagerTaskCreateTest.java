@@ -35,10 +35,10 @@ public class ManagerTaskCreateTest extends AcmePlannerTest{
 		
 		super.clickOnMenu("Manager", "My tasks");
 		
-//		super.checkColumnHasValue(recordIndex, 0, title);
-//		super.checkColumnHasValue(recordIndex, 1, periodStart);
-//		super.checkColumnHasValue(recordIndex, 2, periodEnd);
-//		super.checkColumnHasValue(recordIndex, 3, workload);
+		super.checkColumnHasValue(recordIndex, 0, title);
+		super.checkColumnHasValue(recordIndex, 1, periodStart);
+		super.checkColumnHasValue(recordIndex, 2, periodEnd);
+		super.checkColumnHasValue(recordIndex, 3, workload);
 		
 		super.clickOnListingRecord(recordIndex);
 		

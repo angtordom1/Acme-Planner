@@ -19,7 +19,7 @@ public class ManagerTaskDeleteTest extends AcmePlannerTest{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/delete.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void list(final int recordIndex) {
+	public void delete(final int recordIndex) {
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Manager", "My tasks");
@@ -28,8 +28,6 @@ public class ManagerTaskDeleteTest extends AcmePlannerTest{
 		
 		super.checkButtonExists("Delete");
 		super.clickOnSubmitButton("Delete");
-		
-		super.checkErrorsExist();
 		
 		super.signOut();
 	}

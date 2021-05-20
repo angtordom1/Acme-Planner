@@ -35,6 +35,11 @@ public class ManagerWorkplanListTest extends AcmePlannerTest{
 		super.checkInputBoxHasValue("state", state);
 		super.checkInputBoxHasValue("finished", finished);
 		
+		if(finished.equals("false")) {
+			super.checkButtonExists("Update WorkPlan");
+			super.checkButtonExists("Delete WorkPlan");
+		}
+		
 		super.signOut();
 	}
 }

@@ -2,7 +2,6 @@ recordIndex,title,periodStart,periodEnd,workload,description,link,state,finished
 5,,2021/06/04 19:59,2021/06/05 20:00,11.00,BLANK DESCRIPTION,,false,false
 6,Task 005,2020/07/04 19:59,2021/07/05 20:00,11.00,PERIOD START IN THE PAST,http://www.google.com,true,false
 7,Task 014,2021/07/05 19:59,2021/07/01 20:00,11.00,PERIOD END BEFORE PERIOD START,http://www.google.com,true,false
-8,BLANK DESCRIPTION,2021/07/06 19:59,2021/07/07 20:00,11.00,,http://www.google.com,true,false
+7,BLANK DESCRIPTION,2021/07/05 19:59,2021/07/07 20:00,11.00,,http://www.google.com,true,false
 5,Task 006,2021/06/04 19:59,2021/06/05 20:00,11.90,INVALID WORKLOAD,,false,false
 6,Task 005,2021/07/04 19:59,2021/07/05 20:00,99.00,WORKLOAD TOO BIG,http://www.google.com,true,false
-7,Task 014,2021/07/05 19:59,2021/07/06 20:00,11.00,Task 014 of the project,http://www.google.com,true,false
