@@ -1,0 +1,10 @@
+recordIndex,title,periodStart,periodEnd,workload,description,link,state,finished
+0,Task 001,2021/04/01 19:59,2021/04/02 20:00,10.50,First Task of the project,,true,true
+1,Task 002,2021/04/02 19:59,2021/04/03 20:00,10.50,Second Task of the project,,false,true
+2,Task 004,2021/04/04 19:59,2021/04/06 20:00,11.00,Fourth Task of the project,,true,true
+3,Task 015,2021/04/04 19:59,2021/04/06 20:00,11.00,Task 015 of the project,,true,true
+4,Task 003,2021/04/05 19:59,2021/04/06 20:00,10.50,Third Task of the project,,false,true
+5,Task 006,2021/06/04 19:59,2021/06/05 20:00,11.00,Sixth Task of the project,,false,false
+6,Task 005,2021/07/04 19:59,2021/07/05 20:00,11.00,Fifth Task of the project,http://www.google.com,true,false
+7,Task 014,2021/07/05 19:59,2021/07/06 20:00,11.00,Task 014 of the project,http://www.google.com,true,false
+8,Task 013,2021/07/06 19:59,2021/07/07 20:00,11.00,Task 013 of the project,http://www.google.com,true,false
