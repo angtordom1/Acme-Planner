@@ -36,7 +36,7 @@ public class AdministratorDashboardShowTest extends AcmePlannerTest {
 
 	}
 
-	//Probamos que los datos en el dashboad se muestran correctamente
+	//Se testea showService, esperamos que todos los datos se muestren correctamente
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/dashboard/show.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(5)

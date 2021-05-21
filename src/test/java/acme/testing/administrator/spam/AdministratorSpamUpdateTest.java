@@ -8,7 +8,7 @@ import acme.testing.AcmePlannerTest;
 
 public class AdministratorSpamUpdateTest extends AcmePlannerTest{
 	
-	//Actualizacion del umbral correctamente
+	//Se testea updateService actualizamos el umbral y esperamos que se mantenga el cambio
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spam/updatePositive.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(30)

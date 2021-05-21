@@ -9,7 +9,7 @@ import acme.testing.AcmePlannerTest;
 
 public class AdministratorSpamWordListTest extends AcmePlannerTest{
 	
-	//Comprobamos que se listan los spamwords correctamente
+	//Se testea listService cuyo unico objetivo es comprobar que los datos se muetran correctamente
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spamWord/list.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(31)

@@ -9,7 +9,7 @@ import acme.testing.AcmePlannerTest;
 
 public class AdministratorSpamWordCreateTest extends AcmePlannerTest{
 	
-	//Creacion de spamwords de manera correcta
+	//Se testea createService creamos varios spamwords y esperamos que se muestren
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spamWord/createPositive.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(32)
@@ -36,7 +36,6 @@ public class AdministratorSpamWordCreateTest extends AcmePlannerTest{
 		
 		super.clickAndWait(locator);
 		
-//		super.clickOnLink("3");
 		
 		super.checkColumnHasValue(recordIndex, 0, word);
 		super.checkColumnHasValue(recordIndex, 1, size);
@@ -51,7 +50,7 @@ public class AdministratorSpamWordCreateTest extends AcmePlannerTest{
 		
 	}
 	
-	//Creacion de spamwords con errores
+	//Se testea createService creamos varios spamwords con incorrectamente y esperamos que aparezcan fallos
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spamWord/createNegative.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(33)

@@ -9,7 +9,7 @@ import acme.testing.AcmePlannerTest;
 
 public class AdministratorSpamWordUpdateTest extends AcmePlannerTest{
 	
-	//Probamos que los datos se actualizan correctamente
+	//Se testea updateService actualizamos varios datos y esperamos que se muestren estos con los cambios
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spamWord/updatePositive.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(34)
@@ -41,7 +41,7 @@ public class AdministratorSpamWordUpdateTest extends AcmePlannerTest{
 		
 	}
 	
-	//Probamos que los spamwords se actualizan erroneamente
+	//Se testea updateService actualizamos varios datos de manera incorrecta y esperamos que haya fallos
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spamWord/updateNegative.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(34)
