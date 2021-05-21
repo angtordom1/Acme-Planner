@@ -26,11 +26,11 @@ public class ManagerWorkplanCreateTest extends AcmePlannerTest{
 		
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
-		super.fillInputBoxIn("state", state);
-//		super.fillInputBoxIn("tasks", tasks); // ver si se pueden meter varias entradas, pero funciona con el select
-		super.clickOnSubmitButton("Create");
+		if(state.equals("true")) super.fillInputBoxIn("state", "true");
+		if(!(tasks == null)) super.fillInputBoxIn("tasks", tasks);
+		super.clickOnSubmitButton("Create WorkPlan");
 		
-		super.clickOnMenu("Manager", "My workplans");
+		super.clickOnMenu("Manager", "My Workplans");
 		
 		super.checkColumnHasValue(recordIndex, 0, periodStart);
 		super.checkColumnHasValue(recordIndex, 1, periodEnd);
@@ -55,16 +55,16 @@ public class ManagerWorkplanCreateTest extends AcmePlannerTest{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void createNegative(final String periodStart, final String periodEnd, final String tasks, final String state) {
+	public void createNegative(final String periodStart, final String periodEnd, final String state, final String tasks) {
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Manager", "Create WorkPlan");
 		
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
-		super.fillInputBoxIn("state", state);
-//		super.fillInputBoxIn("tasks", tasks); // ver si se pueden meter varias entradas, pero funciona con el select
-		super.clickOnSubmitButton("Create");
+		if(state.equals("true")) super.fillInputBoxIn("state", "true");
+		if(!(tasks == null)) super.fillInputBoxIn("tasks", tasks);
+		super.clickOnSubmitButton("Create WorkPlan");
 		
 		super.checkErrorsExist();
 		
