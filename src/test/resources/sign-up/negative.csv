@@ -1,0 +1,13 @@
+username,password,confirmation,name,surname,email
+johnny,johnny,johnny,Johnny,López,john@mail.com
+lorraine2,,,Lorraine,Williams,lorraine@yellow-house.com
+lorraine2,johnny,,Lorraine,Williams,lorraine@yellow-house.com
+lorraine2,,johnny,Lorraine,Williams,lorraine@yellow-house.com
+leslie2,leslie,leslie,,Ramport,leslie@us.es
+robert2,robert,robert,Robert,,robert@mail.server.com
+"",pepeluis,pepeluis,José Luis,Sørensen,ppepe.sorensen@sweden.sw
+luisa2,luisa,luisa,Luisa,Martínez López,
+lukas2,lukas,lukas,Lukas,Smith,lukasmail.com
+luka,lukas,lukas,Lukas,Smith,lorraine@yellow-house.com
+lukas3,luk,luk,Lukas,Smith,lorraine@yellow-house.com
+lukas3,luka232,lukaaaa,Lukas,Smith,lorraine@yellow-house.com
