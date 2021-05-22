@@ -50,7 +50,8 @@ public class AdministratorSpamWordCreateTest extends AcmePlannerTest{
 		
 	}
 	
-	//Se testea createService creamos varios spamwords con incorrectamente y esperamos que aparezcan fallos
+	//Se testea createService creamos varios spamwords con incorrectamente(numero de palabras incorrecto y campos sin rellenar)
+	//y esperamos que aparezcan fallos
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spamWord/createNegative.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(33)

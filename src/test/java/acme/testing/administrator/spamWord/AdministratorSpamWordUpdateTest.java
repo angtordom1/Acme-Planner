@@ -29,6 +29,10 @@ public class AdministratorSpamWordUpdateTest extends AcmePlannerTest{
 		super.fillInputBoxIn("size", size);
 		super.clickOnSubmitButton("Update");
 		
+		super.clickOnMenu("Administrator", "Spams parameters");
+		
+		super.clickAndWait(locator);
+		
 		super.checkColumnHasValue(recordIndex, 0, word);
 		super.checkColumnHasValue(recordIndex, 1, size);
 		
@@ -41,7 +45,8 @@ public class AdministratorSpamWordUpdateTest extends AcmePlannerTest{
 		
 	}
 	
-	//Se testea updateService actualizamos varios datos de manera incorrecta y esperamos que haya fallos
+	//Se testea updateService actualizamos varios datos de manera incorrecta(numero de palabras incorrecto y campos sin rellenar)
+	//y esperamos que haya fallos
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spamWord/updateNegative.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(34)
