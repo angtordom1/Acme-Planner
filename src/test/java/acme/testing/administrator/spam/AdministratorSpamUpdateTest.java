@@ -28,4 +28,24 @@ public class AdministratorSpamUpdateTest extends AcmePlannerTest{
 		super.signOut();
 		
 	}
+	
+	//Se testea updateService actualizamos el umbral fuera de los limites del rango
+	//y esperamos fallos
+	@ParameterizedTest
+	@CsvFileSource(resources="/administrator/spam/updateNegative.csv",encoding="utf-8",numLinesToSkip = 1)
+	@Order(30)
+	public void updateNegative(final int recordIndex 	, final String threshold) {
+		super.signIn("administrator", "administrator");
+		
+		super.clickOnMenu("Administrator", "Spams parameters");
+		
+		super.fillInputBoxIn("umbral", threshold);
+		
+		super.clickOnSubmitButton("Update");
+		
+		super.checkErrorsExist();
+		
+		super.signOut();
+		
+	}
 }
