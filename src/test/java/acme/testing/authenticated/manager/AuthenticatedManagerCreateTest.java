@@ -12,8 +12,8 @@ public class AuthenticatedManagerCreateTest extends AcmePlannerTest{
 	//Test cases
 	
 	/*
-	 *  Functionality to be tested: Authenticated user must become a manager (positive case)
-	 *  Expected results: Authenticated user must become a manager
+	 *  Funcionalidad a probar: Usuario autenticado se convierte en manager (caso positivo)
+	 *  Resultados esperados: Usuario autenticado debe ser capaz de convertirse en manager
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/manager/createPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -33,11 +33,11 @@ public class AuthenticatedManagerCreateTest extends AcmePlannerTest{
 		
 		super.signOut();
 	}
-	
+
 	/*
-	 *  Functionality to be tested: Authenticated manager must not become a manager twice (negative case)
-	 *  Expected results: Authenticated manager must not become a manager twice
-	 *  Constraints to be violated: None, manager must not become manager twice
+	 *  Funcionalidad a probar: Manager autenticado no debe convertirse en manager dos veces (caso negativo)
+	 *  Resultados esperados: Manager autenticado no debe ser capaz de convertirse en manager dos veces
+	 *  Restricciones a infringir: Ninguna
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/manager/createNegative.csv", encoding = "utf-8", numLinesToSkip = 1)

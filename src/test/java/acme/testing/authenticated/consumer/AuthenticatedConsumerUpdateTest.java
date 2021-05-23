@@ -11,7 +11,7 @@ public class AuthenticatedConsumerUpdateTest extends AcmePlannerTest{
 
 	
 	/*
-	 *  Provider update service
+	 *  Actualización de proveedor
 	 */
 	@Override
 	@BeforeAll
@@ -33,8 +33,8 @@ public class AuthenticatedConsumerUpdateTest extends AcmePlannerTest{
 	//Test cases
 	
 	/*
-	 *  Functionality to be tested: Authenticated consumer updates its' values (positive case)
-	 *  Expected results: Authenticated consumer must be able to change his company and sector
+	 *  Funcionalidad a probar: Consumidor autenticado actualiza sus valores (caso positivo)
+	 *  Resultados esperados: Consumidor autenticado debe ser capaz de actualizar compañía y sector
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/updatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -55,9 +55,9 @@ public class AuthenticatedConsumerUpdateTest extends AcmePlannerTest{
 	}
 	
 	/*
-	 *  Functionality to be tested: Authenticated manager updates its' values (negative case)
-	 *  Expected results: Authenticated manager must not be able to change his company and/or sector
-	 *  Constraints to be violated: NotBlank company and sector
+	 *  Funcionalidad a probar: Consumidor autenticado no debe actualizar sus valores (caso negativo)
+	 *  Resultados esperados: Consumidor autenticado no debe ser capaz de actualizar compañía y sector
+	 *  Restricciones a infringir: NotBlank de compañía y sector
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/updateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)

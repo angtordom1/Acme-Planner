@@ -10,9 +10,10 @@ public class AuthenticatedTaskListTest extends AcmePlannerTest{
 	
 	//Test cases
 	
+	
 	/*
-	 *  Functionality to be tested: Authenticated task list 
-	 *  Expected results: A list of persistent tasks where State and Finished are set to true
+	 *  Funcionalidad a probar: Lista de tareas de usuarios autenticados
+	 *  Resultados esperados: Lista persistente de tareas donde estado y acabado son "true"
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)

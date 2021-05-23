@@ -12,8 +12,8 @@ public class AuthenticatedConsumerCreateTest extends AcmePlannerTest{
 	//Test cases
 	
 	/*
-	 *  Functionality to be tested: Authenticated user becomes consumer with positive values (positive case)
-	 *  Expected results: Authenticated user must be able to become a consumer
+	 *  Funcionalidad a probar: Usuario autenticado se convierte en consumidor (caso positivo)
+	 *  Resultados esperados: Usuario autenticado debe poder convertirse en consumidor
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/createPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -36,9 +36,9 @@ public class AuthenticatedConsumerCreateTest extends AcmePlannerTest{
 	}
 	
 	/*
-	 *  Functionality to be tested: Authenticated user must not become a consumer with negative values (negative case)
-	 *  Expected results: Authenticated user must not become a consumer
-	 *  Constraints to be violated: NotBlank company and sector
+	 *  Funcionalidad a probar: Authenticated user must not become a consumer with negative values (negative case)
+	 *  Resultados esperados: Authenticated user must not become a consumer
+	 *  Restricciones a infringir: NotBlank de compañía y sector
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/createNegative.csv", encoding = "utf-8", numLinesToSkip = 1)

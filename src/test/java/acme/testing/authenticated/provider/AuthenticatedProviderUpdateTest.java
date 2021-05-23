@@ -10,7 +10,7 @@ import acme.testing.AcmePlannerTest;
 public class AuthenticatedProviderUpdateTest extends AcmePlannerTest{
 
 	/*
-	 *  Provider update service
+	 *  Servicio para actualizar proveedor
 	 */
 	@Override
 	@BeforeAll
@@ -32,8 +32,8 @@ public class AuthenticatedProviderUpdateTest extends AcmePlannerTest{
 	//Test cases
 	
 	/*
-	 *  Functionality to be tested: Authenticated provider updates its' values (positive case)
-	 *  Expected results: Authenticated provider must be able to change his company and sector
+	 *  Funcionalidad a probar: Proveedor autenticado actualiza sus campos (caso positivo)
+	 *  Resultados esperados: Proveedor autenticado debe ser capaz de cambiar de compañía y sector
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/provider/updatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -54,9 +54,9 @@ public class AuthenticatedProviderUpdateTest extends AcmePlannerTest{
 	}
 	
 	/*
-	 *  Functionality to be tested: Authenticated provider updates its' values (negative case)
-	 *  Expected results: Authenticated provider must not be able to change his company and/or sector
-	 *  Constraints to be violated: NotBlank company and sector
+	 *  Funcionalidad a probar: Proveedor autenticado actualiza sus campos (caso negativo)
+	 *  Resultados esperados: Proveedor autenticado no debe ser capaz de cambiar de compañía y sector
+	 *  Restricciones a infringir: NotBlank de compañía y sector
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/provider/updateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)

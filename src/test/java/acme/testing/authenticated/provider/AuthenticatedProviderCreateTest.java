@@ -12,8 +12,8 @@ public class AuthenticatedProviderCreateTest extends AcmePlannerTest{
 	//Test cases
 	
 	/*
-	 *  Functionality to be tested: Authenticated user becomes provider with positive values (positive case)
-	 *  Expected results: Authenticated user must be able to become a provider
+	 *  Funcionalidad a probar: Usuario autenticado se convierte en proveedor (caso positivo)
+	 *  Resultados esperados: Usuario autenticado debe ser capaz de convertirse en proveedor
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/provider/createPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -36,9 +36,9 @@ public class AuthenticatedProviderCreateTest extends AcmePlannerTest{
 	}
 	
 	/*
-	 *  Functionality to be tested: Authenticated user must not become a provider with negative values (negative case)
-	 *  Expected results: Authenticated user must not become a provider
-	 *  Constraints to be violated: NotBlank company and sector
+	 *  Funcionalidad a probar: Usuario autenticado no debe convertirse en proveedor (caso negativo)
+	 *  Resultados esperados: Usuario autenticado no debe ser capaz de convertirse en proveedor
+	 *  Restricciones a infringir: NotBlank de compañía y sector
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/provider/createNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
