@@ -51,7 +51,7 @@ public class AdministratorSpamWordUpdateTest extends AcmePlannerTest{
 	@CsvFileSource(resources="/administrator/spamWord/updateNegative.csv",encoding="utf-8",numLinesToSkip = 1)
 	@Order(34)
 	public void updateNegative(final int recordIndex , final String word, final String size) {
-		super.signIn("administrator", "administrator");
+		super.signIn("administrator", "administrator" );
 		
 		super.clickOnMenu("Administrator", "Spams parameters");
 		
