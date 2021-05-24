@@ -32,3 +32,4 @@ manager.task.form.error.decimals = Decimals can just get to 59, it represents mi
 manager.task.form.error.workloadFit = Workload must fit between the execution period 
 manager.task.form.error.spam = This task exceeds the amount of spam words permitted because of the following terms: {0} 
 manager.task.form.error.finished = A task cannot be finished if it hasn't yet started
+manager.task.form.error.wrong-characters = The title shouldn't contain the following characters: "," y ":"

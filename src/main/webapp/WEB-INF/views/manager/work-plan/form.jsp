@@ -39,6 +39,14 @@
 					<p id="dayStart">06</p>
 				</td>
 			</tr>
+			
+			<tr>
+				<th scope="row"><acme:message
+						code="manager.work-plan.form.label.hourDayStart" /></th>
+				<td>
+					<p id="hourStart">8:00</p>
+				</td>
+			</tr>
 		</table>
 	</jstl:if>
 
@@ -70,6 +78,14 @@
 						code="manager.work-plan.form.label.recommendedDayEnd" /></th>
 				<td>
 					<p id="dayEnd">07</p>
+				</td>
+			</tr>
+			
+			<tr>
+				<th scope="row"><acme:message
+						code="manager.work-plan.form.label.hourDayEnd" /></th>
+				<td>
+					<p id="hourEnd">17:00</p>
 				</td>
 			</tr>
 		</table>
@@ -186,17 +202,17 @@
 	    for (var option of document.getElementById('tasks').options)
 	    {
 	        if (option.selected) {
-	        	var periodStart = option.innerText.split(',')[0].split(" ")[4];
+	        	var periodStart = option.innerText.split(',')[0].split(":")[1].split(" ")[1];
 	        	var periodEnd = option.innerText.split(',')[1].split(" ")[2];
         		var earliestDate = new Date(periodStart);
         		var latestDate = new Date(periodEnd);
-	        	
+        		
 	        	if(min.length==0){
 	        		min.push(earliestDate);
 	        	}
 	        	
 	        	else{
-	        		if(min[0] > earliestDate){
+	        		if(min[0] >= earliestDate){
 	        			min.pop();
 	        			min.push(earliestDate);
 	        		}
