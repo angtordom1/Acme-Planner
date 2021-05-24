@@ -26,8 +26,8 @@ public class ManagerWorkplanCreateTest extends AcmePlannerTest{
 		
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
-		if(state.equals("true")) super.fillInputBoxIn("state", "true");
-		if(!(tasks == null)) super.fillInputBoxIn("tasks", tasks);
+		super.fillInputBoxIn("state", state);
+		super.fillInputBoxIn("tasks", tasks);
 		super.clickOnSubmitButton("Create WorkPlan");
 		
 		super.clickOnMenu("Manager", "My Workplans");
@@ -62,8 +62,8 @@ public class ManagerWorkplanCreateTest extends AcmePlannerTest{
 		
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
-		if(state.equals("true")) super.fillInputBoxIn("state", "true");
-		if(!(tasks == null)) super.fillInputBoxIn("tasks", tasks);
+		super.fillInputBoxIn("state", state);
+		if(tasks != null) super.fillInputBoxIn("tasks", tasks);
 		super.clickOnSubmitButton("Create WorkPlan");
 		
 		super.checkErrorsExist();
