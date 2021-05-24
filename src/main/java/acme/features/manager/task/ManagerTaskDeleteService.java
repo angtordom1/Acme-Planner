@@ -93,6 +93,9 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager,T
 		if(!workPlans.isEmpty()) {
 			for(final WorkPlan workPlan: workPlans) {
 				workPlan.getTasks().remove(entity);
+				final double workload = workPlan.getTotalWorkload(workPlan.getTasks());
+				workPlan.setWorkload(workload);
+				this.workPlanRepository.save(workPlan);
 			}
 		}
 		

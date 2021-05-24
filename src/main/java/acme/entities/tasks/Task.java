@@ -80,6 +80,11 @@ public class Task extends DomainEntity{
 	@ManyToOne(optional = false)
 	protected Manager manager;
 
+	@Override
+	public String toString() {
+		return "Task [id=" + this.id + "]";
+	}
+
 
 
 

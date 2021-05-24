@@ -9,9 +9,6 @@
 	<acme:form-moment code="manager.work-plan.form.label.periodStart"
 		path="periodStart" />
 	<jstl:if test="${command == 'create' || command =='update'}">
-		<acme:print value="${periodStart}" />
-	</jstl:if>
-	<jstl:if test="${command == 'create' || command =='update'}">
 		<table class="table table-sm">
 	<caption>
 		<acme:message code="manager.work-plan.form.label.recommendations"/>
@@ -52,9 +49,6 @@
 
 	<acme:form-moment code="manager.work-plan.form.label.periodEnd"
 		path="periodEnd" />
-	<jstl:if test="${command == 'create' || command =='update'}">
-		<acme:print value="${periodEnd}" />
-	</jstl:if>
 	<jstl:if test="${command == 'create' || command =='update'}">
 		<table class="table table-sm">
 			<caption>
