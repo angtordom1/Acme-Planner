@@ -13,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 
 import acme.entities.tasks.Task;
 import acme.framework.entities.DomainEntity;
@@ -114,6 +115,7 @@ public class WorkPlan extends DomainEntity{
 	
 	// Relationships ----------------------------------------------------------
 
+	@NotNull
 	@ManyToMany(fetch = FetchType.EAGER)
 	protected List<Task> tasks;
 
