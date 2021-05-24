@@ -97,7 +97,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 		if(!errors.hasErrors("periodEnd")){
 			errors.state(request, entity.getPeriodEnd().after(entity.getPeriodStart()), "periodEnd", "manager.task.form.error.period");
 		}
-		if(!errors.hasErrors("workload")){
+		if(!errors.hasErrors("workload") && !errors.hasErrors("periodEnd") && !errors.hasErrors("periodStart")){
 			//Debe de caber dentro del tiempo de ejecución
 			final Date periodStart = entity.getPeriodStart();
 			final Date periodEnd = entity.getPeriodEnd();
@@ -107,7 +107,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 			final double minsW = (workload-hoursW)*100;
 			boolean res = false;
 			
-			if((periodStart != null || periodEnd != null) && periodStart.before(periodEnd)) {
+			if(periodStart.before(periodEnd)) {
 				final long milliseconds = Math.abs(periodEnd.getTime() - periodStart.getTime());
 				final long diff = TimeUnit.MINUTES.convert(milliseconds, TimeUnit.MILLISECONDS);
 				final double hours = Math.floor(diff/60.0);
@@ -121,7 +121,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 			final double minutes = workload - hoursW;
 			errors.state(request, minutes <= 0.59, "workload", "manager.task.form.error.decimals");
 		}
-		if(!errors.hasErrors("finished")) {
+		if(!errors.hasErrors("finished") && !errors.hasErrors("periodStart")) {
 			final Date now = new GregorianCalendar().getTime();
 			now.setSeconds(0);
 			final boolean finish = entity.isFinished();

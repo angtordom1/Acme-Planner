@@ -53,7 +53,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		if(!errors.hasErrors("periodEnd")){
 			errors.state(request, entity.getPeriodEnd().after(entity.getPeriodStart()), "periodEnd", "manager.task.form.error.period");
 		}
-		if(!errors.hasErrors("workload")){
+		if(!errors.hasErrors("workload") && !errors.hasErrors("periodEnd") && !errors.hasErrors("periodStart")){
 			//Debe de caber dentro del tiempo de ejecución
 			final Date periodStart = entity.getPeriodStart();
 			final Date periodEnd = entity.getPeriodEnd();
@@ -63,7 +63,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			final double minsW = (workload-hoursW)*100;
 			boolean res = false;
 
-			if((periodStart != null || periodEnd != null) && periodStart.before(periodEnd)) {
+			if(periodStart.before(periodEnd)) {
 				final long milliseconds = Math.abs(periodEnd.getTime() - periodStart.getTime());
 				final long diff = TimeUnit.MINUTES.convert(milliseconds, TimeUnit.MILLISECONDS);
 				final double hours = Math.floor(diff/60.0);
