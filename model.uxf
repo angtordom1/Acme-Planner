@@ -434,15 +434,15 @@ SpamWord
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
+      <x>595</x>
       <y>119</y>
-      <w>196</w>
+      <w>231</w>
       <h>49</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Spam
 --
-+ umbral: Double {Range(min=0,max=100)}
++ umbral: Double {NotNull,Range(min=0,max=100)}
 
     </panel_attributes>
     <additional_attributes/>

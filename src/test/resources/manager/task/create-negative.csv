@@ -1,0 +1,13 @@
+title,periodStart,periodEnd,workload,description,link,state,finished
+,2021/10/01 10:29,2021/10/02 10:29,1.00,Test task number 1,,true,false
+Tengomuchisimoscaracteresmiramiramiramiramiramiramiramiramiramiramiramiramiramira,2021/10/03 10:29,2021/10/04 10:29,1.00,Test task number 2,,true,false
+Fecha vacia 1,,2021/10/06 10:29,1.00,Test task number 3,http://www.ejemplo.es,false,false
+Fecha vacia 2,2021/10/07 10:29,,1.00,Test task number 4,http://www.ejemplo.es,false,false
+Descripcion vacia,2021/10/09 10:29,2021/10/10 10:29,1.00,,http://www.twitch.tv,true,false
+Descripcion demasiado larga,2021/10/11 10:29,2021/10/12 10:29,1.00,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,,false,false
+Fecha inicio antes de ahora,2020/01/01 00:00,2021/10/03 00:29,1.00,Test task,,true,false
+Fecha fin antes de fecha inicio,2021/10/07 10:29,2021/10/02 10:29,1.00,Test task,,true,false
+Workload muy grande,2021/10/01 10:29,2021/10/02 10:29,50.00,Test task,,true,false
+Workload con decimales mayores a 60,2021/10/01 10:29,2021/10/02 10:29,1.99,Test task,,true,false
+Link incorrecto,2021/10/01 10:29,2021/10/02 10:29,1.00,Test task,nosoyunlink,true,false
+Tengo spam sex,2021/10/01 10:29,2021/10/02 10:29,1.00,cialis nigeria viagra,,true,false

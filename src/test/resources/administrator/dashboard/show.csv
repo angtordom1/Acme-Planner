@@ -1,0 +1,2 @@
+recordIndex,nTaskPublic,nTaskPriv,nTaskEnd,nTaskNoEnd,averPeriod,desvPeriod,minPeriod,maxPeriod,averLoad,desvLoad,minLoad,maxLoad,nWorkPlan,nWorkPlanPriv,nWorkPlanPubl,nWorkPlanNoEnd,nWorkPlanEnd
+0,12,6,10,8,29 hours 21 minutes,32 hours 54 minutes,24 hours 02 minutes,48 hours 02 minutes,11 hours 57 minutes,0 hours 05 minutes,10 hours 50 minutes,11 hours 00 minutes,23,8,15,13,10
