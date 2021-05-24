@@ -37,4 +37,13 @@ public class AnonymousTaskListTest extends AcmePlannerTest{
 		super.checkInputBoxHasValue("state", state);
 		super.checkInputBoxHasValue("finished", finished);
 	}
+	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/anonymous/task/taskNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(10)
+	public void showNegative(final String id) {
+		
+		super.navigate("/anonymous/tasks/show", "id="+id);
+		super.checkPanicExists();
+	}
 }

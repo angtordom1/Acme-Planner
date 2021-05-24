@@ -34,4 +34,13 @@ public class AnonymousWorkPlanListTest extends AcmePlannerTest{
 		super.checkInputBoxHasValue("finished", finished);
 		
 	}
+	
+	@ParameterizedTest
+	@CsvFileSource(resources = "/anonymous/workplan/workPlanNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@Order(10)
+	public void showNegative(final String id) {
+		
+		super.navigate("/anonymous/work-plan/show", "id="+id);
+		super.checkPanicExists();
+	}
 }
