@@ -73,5 +73,4 @@
 		<property name="userAccount" ref="administratorUserAccount" />
 	</bean>
 	
-	
 </beans>
