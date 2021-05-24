@@ -92,8 +92,7 @@
 	</jstl:if>
 
 	<jstl:if test="${command == 'show'}">
-		<acme:form-double code="manager.work-plan.form.label.workload"
-			path="workload" />
+		<acme:form-double code="manager.work-plan.form.label.workload" path="workload" readonly="true"/>
 	</jstl:if>
 
 	<jstl:if test="${command == 'create'}">

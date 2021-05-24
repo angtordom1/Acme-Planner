@@ -47,6 +47,12 @@ public class ManagerWorkPlanListMineService implements AbstractListService<Manag
 			
 			principal = request.getPrincipal();
 			result = this.repository.findManyByManager(principal.getActiveRoleId());
+			if(!result.isEmpty()) {
+				for(final WorkPlan workPlan: result) {
+					final double workload = workPlan.getTotalWorkload(workPlan.getTasks());
+					workPlan.setWorkload(workload);
+				}
+			}
 			
 			return result;
 		}

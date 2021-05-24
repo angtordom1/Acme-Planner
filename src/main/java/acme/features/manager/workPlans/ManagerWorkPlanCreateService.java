@@ -52,24 +52,24 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		assert entity != null;
 		assert errors != null;
 
-		request.getModel().setAttribute("tasks", this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId()));
 
 		final List<Task> ids = entity.getTasks();
-		final List<Task> newTasks = new ArrayList<Task>();
-
-		for (int i = 0; i < ids.size(); i++) {
-			final Object object = ids.get(i);
-			final String cadena = object.toString();
-			final int ps = cadena.indexOf("id");
-			if(ps!=-1) {
-				final String id = cadena.subSequence(ps+3, ps+6).toString();
-				final Task task = this.taskRepository.findOneTaskById(Integer.parseInt(id));
-				newTasks.add(task);
+		if(ids != null) {
+			final List<Task> newTasks = new ArrayList<Task>();
+	
+			for (int i = 0; i < ids.size(); i++) {
+				final Object object = ids.get(i);
+				final String cadena = object.toString();
+				final int ps = cadena.indexOf("id");
+				if(ps!=-1) {
+					final String id = cadena.subSequence(ps+3, cadena.length()).toString();
+					final Task task = this.taskRepository.findOneTaskById(Integer.parseInt(id));
+					newTasks.add(task);
+				}
 			}
+			entity.setTasks(newTasks);
 		}
-		entity.setTasks(newTasks);
-
-		if(!errors.hasErrors("periodStart")){
+		if(!errors.hasErrors("periodStart") && !errors.hasErrors("tasks")){
 			final Date now = new GregorianCalendar().getTime();
 			now.setSeconds(0);
 
@@ -80,7 +80,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 
 		}
 
-		if(!errors.hasErrors("periodEnd")){
+		if(!errors.hasErrors("periodEnd") && !errors.hasErrors("tasks")){
 			final Date now = new GregorianCalendar().getTime();
 			now.setSeconds(0);
 
@@ -133,7 +133,12 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-
+		final Principal principal;
+		principal = request.getPrincipal();
+		
+		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId());
+		entity.setTasks(tasks.stream().collect(Collectors.toList()));
+		
 		request.unbind(entity, model, "periodStart", "periodEnd", "state", "tasks");
 	}
 
@@ -143,11 +148,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 
 		WorkPlan result;
 		result = new WorkPlan();
-		final Principal principal;
-		principal = request.getPrincipal();
-
-		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId());
-		result.setTasks(tasks.stream().collect(Collectors.toList()));
+		
 		return result;
 	}
 
