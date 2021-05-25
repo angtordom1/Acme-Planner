@@ -39,9 +39,11 @@ manager.work-plan.form.error.badtasks= A public workplan can't contain private t
 manager.work-plan.form.label.recommendedYearStart = Our recommendation is to start the work plan the following year:
 manager.work-plan.form.label.recommendedMonthStart = Our recommendation is to start the work plan the following month:
 manager.work-plan.form.label.recommendedDayStart = Our recommendation is to start the work plan the following day:
+manager.work-plan.form.label.hourDayStart = Our recommendation is to start the work plan the following hour:
 
 manager.work-plan.form.label.recommendedYearEnd = Our recommendation is to end the work plan the following year:
 manager.work-plan.form.label.recommendedMonthEnd = Our recommendation is to end the work plan the following month:
 manager.work-plan.form.label.recommendedDayEnd = Our recommendation is to end the work plan the following day:
+manager.work-plan.form.label.hourDayEnd = Our recommendation is to end the work plan the following hour:
 
 manager.work-plan.form.label.recommendations = Please, select some tasks to view our recommendation.

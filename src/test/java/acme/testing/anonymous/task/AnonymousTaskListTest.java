@@ -38,6 +38,10 @@ public class AnonymousTaskListTest extends AcmePlannerTest{
 		super.checkInputBoxHasValue("finished", finished);
 	}
 	
+	/*
+	 * Esta test prueba el show de tasks para Anonymous en caso negativo, para ello intentamos acceder mediante
+	 * la url a tareas acabadas y/o finalizadas y esperamos que nos muestre la página de panic.
+	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/task/taskNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)

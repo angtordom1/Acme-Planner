@@ -28,9 +28,8 @@ public class ManagerWorkplanUpdateTest extends AcmePlannerTest{
 		
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
-		super.fillInputBoxIn("workload", workload);
-		if(state.equals("true")) super.fillInputBoxIn("state", "true");
-		if(!(tasks == null)) super.fillInputBoxIn("tasks", tasks);
+		super.fillInputBoxIn("state", state);
+		if(tasks != null) super.fillInputBoxIn("tasks", tasks);
 		super.fillInputBoxIn("finished", finished);
 		
 		super.checkButtonExists("Update WorkPlan");
@@ -55,7 +54,7 @@ public class ManagerWorkplanUpdateTest extends AcmePlannerTest{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void updateNegative(final int recordIndex, final String periodStart, final String periodEnd, final String workload, final String state, final String tasks, final String finished) {
+	public void updateNegative(final int recordIndex, final String periodStart, final String periodEnd, final String state, final String tasks, final String finished) {
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Manager", "My Workplans");
@@ -64,9 +63,8 @@ public class ManagerWorkplanUpdateTest extends AcmePlannerTest{
 		
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
-		super.fillInputBoxIn("workload", workload);
-		if(state.equals("true")) super.fillInputBoxIn("state", "true");
-		if(!(tasks == null)) super.fillInputBoxIn("tasks", tasks);
+		super.fillInputBoxIn("state", "true");
+		if(tasks != null) super.fillInputBoxIn("tasks", tasks);
 		super.fillInputBoxIn("finished", finished);
 		
 		super.checkButtonExists("Update WorkPlan");

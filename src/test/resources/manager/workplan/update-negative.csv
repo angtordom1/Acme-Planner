@@ -1,6 +1,6 @@
-recordIndex,periodStart,periodEnd,workload,state,tasks,finished
-14,2021/04/01 19:50,2021/06/01 20:10,11.00,false,"acme.entities.tasks.Task{id=228, version=0}",false
-14,2021/04/01 19:50,2021/03/01 20:10,11.00,false,"acme.entities.tasks.Task{id=228, version=0}",false
-14,2021/04/01 19:50,2021/05/01 20:10,11.00,false,"acme.entities.tasks.Task{id=228, version=0}",false
-14,2021/04/01 19:50,2021/06/01 20:10,11.00,false,"acme.entities.tasks.Task{id=228, version=0}",false
-6,2021/04/01 19:50,2021/07/05 20:10,32.50,true,"acme.entities.tasks.Task{id=228, version=0}",false
+recordIndex,periodStart,periodEnd,state,tasks,finished
+14,2021/04/01 19:50,2021/06/01 20:10,false,Task [id=228],false
+14,2021/04/01 19:50,2021/03/01 20:10,false,Task [id=228],false
+14,2021/04/01 19:50,2021/05/01 20:10,false,Task [id=228],false
+14,2021/04/01 19:50,2021/06/01 20:10,false,Task [id=228],false
+6,2021/04/01 19:50,2021/07/05 20:10,true,Task [id=228],false

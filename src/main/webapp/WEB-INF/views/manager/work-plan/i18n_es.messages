@@ -36,9 +36,11 @@ manager.work-plan.form.error.badtasks= Un plan de trabajo público no puede tene
 manager.work-plan.form.label.recommendedYearStart = Le recomendamos comenzar el plan de trabajo en el año:
 manager.work-plan.form.label.recommendedMonthStart = Le recomendamos comenzar el plan de trabajo en el mes:
 manager.work-plan.form.label.recommendedDayStart = Le recomendamos comenzar el plan de trabajo en el día:
+manager.work-plan.form.label.hourDayStart =  Le recomendamos comenzar el plan de trabajo a la hora:
 
 manager.work-plan.form.label.recommendedYearEnd = Le recomendamos finalizar el plan de trabajo en el año:
 manager.work-plan.form.label.recommendedMonthEnd = Le recomendamos finalizar el plan de trabajo en el mes:
 manager.work-plan.form.label.recommendedDayEnd = Le recomendamos finalizar el plan de trabajo en el día:
+manager.work-plan.form.label.hourDayEnd =  Le recomendamos finalizar el plan de trabajo a la hora:
 
 manager.work-plan.form.label.recommendations = Por favor, selecciona alguna tarea para ver nuestra recomendación.

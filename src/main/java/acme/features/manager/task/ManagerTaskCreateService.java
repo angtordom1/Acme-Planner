@@ -1,3 +1,4 @@
+
 package acme.features.manager.task;
 
 import java.util.Date;
@@ -17,17 +18,18 @@ import acme.framework.components.Request;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class ManagerTaskCreateService implements AbstractCreateService<Manager, Task>{
+public class ManagerTaskCreateService implements AbstractCreateService<Manager, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ManagerTaskRepository repository;
+	protected ManagerTaskRepository	repository;
 
 	@Autowired
-	protected SpamService spamService;
+	protected SpamService			spamService;
 
 	// AbstractCreateService<Manager, Task> interface -------------------------
+
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -43,32 +45,31 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 
-
-		if(!errors.hasErrors("periodStart")){
+		if (!errors.hasErrors("periodStart")) {
 			final Date now = new GregorianCalendar().getTime();
 			now.setSeconds(0);
 
 			errors.state(request, entity.getPeriodStart().after(now), "periodStart", "manager.task.form.error.pastPeriod");
 		}
-		if(!errors.hasErrors("periodEnd")){
+		if (!errors.hasErrors("periodEnd")) {
 			errors.state(request, entity.getPeriodEnd().after(entity.getPeriodStart()), "periodEnd", "manager.task.form.error.period");
 		}
-		if(!errors.hasErrors("workload") && !errors.hasErrors("periodEnd") && !errors.hasErrors("periodStart")){
+		if (!errors.hasErrors("workload") && !errors.hasErrors("periodEnd") && !errors.hasErrors("periodStart")) {
 			//Debe de caber dentro del tiempo de ejecución
 			final Date periodStart = entity.getPeriodStart();
 			final Date periodEnd = entity.getPeriodEnd();
 			final double workload = entity.getWorkload();
 
 			final double hoursW = Math.floor(workload);
-			final double minsW = (workload-hoursW)*100;
+			final double minsW = (workload - hoursW) * 100;
 			boolean res = false;
 
-			if(periodStart.before(periodEnd)) {
+			if (periodStart.before(periodEnd)) {
 				final long milliseconds = Math.abs(periodEnd.getTime() - periodStart.getTime());
 				final long diff = TimeUnit.MINUTES.convert(milliseconds, TimeUnit.MILLISECONDS);
-				final double hours = Math.floor(diff/60.0);
-				final double mins = diff%60;
-				res =  (hoursW > hours) || (hoursW == hours && minsW > mins);
+				final double hours = Math.floor(diff / 60.0);
+				final double mins = diff % 60;
+				res = (hoursW > hours) || (hoursW == hours && minsW > mins);
 			}
 
 			errors.state(request, !res, "workload", "manager.task.form.error.workloadFit");
@@ -78,13 +79,17 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, minutes <= 0.59, "workload", "manager.task.form.error.decimals");
 		}
 
-		final String title = entity.getTitle();
+		final String title = entity.getTitle().replaceAll("[\\,\\:]", "");
+		errors.state(request, !title.trim().isEmpty(), "title", "manager.task.form.error.wrong-characters");
+
+		if (!title.trim().isEmpty()) {
+			entity.setTitle(title);
+		}
+		
 		final String description = entity.getDescription();
-		final List<String> spamWords = this.spamService.getSpamWordsByString(title+" "+description);
+		final List<String> spamWords = this.spamService.getSpamWordsByString(title + " " + description);
 
-		errors.state(request, spamWords.isEmpty(), "*", "manager.task.form.error.spam", 
-			spamWords.toString().replaceAll("[\\[\\]]", ""));
-
+		errors.state(request, spamWords.isEmpty(), "*", "manager.task.form.error.spam", spamWords.toString().replaceAll("[\\[\\]]", ""));
 
 	}
 
@@ -103,7 +108,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model,"title","periodStart","periodEnd","workload","description","link","state");
+		request.unbind(entity, model, "title", "periodStart", "periodEnd", "workload", "description", "link", "state");
 	}
 
 	@Override
@@ -120,15 +125,11 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		return result;
 	}
 
-
-
 	@Override
 	public void create(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
-		
-		final String title = entity.getTitle().replace(",", "");
-		entity.setTitle(title);
+
 		entity.isFinished();
 		this.repository.save(entity);
 	}
