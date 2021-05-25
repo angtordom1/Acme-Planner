@@ -1,5 +1,6 @@
 package acme.features.manager.task;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -10,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
+import acme.entities.workPlans.WorkPlan;
+import acme.features.manager.workPlans.ManagerWorkPlanRepository;
 import acme.features.spam.SpamService;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -27,6 +30,9 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 	
 	@Autowired
 	protected SpamService spamService;
+	
+	@Autowired
+	protected ManagerWorkPlanRepository workPlanRepository;
 	
 	// AbstractUpdateService<Manager, Task> interface -------------------------
 	
@@ -130,7 +136,13 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 			errors.state(request, !(periodStart.before(now) && finish), "finished", "manager.task.form.error.finished");
 		}
 
-		final String title = entity.getTitle();
+		final String title = entity.getTitle().replaceAll("[\\,\\:]", "");
+		errors.state(request, !title.trim().isEmpty(), "title", "manager.task.form.error.wrong-characters");
+
+		if (!title.trim().isEmpty()) {
+			entity.setTitle(title);
+		}
+		
 		final String description = entity.getDescription();
 		final List<String> spamWords = this.spamService.getSpamWordsByString(title+" "+description);
 
@@ -146,7 +158,17 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 		
 		final String title = entity.getTitle().replace(",", "");
 		entity.setTitle(title);
+		
 		this.repository.save(entity);
+		
+		final Collection<WorkPlan> workPlans= this.workPlanRepository.findManyByTaskId(entity.getId());
+		if(!workPlans.isEmpty()) {
+			for(final WorkPlan workPlan: workPlans) {
+				final double workload = workPlan.getTotalWorkload(workPlan.getTasks());
+				workPlan.setWorkload(workload);
+				this.workPlanRepository.save(workPlan);
+			}
+		}
 	}
 
 }

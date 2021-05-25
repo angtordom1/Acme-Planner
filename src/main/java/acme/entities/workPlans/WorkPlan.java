@@ -114,6 +114,7 @@ public class WorkPlan extends DomainEntity{
 	
 	// Relationships ----------------------------------------------------------
 
+	@NotNull
 	@ManyToMany(fetch = FetchType.EAGER)
 	protected List<Task> tasks;
 

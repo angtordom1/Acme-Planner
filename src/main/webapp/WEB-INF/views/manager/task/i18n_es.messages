@@ -32,3 +32,4 @@ manager.task.form.error.decimals = Los decimales solo pueden llegar hasta 59 dad
 manager.task.form.error.workloadFit = La carga de trabajo debe coincidir dentro del periodo de ejecución
 manager.task.form.error.spam = Esta tarea excede la cantidad de palabras spam permitidas a causa de estos términos: {0} 
 manager.task.form.error.finished = Una tarea no puede estar acabada si aún no ha empezado
+manager.task.form.error.wrong-characters = El título no debe contener los siguientes caracteres especiales: "," y ":"

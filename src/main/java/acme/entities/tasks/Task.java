@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -42,6 +43,7 @@ public class Task extends DomainEntity{
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date periodEnd;
 	
+	@PositiveOrZero
 	@Digits(integer = 3, fraction = 2)
 	protected double workload;
 	
@@ -77,6 +79,11 @@ public class Task extends DomainEntity{
 	@Valid
 	@ManyToOne(optional = false)
 	protected Manager manager;
+
+	@Override
+	public String toString() {
+		return "Task [id=" + this.id + "]";
+	}
 
 
 
