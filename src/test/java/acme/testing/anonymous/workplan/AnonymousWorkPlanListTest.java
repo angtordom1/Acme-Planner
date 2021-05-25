@@ -35,6 +35,10 @@ public class AnonymousWorkPlanListTest extends AcmePlannerTest{
 		
 	}
 	
+	/*
+	 * Esta test prueba el show de Workplans para Anonymous en caso negativo, para ello intentamos acceder mediante
+	 * la url a workplans acabadas y/o finalizadas y esperamos que nos muestre la página de panic.
+	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/workplan/workPlanNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
