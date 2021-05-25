@@ -1,5 +1,5 @@
 recordIndex,periodStart,periodEnd,workload,state,tasks,finished
-15,2021/07/01 00:00,2021/07/06 23:59,11.00,true,Task [id=227],false
-16,2021/06/01 09:00,2021/06/06 12:00,11.00,false,Task [id=228],false
-17,2021/07/04 08:00,2021/07/07 17:00,11.00,false,Task [id=230],false
-18,2021/07/05 10:00,2021/07/08 23:59,11.00,true,Task [id=229],false
+15,2021/07/01 00:00,2021/07/06 23:59,7.30,true,Task [id=227],false
+16,2021/06/01 09:00,2021/06/06 12:00,12.00,false,Task [id=228],false
+17,2021/07/04 08:00,2021/07/07 17:00,9.30,false,Task [id=230],false
+18,2021/07/05 10:00,2021/07/08 23:59,20.00,true,Task [id=229],false
