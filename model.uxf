@@ -396,7 +396,7 @@ m2=*
       <x>728</x>
       <y>588</y>
       <w>266</w>
-      <h>140</h>
+      <h>154</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 WorkPlan
@@ -407,6 +407,7 @@ WorkPlan
 + state: boolean
 + managerId: Integer
 + finished: boolean
++ published: boolean
 + /getTotalWorkload: boolean
 + /getMinExecutionPeriod: LocalDateTime
 + /getMaxExecutionPeriod: LocalDateTime
@@ -622,24 +623,24 @@ bg=blue</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>812</x>
-      <y>721</y>
+      <y>735</y>
       <w>21</w>
-      <h>77</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=..
 </panel_attributes>
-    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>903</x>
-      <y>721</y>
+      <y>735</y>
       <w>168</w>
-      <h>77</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=..
 </panel_attributes>
-    <additional_attributes>220.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>220.0;70.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

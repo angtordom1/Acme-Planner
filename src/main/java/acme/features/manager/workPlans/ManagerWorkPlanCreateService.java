@@ -52,7 +52,10 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		assert entity != null;
 		assert errors != null;
 
-		request.getModel().setAttribute("tasks", this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId()));
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		
+		request.getModel().setAttribute("tasks", this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId(),moment));
 
 		if(!errors.hasErrors("tasks")){
 			final List<Task> ids = entity.getTasks();
@@ -132,8 +135,11 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		assert model != null;
 		final Principal principal;
 		principal = request.getPrincipal();
+		
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
 
-		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId());
+		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId(), moment);
 		entity.setTasks(tasks.stream().collect(Collectors.toList()));
 
 		request.unbind(entity, model, "periodStart", "periodEnd", "state", "tasks");
@@ -160,6 +166,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 
 		entity.setManagerId(principal.getActiveRoleId());
 		entity.setFinished(false);
+		entity.setPublished(false);
 		final double workload =entity.getTotalWorkload(entity.getTasks());
 		entity.setWorkload(workload);
 

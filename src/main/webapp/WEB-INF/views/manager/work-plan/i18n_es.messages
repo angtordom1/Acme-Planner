@@ -14,6 +14,7 @@ manager.work-plan.form.label.periodEnd = Final del período:
 manager.work-plan.form.label.workload = Carga de trabajo (HH.mm):
 manager.work-plan.form.label.description = Descripción:
 manager.work-plan.form.label.state = Público
+manager.work-plan.form.label.published = Publicado
 manager.work-plan.form.label.tasks = Tareas:
 
 manager.work-plan.form.button.return = Volver

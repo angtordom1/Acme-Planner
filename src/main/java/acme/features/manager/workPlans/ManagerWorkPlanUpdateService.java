@@ -47,7 +47,7 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 		
 		id = request.getModel().getInteger("id");
 		workplan = this.repository.findOneWorkPlanById(id);
-		result = workplan.getManagerId()==request.getPrincipal().getActiveRoleId();
+		result = workplan.getManagerId()==request.getPrincipal().getActiveRoleId() && !workplan.isPublished();
 		
 		return result;
 	}
@@ -70,7 +70,14 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 		final Principal principal;
 		principal = request.getPrincipal();
 		
-		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId());
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		
+		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId(), moment);
+		for(int i = 0; i < entity.getTasks().size(); i++) {
+			final Task task = entity.getTasks().get(i);
+			if(!tasks.contains(task)) tasks.add(task);
+		}
 		entity.setTasks(tasks.stream().collect(Collectors.toList()));
 		
 		request.unbind(entity, model, "periodStart", "periodEnd", "workload", "state", "tasks", "manager");
@@ -95,8 +102,11 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		
 
-		request.getModel().setAttribute("tasks", this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId()));
 		
 		if(!errors.hasErrors("tasks")){
 			final List<Task> ids = entity.getTasks();
@@ -153,7 +163,14 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 			final Date aux =entity.getTasks().stream().map(Task::getPeriodEnd).max(Date::compareTo).orElse(new Date());
 			errors.state(request, entity.getPeriodEnd().after(aux), "periodEnd", "manager.work-plan.form.error.periodEndTask");
 		}
-
+		
+			final Collection<Task> tasksColl = this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId(), moment);
+			for(int i = 0; i < entity.getTasks().size(); i++) {
+				final Task task = entity.getTasks().get(i);
+				if(!tasksColl.contains(task)) tasksColl.add(task);
+			}
+			request.getModel().setAttribute("tasks", tasksColl);
+		
 	}
 
 	@Override

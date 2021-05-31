@@ -17,6 +17,7 @@ manager.work-plan.form.label.workload = Workload (HH.mm):
 manager.work-plan.form.label.description = Description:
 manager.work-plan.form.label.state = Public
 manager.work-plan.form.label.finished = Finished
+manager.work-plan.form.label.published = Published
 manager.work-plan.form.label.tasks = Tasks:
 
 manager.work-plan.form.button.return = Return

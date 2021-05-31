@@ -1,14 +1,9 @@
 package acme.features.manager.workPlans;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
-import acme.entities.tasks.Task;
 import acme.entities.workPlans.WorkPlan;
 import acme.features.manager.task.ManagerTaskRepository;
 import acme.framework.components.Errors;
@@ -84,29 +79,6 @@ public class ManagerWorkPlanPublishService implements AbstractUpdateService<Mana
 		assert entity != null;
 		assert errors != null;
 		
-		request.getModel().setAttribute("tasks", this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId()));
-		
-		final List<Task> ids = entity.getTasks();
-		final List<Task> newTasks = new ArrayList<Task>();
-
-		for (int i = 0; i < ids.size(); i++) {
-			final Object object = ids.get(i);
-			final String cadena = object.toString();
-			final int ps = cadena.indexOf("id");
-			final String id = cadena.subSequence(ps+3, ps+6).toString();
-			final Task task = this.taskRepository.findOneTaskById(Integer.parseInt(id));
-			newTasks.add(task);
-		}
-		entity.setTasks(newTasks);
-		
-		if(!errors.hasErrors("tasks")){
-			final List<Task> tasks = entity.getTasks();
-			final List<Task> badTasks = tasks.stream().filter(x->!x.isState()).collect(Collectors.toList());
-			
-
-			errors.state(request, badTasks.isEmpty(), "state", "manager.work-plan.form.error.badtasks", 
-				badTasks);
-		}
 	}
 
 	@Override
@@ -114,7 +86,7 @@ public class ManagerWorkPlanPublishService implements AbstractUpdateService<Mana
 		assert request != null;
 		assert entity != null;
 
-		entity.setState(true);
+		entity.setPublished(true);
 		this.repository.save(entity);
 	}
 

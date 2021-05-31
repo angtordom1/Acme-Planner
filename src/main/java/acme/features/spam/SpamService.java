@@ -31,18 +31,22 @@ public class SpamService {
 			final SpamWord spamWord = spamWords.get(i);
 			final String word = spamWord.getWord();
 			final Integer size = spamWord.getSize();
-			
-			if(Pattern.compile(Pattern.quote(word), Pattern.CASE_INSENSITIVE).matcher(s).find()) {
-				res.add(word);
-				nWords += size;
+			int j = 0;
+			while(j<tam) {
+				if(Pattern.compile(Pattern.quote(word), Pattern.CASE_INSENSITIVE).matcher(s).find()) {
+					if(!res.contains(word)) {
+						res.add(word);
+					}
+					nWords += size;
+				}
+				j++;
 			}
-			
 			i++;
 		}
 		
 		final Double p = 100*nWords/tam;
 		
-		if(this.repository.getUmbral() >= p) res.clear();
+		if(this.repository.getUmbral() > p) res.clear();
 		
 		return res;
 	}

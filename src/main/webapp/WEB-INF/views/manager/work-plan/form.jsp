@@ -89,18 +89,13 @@
 		<acme:form-double code="manager.work-plan.form.label.workload" path="workload" readonly="true"/>
 	</jstl:if>
 
-	<jstl:if test="${command == 'create'}">
-		<acme:form-checkbox code="manager.work-plan.form.label.state"
-			path="state" />
-	</jstl:if>
-
-	<jstl:if test="${command == 'show' || command =='publish'}">
-		<acme:form-checkbox code="manager.work-plan.form.label.state"
-			path="state" readonly="true" />
-	</jstl:if>
+	<acme:form-checkbox code="manager.work-plan.form.label.state" path="state"/>
 	
-	<jstl:if test="${command == 'show'}">
-		<acme:form-checkbox code="manager.work-plan.form.label.finished" path="finished" readonly="true"/>
+	<acme:form-checkbox code="manager.work-plan.form.label.finished" path="finished" readonly="true"/>
+
+	
+	<jstl:if test="${command == 'show' || command =='publish'}">
+			<acme:form-checkbox code="manager.work-plan.form.label.published" path="published" readonly="true"/>
 	</jstl:if>
 
 	<jstl:if test="${command == 'create' || command =='update'}">
@@ -135,6 +130,8 @@
 			<thead>
 				<tr>
 					<th scope="col"><acme:message
+							code="manager.work-plan.list.label.title" /></th>
+					<th scope="col"><acme:message
 							code="manager.work-plan.list.label.periodStart" /></th>
 					<th scope="col"><acme:message
 							code="manager.work-plan.list.label.periodEnd" /></th>
@@ -147,6 +144,7 @@
 			<tbody>
 				<jstl:forEach items="${tasks}" var="task">
 					<tr>
+						<td><acme:print value="${task.title}"/></td>
 						<td><acme:print value="${task.periodStart}" /></td>
 						<td><acme:print value="${task.periodEnd}" /></td>
 						<td><acme:print value="${task.workload}" /></td>
@@ -164,14 +162,14 @@
 		</table>
 	</jstl:if>
 
-	<acme:form-submit test="${command == 'show' && finished == 'false'}"
+	<acme:form-submit test="${command == 'show' && published == 'false'}"
 		code="manager.work-plan.form.button.update"
 		action="/manager/work-plan/update" />
-	<acme:form-submit test="${command == 'show' && finished == 'false'}"
+	<acme:form-submit test="${command == 'show' && published == 'false'}"
 		code="manager.work-plan.form.button.delete"
 		action="/manager/work-plan/delete" />
 	<acme:form-submit
-		test="${command == 'show' && finished == 'false' && state == 'false'}"
+		test="${command == 'show' && published == 'false'}"
 		code="manager.work-plan.form.button.publish"
 		action="/manager/work-plan/publish" />
 	<acme:form-submit test="${command == 'create'}"
