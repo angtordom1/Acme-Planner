@@ -63,7 +63,7 @@ public class ManagerWorkplanUpdateTest extends AcmePlannerTest{
 		
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
-		super.fillInputBoxIn("state", "true");
+		super.fillInputBoxIn("state", state);
 		if(tasks != null) super.fillInputBoxIn("tasks", tasks);
 		super.fillInputBoxIn("finished", finished);
 		

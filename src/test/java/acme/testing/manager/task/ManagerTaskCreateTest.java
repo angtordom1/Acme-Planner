@@ -30,7 +30,7 @@ public class ManagerTaskCreateTest extends AcmePlannerTest{
 		super.fillInputBoxIn("workload", workload);
 		super.fillInputBoxIn("description", description);
 		super.fillInputBoxIn("link", link);
-		if(state.equals("true")) super.fillInputBoxIn("state", "true");
+		super.fillInputBoxIn("state", state);
 		super.clickOnSubmitButton("Create");
 		
 		super.clickOnMenu("Manager", "My tasks");
@@ -73,7 +73,7 @@ public class ManagerTaskCreateTest extends AcmePlannerTest{
 		super.fillInputBoxIn("workload", workload);
 		super.fillInputBoxIn("description", description);
 		super.fillInputBoxIn("link", link);
-		if(state.equals("true")) super.fillInputBoxIn("state", "true");
+		super.fillInputBoxIn("state", state);
 		super.clickOnSubmitButton("Create");
 		
 		super.checkErrorsExist();
