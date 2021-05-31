@@ -152,7 +152,7 @@ public class ManagerWorkPlanUpdateService implements AbstractUpdateService<Manag
 
 		}
 
-		if(!errors.hasErrors("periodEnd") && !errors.hasErrors("tasks")){
+		if(!errors.hasErrors("periodEnd") && !errors.hasErrors("tasks") && !errors.hasErrors("periodStart")){
 			final Date now = new GregorianCalendar().getTime();
 			now.setSeconds(0);
 

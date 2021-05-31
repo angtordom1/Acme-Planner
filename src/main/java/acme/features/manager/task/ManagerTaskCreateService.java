@@ -51,7 +51,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 
 			errors.state(request, entity.getPeriodStart().after(now), "periodStart", "manager.task.form.error.pastPeriod");
 		}
-		if (!errors.hasErrors("periodEnd")) {
+		if (!errors.hasErrors("periodEnd") && !errors.hasErrors("periodStart")) {
 			errors.state(request, entity.getPeriodEnd().after(entity.getPeriodStart()), "periodEnd", "manager.task.form.error.period");
 		}
 		if (!errors.hasErrors("workload") && !errors.hasErrors("periodEnd") && !errors.hasErrors("periodStart")) {
