@@ -1,3 +1,5 @@
-recordIndex,threshold
-0,11.00
-1,99.00
+threshold,authorOK,textOK,infoOK,authorBAD,infoBAD,authorBAD,explicacion
+1.00,Shout positivo 1,Este texto no tiene nada de spam,,Shout negativo 1,Con tener una única palabra spam salta el umbral sex,,"Caso positivo: 0/10 palabras spam < umbral / Caso negativo: 1/13 palabras spam > umbral"
+50.00,Shout positivo 2,Este texto la mitad de spam sex sex sex sex sex sex sex sex,,Shout negativo 2,Hay más de la mitad de spam sex sex sex sex sex sex sex sex sex sex sex,,"Caso positivo: 8/17 palabras spam < umbral / Caso negativo: 10/19 palabras spam > umbral"
+75.00,Shout positivo 3,hola sex sex sex sex sex sex sex sex sex,,Shout negativo 3,sex sex sex sex sex sex sex sex sex sex,,"Caso positivo: 9/13 palabras spam = umbral / Caso negativo: 10/13 palabras spam > umbral"
+99.00,Positivo sex,sex sex sex sex sex sex sex sex sex,,Sex sex,sex sex sex sex,,"Caso positivo: 10/11 palabras spam < umbral / Caso negativo: 6/6 palabras spam > umbral"

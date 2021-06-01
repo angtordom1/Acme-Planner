@@ -8,11 +8,14 @@ import acme.testing.AcmePlannerTest;
 
 public class AdministratorSpamUpdateTest extends AcmePlannerTest{
 	
-	//Se testea updateService actualizamos el umbral y esperamos que se mantenga el cambio
+	/*
+	 * TEST DE ACTUALIZACIÓN POSITIVO: Este caso de prueba comprobará que la funcionalidad de actualización del umbral de spam funciona correctamente. Además comprobamos que se detecta adecuadamente el nuevo umbral de spam mediante una creación de un shout.
+	 * RESULTADO ESPERADO: Se comprueba que el nuevo valor del umbral se ha actualizado correctamente y que un shout con menos spam del umbral puede crearse mientras que un shout con más spam que el límite, no.
+	 */
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spam/updatePositive.csv",encoding="utf-8",numLinesToSkip = 1)
-	@Order(30)
-	public void updatePositive(final int recordIndex 	, final String threshold) {
+	@Order(10)
+	public void updatePositive(final String threshold, final String authorOK, final String textOK, final String infoOK, final String authorBAD, final String textBAD, final String infoBAD) {
 		super.signIn("administrator", "administrator");
 		
 		super.clickOnMenu("Administrator", "Spams parameters");
@@ -27,14 +30,36 @@ public class AdministratorSpamUpdateTest extends AcmePlannerTest{
 		
 		super.signOut();
 		
+		super.clickOnMenu("Anonymous", "Shout!");
+		
+		super.fillInputBoxIn("author", authorOK);
+		super.fillInputBoxIn("text", textOK);
+		super.fillInputBoxIn("info", infoOK);
+		
+		super.checkButtonExists("Shout!");
+		super.clickOnSubmitButton("Shout!");
+		
+		super.clickOnMenu("Anonymous", "Shout!");
+		
+		super.fillInputBoxIn("author", authorBAD);
+		super.fillInputBoxIn("text", textBAD);
+		super.fillInputBoxIn("info", infoBAD);
+		
+		super.checkButtonExists("Shout!");
+		super.clickOnSubmitButton("Shout!");
+		
+		super.checkErrorsExist();
+		
 	}
 	
-	//Se testea updateService actualizamos el umbral fuera de los limites del rango
-	//y esperamos fallos
+	/*
+	 * TEST DE ACTUALIZACIÓN NEGATIVO: Este caso de prueba comprobará que la funcionalidad de actualización del umbral de spam funciona correctamente y detecta errores cuando se le pasa un valor de umbral no válido.
+	 * RESULTADO ESPERADO: Se comprueba que el nuevo valor del umbral no se ha podido actualizar porque devuelve un error.
+	 */
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/spam/updateNegative.csv",encoding="utf-8",numLinesToSkip = 1)
-	@Order(30)
-	public void updateNegative(final int recordIndex 	, final String threshold) {
+	@Order(20)
+	public void updateNegative(final String threshold) {
 		super.signIn("administrator", "administrator");
 		
 		super.clickOnMenu("Administrator", "Spams parameters");
