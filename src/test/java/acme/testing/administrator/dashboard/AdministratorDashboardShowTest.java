@@ -39,13 +39,12 @@ public class AdministratorDashboardShowTest extends AcmePlannerTest {
 	//Se testea showService, esperamos que todos los datos se muestren correctamente
 	@ParameterizedTest
 	@CsvFileSource(resources="/administrator/dashboard/show.csv",encoding="utf-8",numLinesToSkip = 1)
-	@Order(5)
-	public void show(final int recordIndex, 
-		final String nTaskPublic, final String nTaskPriv, final String nTaskEnd, final String nTaskNoEnd, 
+	@Order(10)
+	public void show(final String nTaskPublic, final String nTaskPriv, final String nTaskEnd, final String nTaskNoEnd, 
 		final String averPeriod, final String desvPeriod, final String minPeriod, final String maxPeriod,
 		final String averLoad, final String desvLoad, final String minLoad, final String maxLoad, 
-		final String nWorkPlan, final String nWorkPlanPriv, final String nWorkPlanPubl, final String nWorkPlanNoEnd, final String nWorkPlanEnd
-		) {
+		final String nWorkPlan, final String nWorkPlanPriv, final String nWorkPlanPubl, final String nWorkPlanNoEnd, final String nWorkPlanEnd,
+		final String nWorkPlanUnpublished, final String nWorkPlanPublished) {
 
 		super.signIn("administrator", "administrator");
 
@@ -67,10 +66,12 @@ public class AdministratorDashboardShowTest extends AcmePlannerTest {
 		this.checkRowHasValue("Maximun workload", maxLoad);
 
 		this.checkRowHasValue("Number of workplans", nWorkPlan);
-		this.checkRowHasValue("Number of private workplans", nWorkPlanPriv);
-		this.checkRowHasValue("Number of public workplans", nWorkPlanPubl);
+		this.checkRowHasValue("Number of unpublished workplans", nWorkPlanUnpublished);
+		this.checkRowHasValue("Number of published workplans", nWorkPlanPublished);
 		this.checkRowHasValue("Number of unfinished workplans", nWorkPlanNoEnd);
 		this.checkRowHasValue("Number of finished workplans", nWorkPlanEnd);
+		this.checkRowHasValue("Number of private workplans", nWorkPlanPriv);
+		this.checkRowHasValue("Number of public workplans", nWorkPlanPubl);
 
 		super.signOut();
 	}

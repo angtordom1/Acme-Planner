@@ -43,6 +43,7 @@ public class ManagerWorkplanCreateTest extends AcmePlannerTest{
 		super.checkInputBoxHasValue("workload", workload);
 		super.checkInputBoxHasValue("state", state);
 		super.checkInputBoxHasValue("finished", finished);
+		super.checkInputBoxHasValue("published", "false");
 		
 		super.signOut();
 	}
