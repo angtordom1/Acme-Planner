@@ -11,4 +11,4 @@ Workload muy grande,2021/10/01 10:29,2021/10/02 10:29,50.00,Test task,,true,fals
 Workload con decimales mayores a 60,2021/10/01 10:29,2021/10/02 10:29,1.99,Test task,,true,false
 Link incorrecto,2021/10/01 10:29,2021/10/02 10:29,1.00,Test task,nosoyunlink,true,false
 Tengo spam sex,2021/10/01 10:29,2021/10/02 10:29,1.00,cialis nigeria viagra,,true,false
-Test Task,2021/10/02 11:29,2021/11/02 11:29,-60.00,test test,,true,false
+Workload negativa,2021/10/02 11:29,2021/11/02 11:29,-60.00,test test,,true,false
