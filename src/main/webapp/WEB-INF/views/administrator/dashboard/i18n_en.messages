@@ -22,7 +22,9 @@ administrator.dashboard.form.label.hours = hours
 administrator.dashboard.form.label.minutes = minutes
 
 administrator.dashboard.form.label.workplans-amount = Number of workplans
-administrator.dashboard.form.label.unpublished-workplans-amount = Number of private workplans
-administrator.dashboard.form.label.published-workplans-amount = Number of public workplans
+administrator.dashboard.form.label.unpublished-workplans-amount = Number of unpublished workplans
+administrator.dashboard.form.label.published-workplans-amount = Number of published workplans
 administrator.dashboard.form.label.unfinished-workplans-amount = Number of unfinished workplans
 administrator.dashboard.form.label.finished-workplans-amount = Number of finished workplans
+administrator.dashboard.form.label.private-workplans-amount = Number of private workplans
+administrator.dashboard.form.label.public-workplans-amount = Number of public workplans

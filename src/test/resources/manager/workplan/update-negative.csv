@@ -1,6 +1,5 @@
-recordIndex,periodStart,periodEnd,state,tasks,finished
-14,2021/04/01 19:50,2021/06/01 20:10,false,Task [id=228],false
-14,2021/04/01 19:50,2021/03/01 20:10,false,Task [id=228],false
-14,2021/04/01 19:50,2021/05/01 20:10,false,Task [id=228],false
-14,2021/04/01 19:50,2021/06/01 20:10,false,Task [id=228],false
-6,2021/04/01 19:50,2021/07/05 20:10,true,Task [id=228],false
+recordIndex,periodStart,periodEnd,state,tasks
+5,2021/04/03 17:50,,true,""
+5,2021/04/03 17:50,2020/07/04 00:00,true,""
+5,2021/04/03 17:50,2021/07/04 14:45,true,""
+5,2021/04/03 17:50,2021/08/11 14:45,true,Task [id=228]

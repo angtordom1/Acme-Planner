@@ -51,7 +51,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 
 			errors.state(request, entity.getPeriodStart().after(now), "periodStart", "manager.task.form.error.pastPeriod");
 		}
-		if (!errors.hasErrors("periodEnd")) {
+		if (!errors.hasErrors("periodEnd") && !errors.hasErrors("periodStart")) {
 			errors.state(request, entity.getPeriodEnd().after(entity.getPeriodStart()), "periodEnd", "manager.task.form.error.period");
 		}
 		if (!errors.hasErrors("workload") && !errors.hasErrors("periodEnd") && !errors.hasErrors("periodStart")) {
@@ -79,12 +79,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, minutes <= 0.59, "workload", "manager.task.form.error.decimals");
 		}
 
-		final String title = entity.getTitle().replaceAll("[\\,\\:]", "");
-		errors.state(request, !title.trim().isEmpty(), "title", "manager.task.form.error.wrong-characters");
-
-		if (!title.trim().isEmpty()) {
-			entity.setTitle(title);
-		}
+		final String title = entity.getTitle();
 		
 		final String description = entity.getDescription();
 		final List<String> spamWords = this.spamService.getSpamWordsByString(title + " " + description);

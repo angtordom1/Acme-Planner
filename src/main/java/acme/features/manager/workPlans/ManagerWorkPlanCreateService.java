@@ -1,7 +1,10 @@
 package acme.features.manager.workPlans;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -52,7 +55,10 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		assert entity != null;
 		assert errors != null;
 
-		request.getModel().setAttribute("tasks", this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId()));
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		
+		request.getModel().setAttribute("tasks", this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId(),moment));
 
 		if(!errors.hasErrors("tasks")){
 			final List<Task> ids = entity.getTasks();
@@ -102,7 +108,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 
 		}
 
-		if(!errors.hasErrors("periodEnd") && !errors.hasErrors("tasks")){
+		if(!errors.hasErrors("periodEnd") && !errors.hasErrors("tasks") && !errors.hasErrors("periodStart")){
 			final Date now = new GregorianCalendar().getTime();
 			now.setSeconds(0);
 
@@ -132,8 +138,11 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		assert model != null;
 		final Principal principal;
 		principal = request.getPrincipal();
+		
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
 
-		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId());
+		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId(), moment);
 		entity.setTasks(tasks.stream().collect(Collectors.toList()));
 
 		request.unbind(entity, model, "periodStart", "periodEnd", "state", "tasks");
@@ -145,7 +154,31 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 
 		WorkPlan result;
 		result = new WorkPlan();
-
+		
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		
+		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId(), moment)
+			.stream().collect(Collectors.toList());
+		
+		final Date startRecommendation = tasks.stream().map(Task::getPeriodStart)
+			.min(Comparator.comparing(Date::getTime)).orElse(moment);
+		
+		final Date endRecommendation = tasks.stream().map(Task::getPeriodEnd)
+			.max(Comparator.comparing(Date::getTime)).orElse(moment);
+		
+		final LocalDateTime startAux = LocalDateTime.ofInstant(startRecommendation.toInstant(), ZoneId.systemDefault());
+		final LocalDateTime endAux = LocalDateTime.ofInstant(endRecommendation.toInstant(), ZoneId.systemDefault());
+		
+		final Date finalStartRecommendation = Date.from(startAux.minusDays(1).withMinute(0).withHour(8)
+			.atZone(ZoneId.systemDefault()).toInstant());
+		
+		final Date finalEndRecommendation = Date.from(endAux.plusDays(1).withMinute(0).withHour(17)
+			.atZone(ZoneId.systemDefault()).toInstant());
+		
+		result.setPeriodStart(finalStartRecommendation);
+		result.setPeriodEnd(finalEndRecommendation);
+		
 		return result;
 	}
 
@@ -160,6 +193,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 
 		entity.setManagerId(principal.getActiveRoleId());
 		entity.setFinished(false);
+		entity.setPublished(false);
 		final double workload =entity.getTotalWorkload(entity.getTasks());
 		entity.setWorkload(workload);
 

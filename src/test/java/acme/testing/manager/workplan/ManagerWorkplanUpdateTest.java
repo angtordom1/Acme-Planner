@@ -19,7 +19,7 @@ public class ManagerWorkplanUpdateTest extends AcmePlannerTest{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void updatePositive(final int recordIndex, final String periodStart, final String periodEnd, final String workload, final String state, final String tasks,final String finished) {
+	public void updatePositive(final int recordIndex, final String periodStart, final String periodEnd, final String workload, final String state, final String tasks) {
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Manager", "My Workplans");
@@ -29,8 +29,7 @@ public class ManagerWorkplanUpdateTest extends AcmePlannerTest{
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
 		super.fillInputBoxIn("state", state);
-		if(tasks != null) super.fillInputBoxIn("tasks", tasks);
-		super.fillInputBoxIn("finished", finished);
+		if(!tasks.equals("")) super.fillInputBoxIn("tasks", tasks);
 		
 		super.checkButtonExists("Update WorkPlan");
 		super.clickOnSubmitButton("Update WorkPlan");
@@ -41,7 +40,8 @@ public class ManagerWorkplanUpdateTest extends AcmePlannerTest{
 		super.checkInputBoxHasValue("periodEnd", periodEnd);
 		super.checkInputBoxHasValue("workload", workload);
 		super.checkInputBoxHasValue("state", state);
-		super.checkInputBoxHasValue("finished", finished);
+		super.checkInputBoxHasValue("finished", "false");
+		super.checkInputBoxHasValue("published", "false");
 		
 		super.signOut();
 	}
@@ -54,7 +54,7 @@ public class ManagerWorkplanUpdateTest extends AcmePlannerTest{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
-	public void updateNegative(final int recordIndex, final String periodStart, final String periodEnd, final String state, final String tasks, final String finished) {
+	public void updateNegative(final int recordIndex, final String periodStart, final String periodEnd, final String state, final String tasks) {
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Manager", "My Workplans");
@@ -63,9 +63,8 @@ public class ManagerWorkplanUpdateTest extends AcmePlannerTest{
 		
 		super.fillInputBoxIn("periodStart", periodStart);
 		super.fillInputBoxIn("periodEnd", periodEnd);
-		super.fillInputBoxIn("state", "true");
-		if(tasks != null) super.fillInputBoxIn("tasks", tasks);
-		super.fillInputBoxIn("finished", finished);
+		super.fillInputBoxIn("state", state);
+		if(!tasks.equals("")) super.fillInputBoxIn("tasks", tasks);
 		
 		super.checkButtonExists("Update WorkPlan");
 		super.clickOnSubmitButton("Update WorkPlan");
