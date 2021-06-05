@@ -1,2 +1,2 @@
-recordIndex,threshold
-0,10.00
+threshold,authorOK,textOK,infoOK,authorBAD,infoBAD,authorBAD,explicacion
+10.00,Prueba show positiva,Este shout tiene el spam justo sex,,Prueba show negativa,Este shout tiene más spam sex sex,,"Caso positivo: 1/10 palabras spam = umbral / Caso negativo: 2/10 palabras spam > umbral"

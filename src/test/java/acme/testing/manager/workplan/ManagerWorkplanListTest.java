@@ -18,7 +18,7 @@ public class ManagerWorkplanListTest extends AcmePlannerTest{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void list(final int recordIndex, final String periodStart, final String periodEnd, final String workload, final String state, final String finished) {
+	public void list(final int recordIndex, final String periodStart, final String periodEnd, final String workload, final String state, final String finished, final String published) {
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Manager", "My Workplans");
@@ -34,8 +34,9 @@ public class ManagerWorkplanListTest extends AcmePlannerTest{
 		super.checkInputBoxHasValue("workload", workload);
 		super.checkInputBoxHasValue("state", state);
 		super.checkInputBoxHasValue("finished", finished);
+		super.checkInputBoxHasValue("published", published);
 		
-		if(finished.equals("false")) {
+		if(finished.equals("false") && published.equals("false")) {
 			super.checkButtonExists("Update WorkPlan");
 			super.checkButtonExists("Delete WorkPlan");
 		}

@@ -1,8 +1,8 @@
 recordIndex,title,periodStart,periodEnd,workload,description,link,state,finished
-6,Task 100,2021/07/04 19:59,2021/07/05 20:00,11.00,CHANGING THE TITLE,http://www.google.com,true,false
-6,Task 100,2021/07/04 19:59,2021/07/05 20:00,17.00,CHANGING THE WORKLOAD,http://www.google.com,true,false
-7,Task 014,2021/07/05 19:59,2021/07/06 20:00,11.00,CHANGING ONLY THE DESCRIPTION,http://www.google.com,true,false
-8,Task 013,2021/12/06 19:59,2021/12/07 20:00,11.00,CHANGING THE PERIOD DATES,http://www.google.com,true,false
-8,Task 013,2021/12/06 19:59,2021/12/07 20:00,11.00,CHANGING THE LINK,http://www.twitch.tv,true,false
-8,Task 013,2021/12/06 19:59,2021/12/07 20:00,11.00,TURNING A PUBLIC TASK INTO PRIVATE,http://www.twitch.tv,false,false
-8,Task 013,2021/12/06 19:59,2021/12/07 20:00,11.00,FINISHING AN UNFINISHED TASK,http://www.twitch.tv,false,true
+5,Task 100,2021/07/04 19:59,2021/07/05 20:00,11.00,CHANGING THE TITLE,http://www.google.com,true,false
+5,Task 100,2021/07/04 19:59,2021/07/05 20:00,17.00,CHANGING THE WORKLOAD,http://www.google.com,true,false
+6,Task 014,2021/07/05 19:59,2021/07/06 20:00,11.00,CHANGING ONLY THE DESCRIPTION,http://www.google.com,true,false
+7,Task 013,2021/07/20 19:59,2021/12/22 20:00,11.00,CHANGING THE PERIOD DATES,http://www.google.com,true,false
+7,Task 013,2021/07/20 19:59,2021/07/22 20:00,11.00,CHANGING THE LINK,http://www.twitch.tv,true,false
+7,Task 013,2021/07/20 19:59,2021/07/22 20:00,11.00,TURNING A PUBLIC TASK INTO PRIVATE,http://www.twitch.tv,false,false
+7,Task 013,2021/07/20 19:59,2021/07/22 20:00,11.00,FINISHING AN UNFINISHED TASK,http://www.twitch.tv,false,true

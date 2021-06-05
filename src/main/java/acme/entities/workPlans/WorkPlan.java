@@ -48,6 +48,8 @@ public class WorkPlan extends DomainEntity{
 	
 	//If true task is finished else task is not finished
 	protected boolean finished;
+	
+	protected boolean published;
 
 	// Derived attributes -----------------------------------------------------
 	

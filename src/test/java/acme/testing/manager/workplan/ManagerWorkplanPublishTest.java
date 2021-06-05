@@ -19,30 +19,21 @@ public class ManagerWorkplanPublishTest extends AcmePlannerTest{
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/publish.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void publish(final int recordIndex, final String periodEnd, final String tasks) {
+	public void publish(final int recordIndex) {
 		super.signIn("manager1", "manager1");
 		
 		super.clickOnMenu("Manager", "My Workplans");
 		
 		super.clickOnListingRecord(recordIndex);
 		
-		super.fillInputBoxIn("periodEnd", periodEnd);
-		super.fillInputBoxIn("tasks", tasks);
-		
-		super.checkButtonExists("Update WorkPlan");
-		super.clickOnSubmitButton("Update WorkPlan");
-		
-		super.clickOnListingRecord(recordIndex);
-		
-		super.checkInputBoxHasValue("state", "false");
-		super.checkInputBoxHasValue("finished", "false");
+		super.checkInputBoxHasValue("published", "false");
 		
 		super.checkButtonExists("Publish WorkPlan");
 		super.clickOnSubmitButton("Publish WorkPlan");
 		
 		super.clickOnListingRecord(recordIndex);
 		
-		super.checkInputBoxHasValue("state", "true");
+		super.checkInputBoxHasValue("published", "true");
 				
 		super.signOut();
 	}
