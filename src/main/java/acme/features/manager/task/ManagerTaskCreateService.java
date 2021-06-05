@@ -79,12 +79,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, minutes <= 0.59, "workload", "manager.task.form.error.decimals");
 		}
 
-		final String title = entity.getTitle().replaceAll("[\\,\\:]", "");
-		errors.state(request, !title.trim().isEmpty(), "title", "manager.task.form.error.wrong-characters");
-
-		if (!title.trim().isEmpty()) {
-			entity.setTitle(title);
-		}
+		final String title = entity.getTitle();
 		
 		final String description = entity.getDescription();
 		final List<String> spamWords = this.spamService.getSpamWordsByString(title + " " + description);

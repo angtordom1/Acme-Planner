@@ -5,94 +5,27 @@
 
 <acme:form>
 
+	<h5>	
+		<acme:message code="manager.work-plan.form.label.recommend"/>
+	</h5>
 
+	<br>
+	
 	<acme:form-moment code="manager.work-plan.form.label.periodStart"
 		path="periodStart" />
-	<jstl:if test="${command == 'create' || command =='update'}">
-		<table class="table table-sm">
-	<caption>
-		<acme:message code="manager.work-plan.form.label.recommendations"/>
-	</caption>	
-			<tr>
-				<th scope="row"><acme:message
-						code="manager.work-plan.form.label.recommendedYearStart" /></th>
-				<td>
-					<p id="yearStart">1970</p>
-				</td>
-			</tr>
-
-			<tr>
-				<th scope="row"><acme:message
-						code="manager.work-plan.form.label.recommendedMonthStart" /></th>
-				<td>
-					<p id="monthStart">06</p>
-				</td>
-			</tr>
-
-			<tr>
-				<th scope="row"><acme:message
-						code="manager.work-plan.form.label.recommendedDayStart" /></th>
-				<td>
-					<p id="dayStart">06</p>
-				</td>
-			</tr>
-			
-			<tr>
-				<th scope="row"><acme:message
-						code="manager.work-plan.form.label.hourDayStart" /></th>
-				<td>
-					<p id="hourStart">8:00</p>
-				</td>
-			</tr>
-		</table>
-	</jstl:if>
 
 	<acme:form-moment code="manager.work-plan.form.label.periodEnd"
 		path="periodEnd" />
-	<jstl:if test="${command == 'create' || command =='update'}">
-		<table class="table table-sm">
-			<caption>
-		<acme:message code="manager.work-plan.form.label.recommendations"/>
-	</caption>	
-			<tr>
-				<th scope="row"><acme:message
-						code="manager.work-plan.form.label.recommendedYearEnd" /></th>
-				<td>
-					<p id="yearEnd">1970</p>
-			<tr>
-
-				<th scope="row"><acme:message
-						code="manager.work-plan.form.label.recommendedMonthEnd" /></th>
-				<td>
-					<p id="monthEnd">06</p>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row"><acme:message
-						code="manager.work-plan.form.label.recommendedDayEnd" /></th>
-				<td>
-					<p id="dayEnd">07</p>
-				</td>
-			</tr>
-			
-			<tr>
-				<th scope="row"><acme:message
-						code="manager.work-plan.form.label.hourDayEnd" /></th>
-				<td>
-					<p id="hourEnd">17:00</p>
-				</td>
-			</tr>
-		</table>
-	</jstl:if>
-
+	
 	<jstl:if test="${command == 'show'}">
 		<acme:form-double code="manager.work-plan.form.label.workload" path="workload" readonly="true"/>
 	</jstl:if>
 
 	<acme:form-checkbox code="manager.work-plan.form.label.state" path="state"/>
 	
-	<acme:form-checkbox code="manager.work-plan.form.label.finished" path="finished" readonly="true"/>
-
+	<jstl:if test="${command != 'create'}">	
+		<acme:form-checkbox code="manager.work-plan.form.label.finished" path="finished" readonly="true"/>
+	</jstl:if>
 	
 	<jstl:if test="${command == 'show' || command =='publish'}">
 			<acme:form-checkbox code="manager.work-plan.form.label.published" path="published" readonly="true"/>
@@ -184,53 +117,3 @@
 
 	<acme:form-return code="manager.work-plan.form.button.return" />
 </acme:form>
-
-<script>
-	document.getElementById('tasks').addEventListener('change',function(){
-	    var selected = [];
-	    var min = [];
-	    var max = [];
-	    for (var option of document.getElementById('tasks').options)
-	    {
-	        if (option.selected) {
-	        	var periodStart = option.innerText.split(',')[0].split(":")[1].split(" ")[1];
-	        	var periodEnd = option.innerText.split(',')[1].split(" ")[2];
-        		var earliestDate = new Date(periodStart);
-        		var latestDate = new Date(periodEnd);
-        		
-	        	if(min.length==0){
-	        		min.push(earliestDate);
-	        	}
-	        	
-	        	else{
-	        		if(min[0] >= earliestDate){
-	        			min.pop();
-	        			min.push(earliestDate);
-	        		}
-	        	}
-	        	
-	        	if(max.length==0){
-	        		max.push(latestDate);
-	        	}
-	        	
-	        	else{
-	        		if(max[0] < latestDate){
-	        			max.pop();
-	        			max.push(latestDate);
-	        		}
-	        		
-	        	}
-	        }
-	    }
-	    
-	    max[0].setDate(max[0].getDate() + 1);
-	    min[0].setDate(min[0].getDate() - 1);
-	    document.getElementById("yearStart").innerHTML = min[0].getFullYear();
-	    document.getElementById("monthStart").innerHTML = min[0].getMonth() + 1;
-	    document.getElementById("dayStart").innerHTML = min[0].getDate();
-	    
-	    document.getElementById("yearEnd").innerHTML = max[0].getFullYear();
-	    document.getElementById("monthEnd").innerHTML = max[0].getMonth() + 1;
-	    document.getElementById("dayEnd").innerHTML = max[0].getDate();
-	});
-	</script>
