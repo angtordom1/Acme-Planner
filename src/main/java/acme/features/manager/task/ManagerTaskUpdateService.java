@@ -136,12 +136,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 			errors.state(request, !(periodStart.before(now) && finish), "finished", "manager.task.form.error.finished");
 		}
 
-		final String title = entity.getTitle().replaceAll("[\\,\\:]", "");
-		errors.state(request, !title.trim().isEmpty(), "title", "manager.task.form.error.wrong-characters");
-
-		if (!title.trim().isEmpty()) {
-			entity.setTitle(title);
-		}
+		final String title = entity.getTitle();
 		
 		final String description = entity.getDescription();
 		final List<String> spamWords = this.spamService.getSpamWordsByString(title+" "+description);
@@ -155,9 +150,6 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 	public void update(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
-		
-		final String title = entity.getTitle().replace(",", "");
-		entity.setTitle(title);
 		
 		this.repository.save(entity);
 		

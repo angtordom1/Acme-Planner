@@ -1,7 +1,10 @@
 package acme.features.manager.workPlans;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -151,7 +154,31 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 
 		WorkPlan result;
 		result = new WorkPlan();
-
+		
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		
+		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(request.getPrincipal().getActiveRoleId(), moment)
+			.stream().collect(Collectors.toList());
+		
+		final Date startRecommendation = tasks.stream().map(Task::getPeriodStart)
+			.min(Comparator.comparing(Date::getTime)).orElse(moment);
+		
+		final Date endRecommendation = tasks.stream().map(Task::getPeriodEnd)
+			.max(Comparator.comparing(Date::getTime)).orElse(moment);
+		
+		final LocalDateTime startAux = LocalDateTime.ofInstant(startRecommendation.toInstant(), ZoneId.systemDefault());
+		final LocalDateTime endAux = LocalDateTime.ofInstant(endRecommendation.toInstant(), ZoneId.systemDefault());
+		
+		final Date finalStartRecommendation = Date.from(startAux.minusDays(1).withMinute(0).withHour(8)
+			.atZone(ZoneId.systemDefault()).toInstant());
+		
+		final Date finalEndRecommendation = Date.from(endAux.plusDays(1).withMinute(0).withHour(17)
+			.atZone(ZoneId.systemDefault()).toInstant());
+		
+		result.setPeriodStart(finalStartRecommendation);
+		result.setPeriodEnd(finalEndRecommendation);
+		
 		return result;
 	}
 
