@@ -8,9 +8,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -43,7 +43,7 @@ public class Task extends DomainEntity{
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date periodEnd;
 	
-	@PositiveOrZero
+	@Min(value = 0)
 	@Digits(integer = 3, fraction = 2)
 	protected double workload;
 	
