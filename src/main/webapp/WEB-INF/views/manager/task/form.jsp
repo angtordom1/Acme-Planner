@@ -16,8 +16,8 @@
 		<acme:form-checkbox code="manager.task.form.label.finished" path="finished"/>
 	</jstl:if>
 			
-	<acme:form-submit test="${command == 'show' && finished == 'false'}" code="manager.task.form.button.update" action="/manager/task/update"/>
-	<acme:form-submit test="${command == 'show' && finished == 'false'}" code="manager.task.form.button.delete" action="/manager/task/delete"/>
+	<acme:form-submit test="${command == 'show' && finished == 'false' && workPublic == 'false'}" code="manager.task.form.button.update" action="/manager/task/update"/>
+	<acme:form-submit test="${command == 'show' && finished == 'false' && workPublic == 'false'}" code="manager.task.form.button.delete" action="/manager/task/delete"/>
 	<acme:form-submit test="${command == 'create'}" code="manager.task.form.button.create" action="/manager/task/create"/>
 	<acme:form-submit test="${command == 'update'}" code="manager.task.form.button.update" action="/manager/task/update"/>
 	<acme:form-submit test="${command == 'delete'}" code="manager.task.form.button.delete" action="/manager/task/delete"/>		
