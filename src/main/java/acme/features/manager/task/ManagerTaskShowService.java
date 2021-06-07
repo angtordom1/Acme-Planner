@@ -51,8 +51,9 @@ public class ManagerTaskShowService implements AbstractShowService<Manager,Task>
 		assert model != null;
 		final Collection<WorkPlan> planes = this.workPlanRepository.findManyByTaskId(entity.getId());
 		final Boolean plan=planes.stream().anyMatch(x->x.isPublished());
+		final Boolean plan2=planes.stream().anyMatch(x->x.getTasks().size()==1);
 
-		model.setAttribute("workPublic", plan);
+		model.setAttribute("workPublic", plan && plan2);
 
 		
 		request.unbind(entity, model,"title","periodStart","periodEnd","workload","description","link","state","finished");
