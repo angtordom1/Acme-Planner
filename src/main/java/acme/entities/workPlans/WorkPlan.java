@@ -1,8 +1,5 @@
 package acme.entities.workPlans;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -73,30 +70,6 @@ public class WorkPlan extends DomainEntity{
 		
 		return hour+minute;
 		
-	}
-
-
-	public LocalDateTime getMinExecutionPeriod() {
-		LocalDateTime res = null;
-		if(!this.tasks.isEmpty()) {
-
-			final Date aux =this.tasks.stream().map(Task::getPeriodStart).min(Date::compareTo).orElse(new Date());
-			final LocalDate tm = aux.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-			res=LocalDateTime.of(tm.getYear(),tm.getMonth(),tm.getDayOfMonth()-1,8,0);
-
-		}
-		return res;
-	}
-
-	public LocalDateTime getMaxExecutionPeriod() {
-		LocalDateTime res = null;
-		if(!this.tasks.isEmpty()) {
-			final Date aux =this.tasks.stream().map(Task::getPeriodEnd).max(Date::compareTo).orElse(new Date());
-			final LocalDate tm=aux.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-			res=LocalDateTime.of(tm.getYear(),tm.getMonth(),tm.getDayOfMonth()+1,17,00);
-
-		}
-		return res;
 	}
 	
 	public boolean isFinished() {
