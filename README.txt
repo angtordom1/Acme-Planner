@@ -24,12 +24,6 @@ al dejarlo como atributo, solo se tendría que hacer dicho cálculo al actualiza
 que crea dicha workplan, esto conlleva a que cuando una workplan no tenga tareas, esta pueda seguir viéndose en el listado.
 Sin embargo, dicha tarea finalizará al no tener ninguna tarea.
 
-Sobre CleverCloud:
-- Haciendo pruebas con CleverCloud hemos encontrado un problema con la misma en la cual si intentábamos acceder a las 
-features de manager daba un error debido a que el endpoint /manager lo tiene reservado CleverCloud para opciones de manejo del
-sistema. Por lo cual, hemos cambiado el endpoint principal de la página a /Acme-Planner, quedando la URL de la siguiente forma:
-http://app-fbd846a6-fac4-4fa2-bf7e-c1bf31d7a4a4.cleverapps.io/Acme-Planner
-
 - Además, hay algunas features (como los show en administrator) que en un principio no funcionan como deberían. Entendemos que puede
 ser por la falta de datos en la propia Base de Datos (debido a que piden que importemos el initial-data en CleverCloud), y porque cuando 
 hemos tenido las reuniones con nuestra tutora, estas funcionalidades iban perfectamente al desplegarlas.
