@@ -18,7 +18,7 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest{
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(10)
+	@Order(20)
 	public void updatePositive(final int recordIndex, final String title, final String periodStart, final String periodEnd, final String workload, final String description, final String link, final String state, final String finished) {
 		super.signIn("manager1", "manager1");
 		
@@ -59,7 +59,7 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest{
 	 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
-	@Order(20)
+	@Order(10)
 	public void updateNegative(final int recordIndex, final String title, final String periodStart, final String periodEnd, final String workload, final String description, final String link, final String state, final String finished) {
 		super.signIn("manager1", "manager1");
 		

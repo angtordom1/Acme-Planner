@@ -29,14 +29,14 @@ public class SpamService {
 		int i=0;
 		
 		while(i<spamWords.size()) {
-			SpamWord spamWord = spamWords.get(i);
-			String word = spamWord.getWord();
-			Integer size = spamWord.getSize();
-			Pattern p = Pattern.compile(Pattern.quote(word), Pattern.CASE_INSENSITIVE);
-			Matcher m = p.matcher(s);
+			final SpamWord spamWord = spamWords.get(i);
+			final String word = spamWord.getWord();
+			final Integer size = spamWord.getSize();
+			final Pattern p = Pattern.compile("\\b"+Pattern.quote(word)+"\\b", Pattern.CASE_INSENSITIVE);
+			final Matcher m = p.matcher(s);
 			while(m.find()) {
-				if(!res.contains(word)) res.add(word);
-				nWords += size;
+					if(!res.contains(word)) res.add(word);
+					nWords += size;
 			}
 			i++;
 		}	
