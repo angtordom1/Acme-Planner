@@ -38,5 +38,5 @@ manager.work-plan.form.error.manager = The workplan has to contain task of his m
 manager.work-plan.form.error.badtasks= A public workplan can't contain private tasks 
 
 manager.work-plan.form.label.recommend= Please, consider using the following recommended start and end period
-manager.work-plan.form.label.recommend-start= Start of period:
-manager.work-plan.form.label.recommend-end= End of period:
+manager.work-plan.form.label.recommend-start= Suggested start of period:
+manager.work-plan.form.label.recommend-end= Suggested end of period:
