@@ -96,9 +96,15 @@ public class AdministratorUserShowDashboardService implements AbstractShowServic
 		averagePeriodExecution = tasksList.stream()
 			.mapToLong(x -> x.getPeriodEnd().getTime() - x.getPeriodStart().getTime())
 			.average().orElse(0.0) / 3600000.0;
-		deviationPeriodExecution = Math.sqrt(tasksList.stream()
-			.mapToDouble(x -> Math.pow(x.getPeriodEnd().getTime() - x.getPeriodStart().getTime() - averagePeriodExecution, 2.0))
-			.sum() / (tasksList.size() - 1)) / 3600000.0; //formula de la desviacion tipica
+		
+		if(tasksList.size() > 1) {
+			deviationPeriodExecution = Math.sqrt(tasksList.stream()
+				.mapToDouble(x -> Math.pow(x.getPeriodEnd().getTime() - x.getPeriodStart().getTime() - averagePeriodExecution, 2.0))
+				.sum() / (tasksList.size() - 1)) / 3600000.0; //formula de la desviacion tipica
+		} else {
+			deviationPeriodExecution = 0.;
+		}
+		
 		minimunPeriodExecution = tasksList.stream()
 			.mapToLong(x -> x.getPeriodEnd().getTime() - x.getPeriodStart().getTime())
 			.min().getAsLong() / 3600000.0;
@@ -110,9 +116,14 @@ public class AdministratorUserShowDashboardService implements AbstractShowServic
 		averageWorkload = tasksList.stream()
 			.mapToDouble(x -> this.parseFromSexagesimalToPercentage(x.getWorkload()))
 			.average().orElse(0.0);
+		
+		if(tasksList.size() > 1) {
 		deviationWorkload = Math.sqrt(tasksList.stream()
 			.mapToDouble(x -> Math.pow(this.parseFromSexagesimalToPercentage(x.getWorkload()) - averageWorkload, 2.0))
 			.sum() / (tasksList.size() - 1));
+		} else {
+			deviationWorkload = 0.;
+		}
 		minimunWorkload = this.repository.minimunWorkload();
 		maximunWorkload = this.repository.maximunWorkload();
 

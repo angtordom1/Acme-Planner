@@ -78,10 +78,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert errors != null;
 		
 		final String shoutText = entity.getText();
-		final String shoutInfo = entity.getInfo();
 		final String shoutAuthor = entity.getAuthor();
 		
-		final List<String> totalTextSpamWords = this.spamService.getSpamWordsByString(shoutAuthor + " " + shoutText + " " + shoutInfo);
+		final List<String> totalTextSpamWords = this.spamService.getSpamWordsByString(shoutAuthor + " " + shoutText);
 		errors.state(request, totalTextSpamWords.isEmpty(), "*", "anonymous.shout.form.error.spam", 
 			totalTextSpamWords.toString().replaceAll("[\\[\\]]", ""));
 	}

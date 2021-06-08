@@ -37,12 +37,19 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager,T
 		Task task;
 		final Manager manager;
 		Principal principal;
-		
 		taskId = request.getModel().getInteger("id");
 		task = this.repository.findOneTaskById(taskId);
 		manager = task.getManager();
 		principal = request.getPrincipal();
-		result =  manager.getUserAccount().getId() == principal.getAccountId();
+		
+		
+		final Collection<WorkPlan> planes = this.workPlanRepository.findManyByTaskId(task.getId());
+		
+		final Boolean plan = planes.stream().anyMatch(WorkPlan::isPublished);
+        final Boolean plan2 = planes.stream().anyMatch(x->x.getTasks().size()==1);
+		
+		
+		result =  (manager.getUserAccount().getId() == principal.getAccountId() && (!plan || !plan2));
 		return result;
 	}
 

@@ -13,6 +13,7 @@ manager.work-plan.form.label.periodStart = Comienzo del período:
 manager.work-plan.form.label.periodEnd = Final del período:
 manager.work-plan.form.label.workload = Carga de trabajo (HH.mm):
 manager.work-plan.form.label.description = Descripción:
+manager.work-plan.form.label.finished = Finalizado
 manager.work-plan.form.label.state = Público
 manager.work-plan.form.label.published = Publicado
 manager.work-plan.form.label.tasks = Tareas:
@@ -34,4 +35,6 @@ manager.work-plan.form.error.periodEndTask = El final del periodo no puede ser a
 manager.work-plan.form.error.tasks = El plan de trabajo debe de tener tareas del manager
 manager.work-plan.form.error.badtasks= Un plan de trabajo público no puede tener tareas privadas
 
-manager.work-plan.form.label.recommend= Por favor, considere usar nuestro periodo de inicio y fin del formulario
+manager.work-plan.form.label.recommend= Por favor, considere usar la siguiente sugerencia sobre el periodo de inicio y fin
+manager.work-plan.form.label.recommend-start= Comienzo del período recomendado:
+manager.work-plan.form.label.recommend-end= Final del período recomendado:

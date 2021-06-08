@@ -1,6 +1,11 @@
 package acme.features.manager.workPlans;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.stream.Collectors;
 
@@ -62,6 +67,27 @@ public class ManagerWorkPlanShowService implements AbstractShowService<Manager, 
 			if(!tasks.contains(task)) tasks.add(task);
 		}
 		model.setAttribute("allTasks",tasks.stream().collect(Collectors.toList()));
+		
+		final Date startRecommendation = tasks.stream().map(Task::getPeriodStart)
+			.min(Comparator.comparing(Date::getTime)).orElse(moment);
+		
+		final Date endRecommendation = tasks.stream().map(Task::getPeriodEnd)
+			.max(Comparator.comparing(Date::getTime)).orElse(moment);
+		
+		final LocalDateTime startAux = LocalDateTime.ofInstant(startRecommendation.toInstant(), ZoneId.systemDefault());
+		final LocalDateTime endAux = LocalDateTime.ofInstant(endRecommendation.toInstant(), ZoneId.systemDefault());
+		
+		final Date finalStartRecommendation = Date.from(startAux.minusDays(1).withMinute(0).withHour(8)
+			.atZone(ZoneId.systemDefault()).toInstant());
+		
+		final Date finalEndRecommendation = Date.from(endAux.plusDays(1).withMinute(0).withHour(17)
+			.atZone(ZoneId.systemDefault()).toInstant());
+
+		final DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy 8:00");
+		final DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy 17:00"); 
+		
+		model.setAttribute("finalStartRecommendation", dateFormat1.format(finalStartRecommendation));
+		model.setAttribute("finalEndRecommendation", dateFormat2.format(finalEndRecommendation));
 		
 		request.unbind(entity, model, "periodStart", "periodEnd", "workload", "state", "tasks", "finished", "published");
 	}

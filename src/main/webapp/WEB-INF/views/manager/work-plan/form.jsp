@@ -8,8 +8,25 @@
 	<h5>	
 		<acme:message code="manager.work-plan.form.label.recommend"/>
 	</h5>
-
-	<br>
+	
+<table class="table table-sm">
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.work-plan.form.label.recommend-start"/>
+		</th>
+		<td>
+			<acme:print value="${finalStartRecommendation}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="manager.work-plan.form.label.recommend-end"/>
+		</th>
+		<td>
+			<acme:print value="${finalEndRecommendation}"/>
+		</td>
+	</tr>
+</table>
 	
 	<acme:form-moment code="manager.work-plan.form.label.periodStart"
 		path="periodStart" />
