@@ -12,14 +12,6 @@ This is the Acme Planner, which is intended to be the project that we will work 
 Github Repository: https://github.com/angtordom1/Acme-Planner.git
 Github Release:
 
-Credenciales Clevercloud:
-Email: angtordom1@alum.us.es
-contraseña: DP2P@ssword
-
-Sobre el atributo title en tasks al crear y updatear una tarea:
-- Debido a la implementación de las sugerencias al crear una workplan, hemos decidido evitar que una tarea
-pueda tener una coma en su título. Si el usuario escribe una coma, esta será reemplazada por un carácter vacío.
-
 Sobre workplans:
 - Debido a que nuestra implementación de spam no permite que ninguna tarea pueda ser creada si se considera spam, 
 workplans nunca podrá tener ninguna tarea spam y por consiguiente nunca se podrá considerar spam.
@@ -41,3 +33,5 @@ http://app-fbd846a6-fac4-4fa2-bf7e-c1bf31d7a4a4.cleverapps.io/Acme-Planner
 - Además, hay algunas features (como los show en administrator) que en un principio no funcionan como deberían. Entendemos que puede
 ser por la falta de datos en la propia Base de Datos (debido a que piden que importemos el initial-data en CleverCloud), y porque cuando 
 hemos tenido las reuniones con nuestra tutora, estas funcionalidades iban perfectamente al desplegarlas.
+
+-Tras la sugerencia de nuestra tutora, si una Task es la última de un WokPlan, esta no se podrá eliminar.
