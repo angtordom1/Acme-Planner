@@ -50,8 +50,12 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager,T
 		task = this.repository.findOneTaskById(taskId);
 		manager = task.getManager();
 		principal = request.getPrincipal();
-		result = !task.isFinished() &&
-			manager.getUserAccount().getId() == principal.getAccountId();
+		
+		final Collection<WorkPlan> planes = this.workPlanRepository.findManyByTaskId(task.getId());
+		
+		final Boolean plan = planes.stream().anyMatch(WorkPlan::isPublished);
+		
+		result = !task.isFinished() && manager.getUserAccount().getId() == principal.getAccountId() && !plan;
 
 		return result;
 	}

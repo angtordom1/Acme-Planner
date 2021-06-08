@@ -20,7 +20,7 @@ public class ManagerTaskDeleteTest extends AcmePlannerTest{
 	@CsvFileSource(resources = "/manager/task/delete.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void delete(final int recordIndex) {
-		super.signIn("manager1", "manager1");
+		super.signIn("manager2", "manager2");
 		
 		super.clickOnMenu("Manager", "My tasks");
 		
