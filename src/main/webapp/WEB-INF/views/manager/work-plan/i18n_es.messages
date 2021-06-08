@@ -35,4 +35,6 @@ manager.work-plan.form.error.periodEndTask = El final del periodo no puede ser a
 manager.work-plan.form.error.tasks = El plan de trabajo debe de tener tareas del manager
 manager.work-plan.form.error.badtasks= Un plan de trabajo público no puede tener tareas privadas
 
-manager.work-plan.form.label.recommend= Por favor, considere usar nuestro periodo de inicio y fin del formulario
+manager.work-plan.form.label.recommend= Por favor, considere usar la siguiente sugerencia sobre el periodo de inicio y fin
+manager.work-plan.form.label.recommend-start= Comienzo del período:
+manager.work-plan.form.label.recommend-end= Final del período:
