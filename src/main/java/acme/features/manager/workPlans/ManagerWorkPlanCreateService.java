@@ -130,6 +130,36 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		assert entity != null;
 		assert errors != null;	
 
+		final Principal principal;
+		principal = request.getPrincipal();
+		
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+
+		final Collection<Task> tasks = this.taskRepository.findManyByManagerIdAndUnfinished(principal.getActiveRoleId(), moment);
+		entity.setTasks(tasks.stream().collect(Collectors.toList()));
+		
+		final Date startRecommendation = tasks.stream().map(Task::getPeriodStart)
+			.min(Comparator.comparing(Date::getTime)).orElse(moment);
+		
+		final Date endRecommendation = tasks.stream().map(Task::getPeriodEnd)
+			.max(Comparator.comparing(Date::getTime)).orElse(moment);
+		
+		final LocalDateTime startAux = LocalDateTime.ofInstant(startRecommendation.toInstant(), ZoneId.systemDefault());
+		final LocalDateTime endAux = LocalDateTime.ofInstant(endRecommendation.toInstant(), ZoneId.systemDefault());
+		
+		final Date finalStartRecommendation = Date.from(startAux.minusDays(1).withMinute(0).withHour(8)
+			.atZone(ZoneId.systemDefault()).toInstant());
+		
+		final Date finalEndRecommendation = Date.from(endAux.plusDays(1).withMinute(0).withHour(17)
+			.atZone(ZoneId.systemDefault()).toInstant());
+
+		final DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy 8:00");
+		final DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy 17:00"); 
+		
+		request.getModel().setAttribute("finalStartRecommendation", dateFormat1.format(finalStartRecommendation));
+		request.getModel().setAttribute("finalEndRecommendation", dateFormat2.format(finalEndRecommendation));
+		
 		request.bind(entity, errors);
 	}
 
@@ -138,6 +168,8 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+
 		final Principal principal;
 		principal = request.getPrincipal();
 		
@@ -167,6 +199,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		
 		model.setAttribute("finalStartRecommendation", dateFormat1.format(finalStartRecommendation));
 		model.setAttribute("finalEndRecommendation", dateFormat2.format(finalEndRecommendation));
+		
 
 		request.unbind(entity, model, "periodStart", "periodEnd", "state", "tasks");
 	}
