@@ -18,6 +18,7 @@ master.welcome.title = Welcome!
 master.welcome.text = \
 	Welcome to Acme Work Plans! Never before has it bee easier to get your \
 	project up and running!
+master.welcome.slogan=Acme Work Plans Inc. , always planning your future. Application designed to manage your work plans.
 
 # master.menu #################################################################
 
