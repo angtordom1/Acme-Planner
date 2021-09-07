@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-This is the Acme Planner, which is intended to be the project that we will work on D02.
+This is the Acme Work Plans, which is intended to be the project that we will work on D02.
 Github Repository: https://github.com/angtordom1/Acme-Planner.git
 Github Release:
 
