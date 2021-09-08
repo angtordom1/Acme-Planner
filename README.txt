@@ -29,3 +29,10 @@ ser por la falta de datos en la propia Base de Datos (debido a que piden que imp
 hemos tenido las reuniones con nuestra tutora, estas funcionalidades iban perfectamente al desplegarlas.
 
 -Tras la sugerencia de nuestra tutora, si una Task es la última de un WokPlan, esta no se podrá eliminar.
+
+- Los casos en los que la cobertura sea menor de 60% o en los que no haya pruebas negativas, se deben a la baja extensión de módulos de la aplicación
+y sencillez de los mismos. Por ejemplo, en los listados de shout no hay pruebas negativas ya que no se precisa de ellas.
+Nos acogemos a las pautas y seguimientos realizados en tutoría, donde las pruebas fueron revisadas y aprobadas.
+Este es el caso de las clase que prueban funcionalidades DELETE y LIST.
+En el caso de AdministratorSpamUpdateService alcanzamos un 49% de cobertura, ya que este servicio carece de complejidad alguna y no es posible
+cubrir el módulo completo; como se dedujo en tutoría.
