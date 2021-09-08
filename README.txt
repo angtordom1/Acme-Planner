@@ -9,8 +9,8 @@
 # they accept any liabilities with respect to them.
 
 This is the Acme Work Plans, which is intended to be the project that we will work on D02.
-Github Repository: https://github.com/angtordom1/Acme-Planner.git
-Github Release:
+Github Repository: https://github.com/angtordom1/Acme-Planner
+Github Release: https://github.com/angtordom1/Acme-Planner/releases/tag/1.6.0
 
 Sobre workplans:
 - Debido a que nuestra implementación de spam no permite que ninguna tarea pueda ser creada si se considera spam, 
