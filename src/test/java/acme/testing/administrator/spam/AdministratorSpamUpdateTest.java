@@ -8,7 +8,8 @@ import acme.testing.AcmePlannerTest;
 
 public class AdministratorSpamUpdateTest extends AcmePlannerTest{
 	
-	/*
+	/* Este test tiene una cobertura del 49% ya que la clase carece dde la complejidad suficiente como 
+	 * para evaluar el servicio completo.
 	 * TEST DE ACTUALIZACIÓN POSITIVO: Este caso de prueba comprobará que la funcionalidad de actualización del umbral de spam funciona correctamente. Además comprobamos que se detecta adecuadamente el nuevo umbral de spam mediante una creación de un shout.
 	 * RESULTADO ESPERADO: Se comprueba que el nuevo valor del umbral se ha actualizado correctamente y que un shout con menos spam del umbral puede crearse mientras que un shout con más spam que el límite, no.
 	 */
