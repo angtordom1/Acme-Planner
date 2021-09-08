@@ -1,0 +1,282 @@
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-E37VQMG with PID 17540 (C:\Users\Universidad\Desktop\DP2\Workspace-21.1\Workspace-21.1\Projects\Acme-Work-Plans\target\classes started by Universidad in C:\Users\Universidad\Desktop\DP2\Workspace-21.1\Workspace-21.1\Projects\Acme-Work-Plans)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 4.876 seconds (JVM running for 5.345)
+INFO [acme.framework.utilities.DatabasePopulator] Populating initial data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-E37VQMG with PID 7348 (C:\Users\Universidad\Desktop\DP2\Workspace-21.1\Workspace-21.1\Projects\Acme-Work-Plans\target\classes started by Universidad in C:\Users\Universidad\Desktop\DP2\Workspace-21.1\Workspace-21.1\Projects\Acme-Work-Plans)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 4.608 seconds (JVM running for 5.008)
+INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager1UserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan001 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan011 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan021 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan031 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan041 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan051 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan006 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan002 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan012 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan022 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan003 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan013 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan023 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan004 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan014 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task001 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task002 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task003 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task004 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task005 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task006 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task013 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task014 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task015 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager1Manager ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager1Authenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager2UserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager2Manager ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager2Authenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager3UserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager4UserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager3Manager ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager3Authenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager4Manager ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating manager4Authenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan005 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan015 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan025 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan035 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan007 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan027 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan008 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan009 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task007 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task008 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task009 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task010 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task011 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task012 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task016 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task017 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task018 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout01 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout02 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout03 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout04 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout05 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout06 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout07 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout08 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spam ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord001 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord002 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord003 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord004 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord005 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord006 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord007 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord008 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord009 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord010 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spamWord011 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for manager1UserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for workPlan001.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for workPlan011.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for workPlan021.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for workPlan031.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for workPlan041.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 6 for workPlan051.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 7 for workPlan006.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 8 for workPlan002.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 9 for workPlan012.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 10 for workPlan022.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 11 for workPlan003.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 12 for workPlan013.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 13 for workPlan023.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 14 for workPlan004.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 15 for workPlan014.
+INFO [acme.framework.utilities.DatabasePopulator] > Deferring task001.
+INFO [acme.framework.utilities.DatabasePopulator] > Deferring task002.
+INFO [acme.framework.utilities.DatabasePopulator] > Deferring task003.
+INFO [acme.framework.utilities.DatabasePopulator] > Deferring task004.
+INFO [acme.framework.utilities.DatabasePopulator] > Deferring task005.
+INFO [acme.framework.utilities.DatabasePopulator] > Deferring task006.
+INFO [acme.framework.utilities.DatabasePopulator] > Deferring task013.
+INFO [acme.framework.utilities.DatabasePopulator] > Deferring task014.
+INFO [acme.framework.utilities.DatabasePopulator] > Deferring task015.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 16 for manager1Manager.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 17 for manager1Authenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 18 for manager2UserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 19 for manager2Manager.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 20 for manager2Authenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 21 for manager3UserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 22 for manager4UserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 23 for manager3Manager.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 24 for manager3Authenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 25 for manager4Manager.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 26 for manager4Authenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 27 for workPlan005.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 28 for workPlan015.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 29 for workPlan025.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 30 for workPlan035.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 31 for workPlan007.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 32 for workPlan027.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 33 for workPlan008.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 34 for workPlan009.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 35 for task007.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 36 for task008.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 37 for task009.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 38 for task010.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 39 for task011.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 40 for task012.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 41 for task016.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 42 for task017.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 43 for task018.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 44 for shout01.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 45 for shout02.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 46 for shout03.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 47 for shout04.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 48 for shout05.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 49 for shout06.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 50 for shout07.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 51 for shout08.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 52 for spam.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 53 for spamWord001.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 54 for spamWord002.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 55 for spamWord003.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 56 for spamWord004.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 57 for spamWord005.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 58 for spamWord006.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 59 for spamWord007.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 60 for spamWord008.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 61 for spamWord009.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 62 for spamWord010.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 63 for spamWord011.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 64 for task001.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 65 for task002.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 66 for task003.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 67 for task004.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 68 for task005.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 69 for task006.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 70 for task013.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 71 for task014.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 72 for task015.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager1UserAccount = acme.framework.entities.UserAccount{id=159, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan001 = acme.entities.workPlans.WorkPlan{id=160, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan011 = acme.entities.workPlans.WorkPlan{id=161, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan021 = acme.entities.workPlans.WorkPlan{id=162, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan031 = acme.entities.workPlans.WorkPlan{id=163, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan041 = acme.entities.workPlans.WorkPlan{id=164, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan051 = acme.entities.workPlans.WorkPlan{id=165, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan006 = acme.entities.workPlans.WorkPlan{id=166, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan002 = acme.entities.workPlans.WorkPlan{id=167, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan012 = acme.entities.workPlans.WorkPlan{id=168, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan022 = acme.entities.workPlans.WorkPlan{id=169, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan003 = acme.entities.workPlans.WorkPlan{id=170, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan013 = acme.entities.workPlans.WorkPlan{id=171, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan023 = acme.entities.workPlans.WorkPlan{id=172, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan004 = acme.entities.workPlans.WorkPlan{id=173, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan014 = acme.entities.workPlans.WorkPlan{id=174, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager1Manager = acme.entities.roles.Manager{id=175, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager1Authenticated = acme.framework.entities.Authenticated{id=176, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager2UserAccount = acme.framework.entities.UserAccount{id=177, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager2Manager = acme.entities.roles.Manager{id=178, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager2Authenticated = acme.framework.entities.Authenticated{id=179, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager3UserAccount = acme.framework.entities.UserAccount{id=180, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager4UserAccount = acme.framework.entities.UserAccount{id=181, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager3Manager = acme.entities.roles.Manager{id=182, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager3Authenticated = acme.framework.entities.Authenticated{id=183, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager4Manager = acme.entities.roles.Manager{id=184, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting manager4Authenticated = acme.framework.entities.Authenticated{id=185, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan005 = acme.entities.workPlans.WorkPlan{id=186, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan015 = acme.entities.workPlans.WorkPlan{id=187, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan025 = acme.entities.workPlans.WorkPlan{id=188, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan035 = acme.entities.workPlans.WorkPlan{id=189, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan007 = acme.entities.workPlans.WorkPlan{id=190, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan027 = acme.entities.workPlans.WorkPlan{id=191, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan008 = acme.entities.workPlans.WorkPlan{id=192, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan009 = acme.entities.workPlans.WorkPlan{id=193, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task007 = Task [id=194]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task008 = Task [id=195]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task009 = Task [id=196]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task010 = Task [id=197]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task011 = Task [id=198]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task012 = Task [id=199]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task016 = Task [id=200]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task017 = Task [id=201]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task018 = Task [id=202]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout01 = acme.entities.shouts.Shout{id=203, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout02 = acme.entities.shouts.Shout{id=204, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout03 = acme.entities.shouts.Shout{id=205, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout04 = acme.entities.shouts.Shout{id=206, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout05 = acme.entities.shouts.Shout{id=207, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout06 = acme.entities.shouts.Shout{id=208, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout07 = acme.entities.shouts.Shout{id=209, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout08 = acme.entities.shouts.Shout{id=210, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spam = acme.entities.spam.Spam{id=211, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord001 = sex
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord002 = hard core
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord003 = viagra
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord004 = cialis
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord005 = nigeria
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord006 = you've won
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord007 = million dollar
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord008 = sexo
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord009 = duro
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord010 = has ganado
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spamWord011 = millon de euros
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task001 = Task [id=223]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task002 = Task [id=224]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task003 = Task [id=225]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task004 = Task [id=226]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task005 = Task [id=227]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task006 = Task [id=228]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task013 = Task [id=229]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task014 = Task [id=230]
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task015 = Task [id=231]
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...

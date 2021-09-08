@@ -2,6 +2,7 @@ package acme.features.manager.workPlans;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -188,8 +189,12 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		final LocalDateTime startAux = LocalDateTime.ofInstant(startRecommendation.toInstant(), ZoneId.systemDefault());
 		final LocalDateTime endAux = LocalDateTime.ofInstant(endRecommendation.toInstant(), ZoneId.systemDefault());
 		
-		final Date finalStartRecommendation = Date.from(startAux.minusDays(1).withMinute(0).withHour(8)
+		Date finalStartRecommendation = Date.from(startAux.minusDays(1).withMinute(0).withHour(8)
 			.atZone(ZoneId.systemDefault()).toInstant());
+		
+		if (finalStartRecommendation.before(Date.from(Instant.now()))) {
+			finalStartRecommendation = startRecommendation;
+		}
 		
 		final Date finalEndRecommendation = Date.from(endAux.plusDays(1).withMinute(0).withHour(17)
 			.atZone(ZoneId.systemDefault()).toInstant());

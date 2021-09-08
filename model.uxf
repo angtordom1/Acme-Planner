@@ -299,9 +299,9 @@ has v</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>396</x>
+      <x>336</x>
       <y>504</y>
-      <w>240</w>
+      <w>300</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
@@ -310,7 +310,7 @@ Task
 + title: String {NotBlank, Length(0, 80)}
 + periodStart: Date {NotNull, Temporal(TIMESTAMP)}
 + periodEnd: Date {NotNull, Temporal(TIMESTAMP)}
-+ workload: double {Min(value=0), Digits(integer=3,fraction=2)}
++ workload: double {Min(value=0), Max(value=99), Digits(integer=2,fraction=2)}
 + description: String {NotBlank, Length(0, 500)}
 + link: String {URL}
 + state: boolean
@@ -574,12 +574,12 @@ bg=blue</panel_attributes>
     <coordinates>
       <x>264</x>
       <y>582</y>
-      <w>144</w>
+      <w>84</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>lt=..
 </panel_attributes>
-    <additional_attributes>10.0;30.0;220.0;20.0</additional_attributes>
+    <additional_attributes>10.0;30.0;120.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

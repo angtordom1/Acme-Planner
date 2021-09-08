@@ -20,6 +20,6 @@
 <%@attribute name="logo" required="true" type="java.lang.String"%>
 							
 <div class="col align-middle">
-	<img src="images/banner.jpg" alt="Acme Planner, Inc." class="img-fluid" style="width: 30%;"/>
+	<img src="images/banner.jpg" alt="Acme Work Plans, Inc." class="img-fluid" style="width: 30%;"/>
 	<jsp:doBody/>							
 </div>
