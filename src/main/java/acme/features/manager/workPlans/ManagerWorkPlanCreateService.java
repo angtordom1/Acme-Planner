@@ -149,7 +149,7 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		final LocalDateTime startAux = LocalDateTime.ofInstant(startRecommendation.toInstant(), ZoneId.systemDefault());
 		final LocalDateTime endAux = LocalDateTime.ofInstant(endRecommendation.toInstant(), ZoneId.systemDefault());
 		
-		final Date finalStartRecommendation = Date.from(startAux.minusDays(1).withMinute(0).withHour(8)
+		Date finalStartRecommendation = Date.from(startAux.minusDays(1).withMinute(0).withHour(8)
 			.atZone(ZoneId.systemDefault()).toInstant());
 		
 		DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy 8:00");
