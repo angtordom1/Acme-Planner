@@ -152,11 +152,18 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		final Date finalStartRecommendation = Date.from(startAux.minusDays(1).withMinute(0).withHour(8)
 			.atZone(ZoneId.systemDefault()).toInstant());
 		
+		DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy 8:00");
+		final DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy 17:00"); 
+		
+		if (finalStartRecommendation.before(Date.from(Instant.now()))) {
+			finalStartRecommendation = startRecommendation;
+			@SuppressWarnings("deprecation")
+			final Integer hours = startRecommendation.getHours();
+			dateFormat1 = new SimpleDateFormat("dd/MM/yyyy "+hours+":mm");
+		}
+		
 		final Date finalEndRecommendation = Date.from(endAux.plusDays(1).withMinute(0).withHour(17)
 			.atZone(ZoneId.systemDefault()).toInstant());
-
-		final DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy 8:00");
-		final DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy 17:00"); 
 		
 		request.getModel().setAttribute("finalStartRecommendation", dateFormat1.format(finalStartRecommendation));
 		request.getModel().setAttribute("finalEndRecommendation", dateFormat2.format(finalEndRecommendation));
@@ -192,15 +199,18 @@ public class ManagerWorkPlanCreateService implements AbstractCreateService<Manag
 		Date finalStartRecommendation = Date.from(startAux.minusDays(1).withMinute(0).withHour(8)
 			.atZone(ZoneId.systemDefault()).toInstant());
 		
+		DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy 8:00");
+		final DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy 17:00"); 
+		
 		if (finalStartRecommendation.before(Date.from(Instant.now()))) {
 			finalStartRecommendation = startRecommendation;
+			@SuppressWarnings("deprecation")
+			final Integer hours = startRecommendation.getHours();
+			dateFormat1 = new SimpleDateFormat("dd/MM/yyyy "+hours+":mm");
 		}
 		
 		final Date finalEndRecommendation = Date.from(endAux.plusDays(1).withMinute(0).withHour(17)
 			.atZone(ZoneId.systemDefault()).toInstant());
-
-		final DateFormat dateFormat1 = new SimpleDateFormat("dd/MM/yyyy 8:00");
-		final DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy 17:00"); 
 		
 		model.setAttribute("finalStartRecommendation", dateFormat1.format(finalStartRecommendation));
 		model.setAttribute("finalEndRecommendation", dateFormat2.format(finalEndRecommendation));
